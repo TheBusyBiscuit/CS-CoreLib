@@ -1,0 +1,13 @@
+name: CS-CoreLib
+version: 1.5.3
+author: mrCookieSlime
+website: http://thebusybiscuit.github.io/
+
+softdepend: [WorldGuard, Factions, Towny, GriefPrevention, ProtectionStones, ASkyBlock]
+
+main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
+
+commands:
+  cs_triggerinterface:
+    description: Background Command
+    usage: Dont use it
