@@ -67,6 +67,15 @@ public class Updater {
 
 	            final BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 	            final JSONArray array = (JSONArray) JSONValue.parse(reader.readLine());
+	            if (array.isEmpty()) {
+	            	System.err.println("[" + plugin.getName() + " - Updater] Could not connect to BukkitDev, is it down?");
+					try {
+						thread.join();
+					} catch (InterruptedException x) {
+						x.printStackTrace();
+					}
+		            return false;
+	            }
 	            download = new URL((String) ((JSONObject) array.get(array.size() - 1)).get("downloadUrl"));
 	            version = (String) ((JSONObject) array.get(array.size() - 1)).get("name");
 	            version = version.toLowerCase();
@@ -75,11 +84,7 @@ public class Updater {
 	            }
 	            return true;
 	        } catch (IOException e) {
-	        	System.err.println(" ");
-	        	System.err.println("#################### - INFO - ####################");
-				System.err.println("Could not connect to BukkitDev, is it down?");
-				System.err.println("#################### - INFO - ####################");
-				System.err.println(" ");
+				System.err.println("[" + plugin.getName() + " - Updater] Could not connect to BukkitDev, is it down?");
 				try {
 					thread.join();
 				} catch (InterruptedException x) {
