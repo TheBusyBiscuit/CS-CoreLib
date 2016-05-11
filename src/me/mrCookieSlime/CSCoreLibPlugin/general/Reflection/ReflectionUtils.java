@@ -255,6 +255,25 @@ public class ReflectionUtils {
 	}
 	
 	/**
+	 * Returns a Class's field via Reflection
+	 *
+	 * @param  c The class you are targeting
+	 * @param  names The Names of the fields you are looking for
+	 * @return      The field in that class
+	 */
+	public static Field tryField(Class<?> c, String... names) throws Exception {
+	    for (String name: names) {
+	    	try {
+	    		Field f = c.getDeclaredField(name);
+	    		return f;
+	    	} catch(NoSuchFieldException x) {
+	    	}
+	    }
+	    System.err.println("[CS-CoreLib - Reflection] Could not find Field(s): \"" + ListUtils.toString(names) + "\" in Class " + c.getName());
+	    return null;
+	}
+	
+	/**
 	 * Returns the formatted Server Version usable for Reflection
 	 *
 	 * @return      The formatted Server Version
