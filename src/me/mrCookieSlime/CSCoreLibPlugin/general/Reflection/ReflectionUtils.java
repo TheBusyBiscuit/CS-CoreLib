@@ -265,7 +265,7 @@ public class ReflectionUtils {
 	    for (String name: names) {
 	    	try {
 	    		Field f = c.getDeclaredField(name);
-	    		return f;
+	    		if (f != null) return f;
 	    	} catch(NoSuchFieldException x) {
 	    	}
 	    }
