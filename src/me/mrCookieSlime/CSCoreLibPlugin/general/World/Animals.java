@@ -24,7 +24,7 @@ public class Animals {
 		if (!(n instanceof org.bukkit.entity.Animals && ((Ageable) n).isAdult() && ((Ageable) n).canBreed())) return false;
 		
 		Object handle = ReflectionUtils.getHandle(CraftObject.ANIMALS, n);
-		Field f = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bv");
+		Field f = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bv", "bw");
 		f.setAccessible(true);
 		return f.getInt(handle) < 1;
 	}
