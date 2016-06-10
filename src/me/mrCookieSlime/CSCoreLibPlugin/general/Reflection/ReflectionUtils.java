@@ -274,6 +274,26 @@ public class ReflectionUtils {
 	}
 	
 	/**
+	 * Returns a Class's Method via Reflection
+	 *
+	 * @param  c The class you are targeting
+	 * @param  names The Names of the methods you are looking for
+	 * @param  params The Parameters of your Method
+	 * @return      The field in that class
+	 */
+	public static Method tryMethod(Class<?> c, String[] names, Class<?>... params) throws Exception {
+	    for (String name: names) {
+	    	try {
+	    		Method m = getMethod(c, name, params);
+	    		if (m != null) return m;
+	    	} catch(Exception x) {
+	    	}
+	    }
+	    System.err.println("[CS-CoreLib - Reflection] Could not find Method(s): \"" + ListUtils.toString(names) + "\" in Class " + c.getName());
+	    return null;
+	}
+	
+	/**
 	 * Returns the formatted Server Version usable for Reflection
 	 *
 	 * @return      The formatted Server Version
