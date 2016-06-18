@@ -28,7 +28,7 @@ public class TellRawMessage {
 			constructor = ReflectionUtils.getClass("PacketPlayOutChat").getConstructor(ReflectionUtils.getClass("IChatBaseComponent"));
 			serializer = ReflectionUtils.tryClass(PackageName.NMS, "ChatSerializer", "IChatBaseComponent$ChatSerializer");
 			
-			method = ReflectionUtils.tryMethod(serializer, new String[] {"a", "b"}, String.class);
+			method = ReflectionUtils.tryMethod(serializer, new String[] {"b", "a"}, String.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
