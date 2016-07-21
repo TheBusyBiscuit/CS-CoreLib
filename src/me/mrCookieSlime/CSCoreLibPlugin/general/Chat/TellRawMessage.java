@@ -31,6 +31,9 @@ public class TellRawMessage {
 			if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
 				method = ReflectionUtils.tryMethod(serializer, new String[] {"b", "a"}, String.class);
 			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
+				method = ReflectionUtils.tryMethod(serializer, new String[] {"b", "a"}, String.class);
+			}
 			else {
 				method = ReflectionUtils.tryMethod(serializer, new String[] {"a", "b"}, String.class);
 			}
