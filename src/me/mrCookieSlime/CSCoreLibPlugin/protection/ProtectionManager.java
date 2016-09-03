@@ -12,8 +12,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
-import us.talabrek.ultimateskyblock.api.uSkyBlockAPI;
 
 public class ProtectionManager {
 
@@ -48,19 +46,16 @@ public class ProtectionManager {
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("ASkyBlock")) {
 			registerNewModule("ASkyBlock", new ASkyBlockProtectionModule());
 		}
-		if (cscorelib.getServer().getPluginManager().isPluginEnabled("LWC")) {
+		if(cscorelib.getServer().getPluginManager().isPluginEnabled("LWC")){
 			registerNewModule("LWC", new LWCProtectionModule());
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("ProtectionStones")) {
 			this.loadModuleMSG("ProtectionStones");
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("uSkyblock")) {
-			Plugin plugin = Bukkit.getPluginManager().getPlugin("uSkyBlock");
-            if (plugin instanceof uSkyBlockAPI) {
-                uSkyBlockAPI api = (uSkyBlockAPI) plugin;
-
-            }
+			this.loadModuleMSG("uSkyblock");
 		}
+
 	}
 
 	public boolean canBuild(UUID uuid, Block b) {
@@ -75,7 +70,7 @@ public class ProtectionManager {
 		Player player = Bukkit.getPlayer(uuid);
 		if (player == null) return false;
 
-		for (ProtectionModule module : modules) {
+		for (ProtectionModule module: modules) {
 			if (!module.canBuild(player, b)) {
 				if (message) {
 					player.sendMessage(ChatColor.translateAlternateColorCodes('&', local.getString("plugins." + module.getName() + ".no-block-breaking")));
