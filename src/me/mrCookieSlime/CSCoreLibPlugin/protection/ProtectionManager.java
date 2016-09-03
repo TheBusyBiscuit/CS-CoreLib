@@ -6,11 +6,7 @@ import java.util.UUID;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.CSCoreLibPlugin.protection.modules.ASkyBlockProtectionModule;
-import me.mrCookieSlime.CSCoreLibPlugin.protection.modules.FactionsProtectionModule;
-import me.mrCookieSlime.CSCoreLibPlugin.protection.modules.GriefPreventionProtectionModule;
-import me.mrCookieSlime.CSCoreLibPlugin.protection.modules.TownyProtectionModule;
-import me.mrCookieSlime.CSCoreLibPlugin.protection.modules.WorldGuardProtectionModule;
+import me.mrCookieSlime.CSCoreLibPlugin.protection.modules.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -49,6 +45,9 @@ public class ProtectionManager {
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("ASkyBlock")) {
 			registerNewModule("ASkyBlock", new ASkyBlockProtectionModule());
+		}
+		if(cscorelib.getServer().getPluginManager().isPluginEnabled("LWC")){
+			registerNewModule("LWC", new LWCProtectionModule());
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("ProtectionStones")) {
 			this.loadModuleMSG("ProtectionStones");
