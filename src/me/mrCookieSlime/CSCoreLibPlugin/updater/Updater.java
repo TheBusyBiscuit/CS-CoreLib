@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -76,7 +77,7 @@ public class Updater {
 					}
 		            return false;
 	            }
-	            download = new URL((String) ((JSONObject) array.get(array.size() - 1)).get("downloadUrl"));
+	            download = traceURL(((String) ((JSONObject) array.get(array.size() - 1)).get("downloadUrl")).replace("https:", "http:"));
 	            version = (String) ((JSONObject) array.get(array.size() - 1)).get("name");
 	            version = version.toLowerCase();
 	            for (char blocked: blacklist) {
@@ -123,6 +124,31 @@ public class Updater {
 				x.printStackTrace();
 			}
 		}
+		
+
+	    private URL traceURL(String location) throws IOException {
+	    	HttpURLConnection connection = null;
+	    	
+	        while (true) {
+	        	URL url = new URL(location);
+	        	connection = (HttpURLConnection) url.openConnection();
+
+	        	connection.setInstanceFollowRedirects(false);
+	            connection.setConnectTimeout(5000);
+	            connection.addRequestProperty("User-Agent", "Auto Updater (by mrCookieSlime)");
+
+	            switch (connection.getResponseCode()) {
+	                case HttpURLConnection.HTTP_MOVED_PERM:
+	                case HttpURLConnection.HTTP_MOVED_TEMP:
+	                    String loc = connection.getHeaderField("Location");
+	                    location = new URL(new URL(location), loc).toExternalForm();
+	                    continue;
+	            }
+	            break;
+	        }
+	        
+	        return connection.getURL();
+	    }
 
 		private void install() {
 			System.out.println("[CS-CoreLib - Updater] " + plugin.getName() + " is outdated!");
@@ -133,6 +159,7 @@ public class Updater {
 				public void run() {
 					BufferedInputStream input = null;
 					FileOutputStream output = null;
+					System.out.println(download.toString());
 			        try {
 			            input = new BufferedInputStream(download.openStream());
 			            output = new FileOutputStream(new File("plugins/" + Bukkit.getUpdateFolder(), file.getName()));
