@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 public class InvUtils {
-	
+
 	public static boolean fits(Inventory inv, ItemStack item) {
 		Inventory inv2 = null;
 		int size = inv.getSize();
@@ -25,7 +25,7 @@ public class InvUtils {
 		}
 		return inv2.addItem(item).isEmpty();
 	}
-	
+
 	public static boolean fits(Inventory inv, ItemStack item, int slot) {
 		if (inv.getContents()[slot] == null) return true;
 		else {
@@ -41,17 +41,23 @@ public class InvUtils {
 			else return false;
 		}
 	}
-	
+
 	public static ItemStack decreaseItem(ItemStack item, int amount) {
 		ItemStack clone = item.clone();
 		if (amount < clone.getAmount()) clone.setAmount(clone.getAmount() - amount);
 		else return null;
 		return clone;
 	}
-	
+
+	public static ItemStack setAmount(ItemStack item, int amount) {
+        ItemStack clone = item.clone();
+        clone.setAmount(amount);
+        return clone;
+	}
+
 	public static void removeItem(Inventory inv, ItemStack item, int Amount) {
 		ItemStack[] contents = inv.getContents();
-		
+
 		 for (int i = 0; i < Amount; i++) {
 			 for (int j = 0; j < contents.length; j++) {
 				 if (contents[j] != null) {
