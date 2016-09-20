@@ -274,6 +274,26 @@ public class ReflectionUtils {
 	}
 	
 	/**
+	 * Modifies a Field in an Object
+	 *
+	 * @param  object The Object containing the Field
+	 * @param  value The Value for that Field
+	 * @param  names The Names of the fields you are looking for
+	 */ 
+	public static void trySetField(Object object, Object value, String... names) throws Exception {
+		Class<?> c = object.getClass();
+	    for (String name: names) {
+	    	try {
+	    		Field f = getField(c, name);
+	    		f.setAccessible(true);
+	    		f.set(object, value);
+	    	} catch(Exception x) {
+	    	}
+	    }
+	    System.err.println("[CS-CoreLib - Reflection] Could not find Field(s): \"" + ListUtils.toString(names) + "\" in Class " + c.getName());
+	}
+	
+	/**
 	 * Returns a Class's Method via Reflection
 	 *
 	 * @param  c The class you are targeting
