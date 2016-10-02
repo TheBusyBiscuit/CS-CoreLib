@@ -50,9 +50,7 @@ public class InvUtils {
 	}
 
 	public static ItemStack setAmount(ItemStack item, int amount) {
-        ItemStack clone = item.clone();
-        clone.setAmount(amount);
-        return clone;
+            return new CustomItem(item, amount);
 	}
 
 	public static void removeItem(Inventory inv, ItemStack item, int Amount) {
