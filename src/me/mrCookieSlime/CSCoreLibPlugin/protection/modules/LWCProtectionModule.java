@@ -25,6 +25,6 @@ public class LWCProtectionModule implements ProtectionModule {
     private boolean canAccess(Player p, Block b){
         if(!LWC.getInstance().isProtectable(b)) return true;
         
-        return !LWC.getInstance().canAccessProtection(p, b);
+        return LWC.getInstance().canAccessProtection(p, b);
     }
 }
