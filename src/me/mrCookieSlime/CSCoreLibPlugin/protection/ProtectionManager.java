@@ -49,8 +49,11 @@ public class ProtectionManager {
 		if(cscorelib.getServer().getPluginManager().isPluginEnabled("LWC")){
 			registerNewModule("LWC", new LWCProtectionModule());
 		}
-		if (cscorelib.getServer().getPluginManager().isPluginEnabled("ProtectionStones")) {
-			this.loadModuleMSG("ProtectionStones");
+		if (cscorelib.getServer().getPluginManager().isPluginEnabled("PreciousStones")) {
+			registerNewModule("PreciousStones", new PreciousStonesProtectionModule());
+		}
+		if(cscorelib.getServer().getPluginManager().isPluginEnabled("ProtectionStones")) {
+            this.loadModuleMSG("ProtectionStones");
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("uSkyblock")) {
 			this.loadModuleMSG("uSkyblock");
