@@ -18,7 +18,7 @@ public class PreciousStonesProtectionModule implements ProtectionModule {
 
     @Override
     public boolean canAccessChest(Player player, Block b) {
-        return PreciousStones.API().isFieldProtectingArea(FieldFlag.PREVENT_USE, b.getLocation());
+        return !PreciousStones.API().flagAppliesToPlayer(player, FieldFlag.PROTECT_INVENTORIES, b.getLocation());
     }
 
     @Override
