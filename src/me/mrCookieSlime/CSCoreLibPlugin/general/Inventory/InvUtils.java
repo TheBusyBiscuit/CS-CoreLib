@@ -1,5 +1,6 @@
 package me.mrCookieSlime.CSCoreLibPlugin.general.Inventory;
 
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
