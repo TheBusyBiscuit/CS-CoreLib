@@ -3,7 +3,7 @@ version: 1.5.10
 author: mrCookieSlime
 website: http://thebusybiscuit.github.io/
 
-softdepend: [WorldGuard, Factions, Towny, GriefPrevention, ProtectionStones, ASkyBlock, LWC]
+softdepend: [WorldGuard, Factions, Towny, GriefPrevention, ProtectionStones, PreciousStones, ASkyBlock, LWC]
 
 main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
 
