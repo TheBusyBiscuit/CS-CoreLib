@@ -6,7 +6,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 public class LWCProtectionModule implements ProtectionModule {
-    
+
     @Override
     public String getName() {
         return "LWC";
@@ -24,7 +24,7 @@ public class LWCProtectionModule implements ProtectionModule {
 
     private boolean canAccess(Player p, Block b){
         if(!LWC.getInstance().isProtectable(b)) return true;
-        
-        return LWC.getInstance().canAccessProtection(p, b);
+
+        return LWC.getInstance().getProtectionCache().getProtection(b) == null || LWC.getInstance().canAccessProtection(p, b);
     }
 }
