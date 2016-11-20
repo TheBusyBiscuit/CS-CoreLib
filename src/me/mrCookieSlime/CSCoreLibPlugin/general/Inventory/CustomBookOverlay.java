@@ -44,6 +44,11 @@ public class CustomBookOverlay {
 				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
 				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
 			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
+				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
+				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
+			}
 			else {
 				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "openBook", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"));
 			}
@@ -58,6 +63,9 @@ public class CustomBookOverlay {
 			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
 		}
 		if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
+			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
+		}
+		if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
 			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
 		}
 		
@@ -122,6 +130,9 @@ public class CustomBookOverlay {
 						openBook.invoke(handle, copy, const_mainhand);
 					}
 					if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
+						openBook.invoke(handle, copy, const_mainhand);
+					}
+					if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
 						openBook.invoke(handle, copy, const_mainhand);
 					}
 					else {
