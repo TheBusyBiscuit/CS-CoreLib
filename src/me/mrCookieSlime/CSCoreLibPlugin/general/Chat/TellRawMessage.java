@@ -104,7 +104,7 @@ public class TellRawMessage {
     }
     
     private String fixString(String text) {
-		return JSONObject.escape(text);
+		return JSONObject.escape(ChatColor.translateAlternateColorCodes('&', text));
 	}
 
 	/**
