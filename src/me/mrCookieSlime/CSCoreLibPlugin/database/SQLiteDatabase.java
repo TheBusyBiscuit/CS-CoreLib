@@ -37,7 +37,7 @@ public class SQLiteDatabase implements Database {
 			Class.forName("org.sqlite.JDBC");
 		} catch(Exception x) {
 			x.printStackTrace();
-			System.err.println("ERROR: Failed to load SQL Driver: com.mysql.jdbc.Driver");
+			System.err.println("ERROR: Failed to load SQL Driver: org.sqlite.JDBC");
 			return null;
 		}
 		
@@ -51,8 +51,9 @@ public class SQLiteDatabase implements Database {
 			this.connection = c;
 			return c;
 		} catch(Exception x) {
+			System.err.println("> Connection Result: FAILED");
 			x.printStackTrace();
-			System.err.println("ERROR: Double-check the Host and Credentials you specified in the \"database.cfg\" under /plugins/" + plugin.getName() + "/database.cfg");
+			System.err.println("ERROR: Could not connect to local Database \"" + this.name + "\"");
 			return null;
 		}
 	}

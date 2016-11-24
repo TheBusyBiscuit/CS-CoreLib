@@ -25,6 +25,7 @@ public class MySQLDatabase implements Database {
 	
 	public MySQLDatabase(Plugin plugin) {
 		this.plugin = plugin;
+		
 		Config cfg = new Config("plugins/" + plugin.getName() + "/database.cfg");
 		cfg.setDefaultValue("host", "localhost");
 		cfg.setDefaultValue("port", 3306);
@@ -65,8 +66,8 @@ public class MySQLDatabase implements Database {
 		
 		try {
 			Connection connection = DriverManager.getConnection(getIP(), this.user, this.password);
-			System.out.println("> Connection Result: SUCCESSFUL");
 			this.connection = connection;
+			System.out.println("> Connection Result: SUCCESSFUL");
 			return connection;
 		} catch (Exception x) {
 			System.err.println("> Connection Result: FAILED");
