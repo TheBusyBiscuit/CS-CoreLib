@@ -1,6 +1,6 @@
 name: CS-CoreLib
-version: 1.5.10
-author: mrCookieSlime
+version: 1.5.11
+authors: [mrCookieSlime, John000708]
 website: http://thebusybiscuit.github.io/
 
 softdepend: [WorldGuard, Factions, Towny, GriefPrevention, ProtectionStones, PreciousStones, ASkyBlock, LWC]
