@@ -126,13 +126,14 @@ public class CustomBookOverlay {
 				try {
 					Object handle = ReflectionUtils.getHandle(CraftObject.PLAYER, p);
 					Object copy = copyBook.invoke(null, book);
+					
 					if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
 						openBook.invoke(handle, copy, const_mainhand);
 					}
-					if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
+					else if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
 						openBook.invoke(handle, copy, const_mainhand);
 					}
-					if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
+					else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
 						openBook.invoke(handle, copy, const_mainhand);
 					}
 					else {
