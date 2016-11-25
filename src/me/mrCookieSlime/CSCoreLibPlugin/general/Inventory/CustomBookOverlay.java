@@ -62,10 +62,10 @@ public class CustomBookOverlay {
 		if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
 			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
 		}
-		if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
+		else if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
 			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
 		}
-		if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
+		else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
 			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
 		}
 		
