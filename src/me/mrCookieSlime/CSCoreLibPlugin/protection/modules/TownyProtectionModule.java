@@ -26,7 +26,11 @@ public class TownyProtectionModule implements ProtectionModule {
             switch (blockStatus) {
                 case PLOT_FRIEND:
                     return false;
+                case TOWN_OWNER:
+                    return false;
                 case PLOT_OWNER:
+                    return false;
+                case OFF_WORLD:
                     return false;
                 case UNCLAIMED_ZONE:
                     return false;
