@@ -1,50 +1,26 @@
 package me.mrCookieSlime.CSCoreLibPlugin.protection.modules;
 
-import com.palmergames.bukkit.towny.object.PlayerCache;
-import com.palmergames.bukkit.towny.object.WorldCoord;
-import com.palmergames.bukkit.towny.utils.PlayerCacheUtil;
 import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
+
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+
+import com.palmergames.bukkit.towny.object.TownyPermission.ActionType;
+import com.palmergames.bukkit.towny.utils.PlayerCacheUtil;
+import com.palmergames.bukkit.util.BukkitTools;
 
 public class TownyProtectionModule implements ProtectionModule {
 
     @Override
     public boolean canBuild(Player player, Block b) {
-        return !isProtected(player, b);
+    	//ActionType is DESTROY because other plugins mostly use canBuild function to check if the player has permission to destroy block.
+    	//TODO: Split canBuild() into 2 functions (canBuild and canDestroy).
+        return PlayerCacheUtil.getCachePermission(player, b.getLocation(), BukkitTools.getTypeId(b), BukkitTools.getData(b), ActionType.DESTROY);
     }
 
     @Override
     public boolean canAccessChest(Player player, Block b) {
-        return !isProtected(player, b);
-    }
-
-    private boolean isProtected(Player player, Block b) {
-        try {
-            WorldCoord coord = WorldCoord.parseWorldCoord(b);
-            PlayerCache.TownBlockStatus blockStatus = PlayerCacheUtil.getTownBlockStatus(player, coord);
-            switch (blockStatus) {
-                case PLOT_FRIEND:
-                    return false;
-                case TOWN_OWNER:
-                    return false;
-                case PLOT_OWNER:
-                    return false;
-                case OFF_WORLD:
-                    return false;
-                case UNCLAIMED_ZONE:
-                    return false;
-                case TOWN_RESIDENT:
-                    return false;
-                case NOT_REGISTERED:
-                    return false;
-                default:
-                    return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        return PlayerCacheUtil.getCachePermission(player, b.getLocation(), BukkitTools.getTypeId(b), BukkitTools.getData(b), ActionType.SWITCH);
     }
 
     @Override
