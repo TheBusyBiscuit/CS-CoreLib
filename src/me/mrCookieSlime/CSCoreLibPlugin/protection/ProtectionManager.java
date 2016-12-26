@@ -52,6 +52,9 @@ public class ProtectionManager {
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("PreciousStones")) {
 			registerNewModule("PreciousStones", new PreciousStonesProtectionModule());
 		}
+		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Lockette")) {
+			registerNewModule("Lockette", new LocketteProtectionModule());
+		}
 		if(cscorelib.getServer().getPluginManager().isPluginEnabled("ProtectionStones")) {
                         this.loadModuleMSG("ProtectionStones");
 		}
