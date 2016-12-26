@@ -24,7 +24,7 @@ public class LocketteProtectionModule implements ProtectionModule{
 		if(Lockette.isProtected(b)){
 			if(b.getType() == Material.WALL_SIGN){
 				//The check is placed because Lockette did not check if the block itself is a sign.
-				Lockette.isOwner((Sign) b, player);
+				return !Lockette.isOwner((Sign) b, player);
 			}else if(Lockette.isOwner(b, player)){
 				return false;
 			}
