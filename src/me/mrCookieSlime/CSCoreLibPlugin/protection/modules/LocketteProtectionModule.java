@@ -1,12 +1,11 @@
 package me.mrCookieSlime.CSCoreLibPlugin.protection.modules;
 
-import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
-
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.yi.acru.bukkit.Lockette.Lockette;
+
+import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
 
 public class LocketteProtectionModule implements ProtectionModule{
 
@@ -21,16 +20,16 @@ public class LocketteProtectionModule implements ProtectionModule{
 	}
 	
 	public boolean isProtected(Player player, Block b){
-		if(Lockette.isProtected(b)){
-			if(b.getType() == Material.WALL_SIGN){
-				//The check is placed because Lockette did not check if the block itself is a sign.
+		if(Lockette.isProtected(b)) {
+			// Signs need to be treated individually
+			if (b.getState() instanceof Sign) {
 				return !Lockette.isOwner((Sign) b.getState(), player);
-			}else if(Lockette.isOwner(b, player)){
-				return false;
 			}
-			return true;
+			else {
+				return !Lockette.isOwner(b, player);
+			}
 		}
-		return false;
+		else return false;
 	}
 
 	@Override
