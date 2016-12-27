@@ -3,8 +3,6 @@ version: 1.5.13
 authors: [mrCookieSlime, John000708, AlexLander123]
 website: http://thebusybiscuit.github.io/
 
-softdepend: [WorldGuard, Factions, Towny, GriefPrevention, ProtectionStones, PreciousStones, ASkyBlock, LWC]
-
 main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
 
 commands:

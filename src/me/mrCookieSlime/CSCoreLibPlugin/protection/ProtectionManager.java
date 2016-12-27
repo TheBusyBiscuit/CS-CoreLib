@@ -29,6 +29,8 @@ public class ProtectionManager {
 	private void loadModuleMSG(String module) {
 		System.out.println("[CS-CoreLib - Protection] Loaded Protection Module \"" + module + "\"");
 	}
+	
+	public ProtectionManager() {}
 
 	public ProtectionManager(CSCoreLib cscorelib) {
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("WorldGuard") && cscorelib.getServer().getPluginManager().isPluginEnabled("WorldEdit")) {
@@ -56,7 +58,7 @@ public class ProtectionManager {
 			registerNewModule("Lockette", new LocketteProtectionModule());
 		}
 		if(cscorelib.getServer().getPluginManager().isPluginEnabled("ProtectionStones")) {
-                        this.loadModuleMSG("ProtectionStones");
+            this.loadModuleMSG("ProtectionStones");
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("uSkyblock")) {
 			this.loadModuleMSG("uSkyblock");

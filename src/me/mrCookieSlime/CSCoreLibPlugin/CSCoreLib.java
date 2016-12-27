@@ -52,6 +52,7 @@ public class CSCoreLib extends JavaPlugin {
 	public void onEnable() {
 		
 		if (!new File("data-storage/CS-CoreLib/PlayerStats").exists()) new File("data-storage/CS-CoreLib/PlayerStats").mkdirs();
+		
 		new GuideListener(this);
 		new ItemUseListener(this);
 		new MapListener(this);
@@ -63,7 +64,7 @@ public class CSCoreLib extends JavaPlugin {
 		new Maps();
 		new Guides();
 		
-		this.manager = new ProtectionManager(this);
+		this.manager = new ProtectionManager();
 		
 		utils = new PluginUtils(this);
 		utils.setupConfig();
@@ -108,6 +109,14 @@ public class CSCoreLib extends JavaPlugin {
 		});
 		
 		filterLog("([A-Za-z0-9_]{3,16}) issued server command: /cs_triggerinterface (.{0,})");
+		
+		getServer().getScheduler().scheduleSyncDelayedTask(instance, new Runnable() {
+			
+			public void run() {
+				manager = new ProtectionManager(instance);
+			}
+			
+		});
 	}
 	
 	public void filterLog(String pattern) {
