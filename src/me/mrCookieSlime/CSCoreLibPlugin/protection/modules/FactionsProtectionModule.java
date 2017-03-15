@@ -1,7 +1,5 @@
 package me.mrCookieSlime.CSCoreLibPlugin.protection.modules;
 
-import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
-
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
@@ -9,6 +7,8 @@ import com.massivecraft.factions.entity.BoardColl;
 import com.massivecraft.factions.entity.Faction;
 import com.massivecraft.factions.entity.MPlayer;
 import com.massivecraft.massivecore.ps.PS;
+
+import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
 
 public class FactionsProtectionModule implements ProtectionModule {
 

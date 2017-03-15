@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -147,7 +148,7 @@ public class Updater {
 	            break;
 	        }
 	        
-	        return connection.getURL();
+	        return new URL(URLEncoder.encode(connection.getURL().toString(), "UTF-8"));
 	    }
 
 		private void install() {
