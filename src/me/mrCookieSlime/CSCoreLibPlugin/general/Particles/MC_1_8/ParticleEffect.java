@@ -174,7 +174,9 @@ public enum ParticleEffect {
 		Iterator<Player> iterator = players.iterator();
 		while (iterator.hasNext()) {
 			Player p = iterator.next();
-			if (p.getLocation().distanceSquared(l) > radius) iterator.remove();
+			if (!p.getWorld().getUID().equals(l.getWorld().getUID()) || p.getLocation().distanceSquared(l) > radius) {
+				iterator.remove();
+			}
 		}
 		return players;
 	}
