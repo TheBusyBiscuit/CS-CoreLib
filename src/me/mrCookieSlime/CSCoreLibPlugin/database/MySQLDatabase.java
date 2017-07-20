@@ -6,11 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Map;
-
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 
 import org.bukkit.plugin.Plugin;
+
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 
 public class MySQLDatabase implements Database {
 	
@@ -21,15 +20,13 @@ public class MySQLDatabase implements Database {
 	
 	private Connection connection;
 	
-	private Statement statement;
-	
 	public MySQLDatabase(Plugin plugin) {
 		this.plugin = plugin;
 		
 		Config cfg = new Config("plugins/" + plugin.getName() + "/database.cfg");
 		cfg.setDefaultValue("host", "localhost");
 		cfg.setDefaultValue("port", 3306);
-		cfg.setDefaultValue("username", "username");
+		cfg.setDefaultValue("username", "root");
 		cfg.setDefaultValue("password", "password");
 		cfg.setDefaultValue("database", "database");
 		cfg.setDefaultValue("table_prefix", plugin.getName().toLowerCase().replace(" ", "") + "_");
@@ -86,7 +83,7 @@ public class MySQLDatabase implements Database {
 	@Override
 	public boolean isConnected() {
 		try {
-			return this.connection != null || this.connection.isValid(1);
+			return this.connection != null && this.connection.isValid(1);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -125,16 +122,20 @@ public class MySQLDatabase implements Database {
 	}
 	
 	public ResultSet getResults(String query) throws SQLException {
-		ResultSet set = statement.executeQuery(query);
-		set.next();
-		return set;
+		Statement statement = connection.createStatement();
+		
+		return statement.executeQuery(query);
 	}
 	
 	public ResultSet selectFromTable(String table) throws SQLException {
-		return selectFromTable(table, new String[] {"*"});
+		return selectFromTable(table, "*");
 	}
 	
-	public ResultSet selectFromTable(String table, String[] columns) throws SQLException {
+	public ResultSet selectFromTable(String table, TableValue... requirements) throws SQLException {
+		return selectFromTable(table, new String[] {"*"}, requirements);
+	}
+	
+	public ResultSet selectFromTable(String table, String... columns) throws SQLException {
 		StringBuilder builder = new StringBuilder("SELECT ");
 		int i = 0;
 		for (String column: columns) {
@@ -146,39 +147,109 @@ public class MySQLDatabase implements Database {
 		return getResults(builder.toString());
 	}
 	
-	public ResultSet selectFromTable(String table, String[] columns, Map<String, String> requirements) throws SQLException {
+	public ResultSet selectFromTable(String table, String[] columns, TableValue... requirements) throws SQLException {
 		StringBuilder builder = new StringBuilder("SELECT ");
-		int i = 0;
+		
+		boolean start = true;
 		for (String column: columns) {
-			if (i == 0) builder.append(column);
+			if (start) builder.append(column);
 			else builder.append(", " + column);
-			i++;
+			
+			start = false;
 		}
+		
 		builder.append(" FROM " + formatTableName(table) + " WHERE ");
 		
-		int j = 0;
-		for (Map.Entry<String, String> entry: requirements.entrySet()) {
-			if (j == 0) builder.append(entry.getKey() + "='" + entry.getValue() + "'");
-			else builder.append(" AND " + entry.getKey() + "='" + entry.getValue() + "'");
-			j++;
+		boolean start2 = true;
+		for (TableValue value: requirements) {
+			if (start2) builder.append(value.key + "='" + value.value + "'");
+			else builder.append(" AND " + value.key + "='" + value.value + "'");
+			
+			start2 = false;
 		}
+		
 		builder.append(";");
 		return getResults(builder.toString());
 	}
 	
-	public ResultSet selectFromTable(String table, Map<String, String> requirements) throws SQLException {
-		return selectFromTable(table, new String[] {"*"}, requirements);
+	public void clearTable(String table, TableValue... requirements) {
+		StringBuilder builder = new StringBuilder("DELETE FROM " + formatTableName(table) + " WHERE ");
+		
+		boolean start = true;
+		for (TableValue value: requirements) {
+			if (start) builder.append(value.key + "='" + value.value + "'");
+			else builder.append(" AND " + value.key + "='" + value.value + "'");
+			
+			start = false;
+		}
+		
+		builder.append(";");
+		
+		update(builder.toString());
 	}
 	
-	public void createTable(String table, String primary_key, String... parameters) {
+	public void clearTable(String table) {
+		update("DELETE FROM " + formatTableName(table) + ";");
+	}
+	
+	public void deleteTable(String table) {
+		update("DROP TABLE " + formatTableName(table) + ";");
+	}
+	
+	public void insertTable(String table, boolean replace, TableValue... values) {
+		StringBuilder prefix = new StringBuilder("INSERT INTO " + formatTableName(table) + " (");
+		StringBuilder middle = new StringBuilder(") VALUES (");
+		StringBuilder suffix = new StringBuilder(") ON DUPLICATE KEY UPDATE ");
+		boolean start = true;
+		
+		for (TableValue value: values) {
+			if (start) {
+				prefix.append(value.key);
+				middle.append("'" + value.value + "'");
+				suffix.append(value.toString());
+			}
+			else {
+				prefix.append(", " + value.key);
+				middle.append(", '" + value.value + "'");
+				suffix.append(", " + value.toString());
+			}
+			
+			start = false;
+		}
+		
+		if (replace) update(prefix.toString() + middle.toString() + suffix.toString() + ";");
+		else update(prefix.toString() + middle.toString() + ");");
+	}
+	
+	public void insertTable(String table, String... values) {
+		StringBuilder builder = new StringBuilder("INSERT INTO " + formatTableName(table) + " VALUES (");
+		boolean start = true;
+		for (String value: values) {
+			if (start) builder.append("'" + value + "'");
+			else builder.append(", '" + value + "'");
+			start = false;
+		}
+		builder.append(");");
+		update(builder.toString());
+	}
+	
+	public void createTable(String table, String primary_key, SQLColumn... parameters) {
 		StringBuilder builder = new StringBuilder("CREATE TABLE IF NOT EXISTS " + formatTableName(table) + " (");
 		int i = 0;
-		for (String param: parameters) {
-			if (i == 0) builder.append(param);
-			else builder.append(",  " + param);
+		for (SQLColumn param: parameters) {
+			if (i == 0) builder.append(param.toString());
+			else builder.append(", " + param.toString());
 			i++;
 		}
-		builder.append(",  PRIMARY KEY ( " + primary_key + " ))");
+		builder.append(",  PRIMARY KEY ( " + primary_key + " ));");
 		update(builder.toString());
+	}
+	
+	public void addTableColumn(String table, SQLColumn column) {
+		update("ALTER TABLE " + formatTableName(table) + " ADD " + column.toString() + ";");
+	}
+	
+	public void removeTableColumn(String table, String column) {
+		update("ALTER TABLE " + formatTableName(table) + " DROP COLUMN " + column + ";");
 	}
 }
