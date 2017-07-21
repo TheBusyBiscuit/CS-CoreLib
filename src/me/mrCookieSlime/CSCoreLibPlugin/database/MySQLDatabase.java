@@ -57,9 +57,6 @@ public class MySQLDatabase implements Database {
 		
 		System.out.println("[CS-CoreLib - Database] Attempting to connect to Database \"" + this.database + "\"");
 		System.out.println("Request sent by Plugin: " + this.plugin.getName());
-		System.out.println("IP: " + getIP());
-		System.out.println("Username: " + user.replaceAll("(?s).", "*"));
-		System.out.println("Password: " + password.replaceAll("(?s).", "*"));
 		
 		try {
 			Connection connection = DriverManager.getConnection(getIP(), this.user, this.password);
