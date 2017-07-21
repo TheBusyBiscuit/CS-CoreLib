@@ -6,7 +6,7 @@ public class TableValue {
 	
 	public TableValue(String key, String value) {
 		this.key = key;
-		this.value = value;
+		this.value = "'" + value + "'";
 	}
 	
 	public TableValue(String key, int value) {

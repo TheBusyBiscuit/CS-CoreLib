@@ -18,7 +18,7 @@ public class SQLColumn {
 		this.name = name;
 		this.type = type;
 		this.nullable = canBeNull;
-		this.defaultValue = defaultValue;
+		this.defaultValue = "'" + defaultValue + "'";
 	}
 	
 	public SQLColumn(String name, boolean canBeNull, int defaultValue, DataType type) {
@@ -59,7 +59,7 @@ public class SQLColumn {
 	
 	@Override
 	public String toString() {
-		return name + " " + type.toString() + (!nullable ? " NOT NULL": "") + (defaultValue != null ? " DEFAULT '" + defaultValue + "'": "");
+		return name + " " + type.toString() + (!nullable ? " NOT NULL": "") + (defaultValue != null ? " DEFAULT " + defaultValue: "");
 	}
 	
 	@Override
@@ -80,6 +80,10 @@ public class SQLColumn {
 		
 		public DataType(String str) {
 			this.str = str;
+		}
+		
+		public static DataType BIT(int size) {
+			return new DataType("BIT(" + size + ")");
 		}
 		
 		public static DataType CHAR(int size) {
