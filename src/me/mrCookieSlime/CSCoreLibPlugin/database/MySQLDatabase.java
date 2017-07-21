@@ -249,4 +249,8 @@ public class MySQLDatabase implements Database {
 	public void removeTableColumn(String table, String column) {
 		update("ALTER TABLE " + formatTableName(table) + " DROP COLUMN " + column + ";");
 	}
+	
+	public boolean doesTableColumnExist(String table, String column) throws SQLException {
+		return getResults("SHOW COLUMNS FROM " + formatTableName(table) + " LIKE '" + column + "';").next();
+	}
 }
