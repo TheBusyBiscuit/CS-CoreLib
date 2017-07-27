@@ -123,11 +123,9 @@
             <version>3.0.6.9</version>
         </dependency>
         <dependency>
-            <groupId>com.griefcraft</groupId>
+            <groupId>com.github.dmulloy2.LWC</groupId>
             <artifactId>lwc</artifactId>
-            <version>4.6.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/LWC.jar</systemPath>
+            <version>master-4.5.1-g2100b5e-18</version>
         </dependency>
         <dependency>
             <groupId>com.massivecraft.massivecore</groupId>
@@ -143,14 +141,12 @@
             <groupId>com.palmergames.bukkit.towny</groupId>
             <artifactId>Towny</artifactId>
             <version>0.91.4.8</version>
-            <scope>provided</scope>
         </dependency>
+        <!-- Lockette is primarily maintained at https://github.com/vk2gpz/Lockette, but is missing a maven repo for the plugincore dependency-->
         <dependency>
-            <groupId>org.yi.acru.bukkit.Lockette</groupId>
+            <groupId>com.github.fubira</groupId>
             <artifactId>Lockette</artifactId>
-            <version>0.91.4.9</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/Lockette.jar</systemPath>
+            <version>9dac96e8f8</version>
         </dependency>
     </dependencies>
 
