@@ -41,6 +41,10 @@
             <id>massivecore-factions-repo</id>
             <url>http://repo.dustplanet.de/artifactory/ext-release-local/</url>
         </repository>
+        <repository>
+            <id>towny-repo</id>
+            <url>http://repo.fiberoptic.xyz/repository/maven-releases/</url>
+        </repository>
         
 
     </repositories>
@@ -136,11 +140,10 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
-            <groupId>com.palmergames</groupId>
+            <groupId>com.palmergames.bukkit.towny</groupId>
             <artifactId>Towny</artifactId>
-            <version>0.91.4.9</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/Towny.jar</systemPath>
+            <version>0.91.4.8</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.yi.acru.bukkit.Lockette</groupId>
