@@ -37,6 +37,10 @@
             <name>bintray</name>
             <url>http://dl.bintray.com/tastybento/maven-repo</url>
         </repository>
+        <repository>
+            <id>massivecore-factions-repo</id>
+            <url>http://repo.dustplanet.de/artifactory/ext-release-local/</url>
+        </repository>
         
 
     </repositories>
@@ -122,18 +126,14 @@
             <systemPath>${basedir}/lib/LWC.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>com.massivecraft</groupId>
-            <artifactId>massivecore</artifactId>
+            <groupId>com.massivecraft.massivecore</groupId>
+            <artifactId>MassiveCore</artifactId>
             <version>2.13.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/MassiveCore.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>com.massivecraft</groupId>
+            <groupId>com.massivecraft.factions</groupId>
             <artifactId>Factions</artifactId>
             <version>2.13.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/Factions.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.palmergames</groupId>
