@@ -17,8 +17,8 @@
             <url>https://repo.destroystokyo.com/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>spigot-repo</id> 
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url> 
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
             <id>worldedit-worldguard-repo</id>
@@ -41,12 +41,6 @@
             <id>massivecore-factions-repo</id>
             <url>http://repo.dustplanet.de/artifactory/ext-release-local/</url>
         </repository>
-        <repository>
-            <id>towny-repo</id>
-            <url>http://repo.fiberoptic.xyz/repository/maven-releases/</url>
-        </repository>
-        
-
     </repositories>
     <build>
     <!--Maintain existing structure (as much as possible)-->
@@ -140,7 +134,9 @@
         <dependency>
             <groupId>com.palmergames.bukkit.towny</groupId>
             <artifactId>Towny</artifactId>
-            <version>0.91.4.8</version>
+            <version>0.91.4.15</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/Towny-0.91.4.15.jar</systemPath>
         </dependency>
         <!-- Lockette is primarily maintained at https://github.com/vk2gpz/Lockette, but is missing a maven repo for the plugincore dependency-->
         <dependency>
