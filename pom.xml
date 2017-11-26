@@ -41,12 +41,6 @@
             <id>massivecore-factions-repo</id>
             <url>http://repo.dustplanet.de/artifactory/ext-release-local/</url>
         </repository>
-        <repository>
-            <id>towny-repo</id>
-            <url>http://repo.fiberoptic.xyz/repository/maven-releases/</url>
-        </repository>
-        
-
     </repositories>
     <build>
     <!--Maintain existing structure (as much as possible)-->
@@ -138,9 +132,9 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
-            <groupId>com.palmergames.bukkit.towny</groupId>
-            <artifactId>Towny</artifactId>
-            <version>0.91.4.8</version>
+	    <groupId>com.github.LlmDl</groupId>
+	    <artifactId>Towny</artifactId>
+	    <version>7d02942180</version>
         </dependency>
         <!-- Lockette is primarily maintained at https://github.com/vk2gpz/Lockette, but is missing a maven repo for the plugincore dependency-->
         <dependency>
