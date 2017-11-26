@@ -6,7 +6,7 @@
 
     <groupId>me.mrCookieSlime</groupId>
     <artifactId>CSCoreLibPlugin</artifactId>
-    <version>1.5.16</version>
+    <version>1.5.17</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
