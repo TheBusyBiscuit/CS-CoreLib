@@ -1,6 +1,6 @@
 name: CS-CoreLib
-version: 1.5.16
-authors: [mrCookieSlime, John000708, AlexLander123]
+version: ${project.version}
+authors: [TheBusyBiscuit, John000708, AlexLander123]
 website: http://thebusybiscuit.github.io/
 
 main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib

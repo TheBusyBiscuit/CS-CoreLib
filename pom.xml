@@ -6,7 +6,7 @@
 
     <groupId>me.mrCookieSlime</groupId>
     <artifactId>CSCoreLibPlugin</artifactId>
-    <version>1.5.16</version>
+    <version>1.5.17</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -17,8 +17,8 @@
             <url>https://repo.destroystokyo.com/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>spigot-repo</id> 
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url> 
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
             <id>worldedit-worldguard-repo</id>
@@ -41,12 +41,6 @@
             <id>massivecore-factions-repo</id>
             <url>http://repo.dustplanet.de/artifactory/ext-release-local/</url>
         </repository>
-        <repository>
-            <id>towny-repo</id>
-            <url>http://repo.fiberoptic.xyz/repository/maven-releases/</url>
-        </repository>
-        
-
     </repositories>
     <build>
     <!--Maintain existing structure (as much as possible)-->
@@ -58,11 +52,10 @@
             <directory>${project.basedir}/tests/resources</directory>
           </testResource>
         </testResources>
-        <finalName>${project.name}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
         <resources>
             <resource>
             <!-- Use plugin.yml in the src directory-->
-            <!-- This can also automatically update plugin.yml version from pom, if you use ${project.version} as version number-->
                 <directory>${basedir}/src</directory>
                 <filtering>true</filtering>
                 <includes>
@@ -140,7 +133,9 @@
         <dependency>
             <groupId>com.palmergames.bukkit.towny</groupId>
             <artifactId>Towny</artifactId>
-            <version>0.91.4.8</version>
+            <version>0.91.4.15</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/Towny-0.91.4.15.jar</systemPath>
         </dependency>
         <!-- Lockette is primarily maintained at https://github.com/vk2gpz/Lockette, but is missing a maven repo for the plugincore dependency-->
         <dependency>
