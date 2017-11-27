@@ -5,11 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.mrCookieSlime</groupId>
-    <artifactId>CSCoreLibPlugin</artifactId>
+    <artifactId>CSCoreLib</artifactId>
     <version>1.5.16</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <repositories>
         <repository>
@@ -52,7 +53,7 @@
             <directory>${project.basedir}/tests/resources</directory>
           </testResource>
         </testResources>
-        <finalName>${project.name}</finalName>
+        <finalName>${project.name} v{project.version}</finalName>
         <resources>
             <resource>
             <!-- Use plugin.yml in the src directory-->
