@@ -14,11 +14,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class ReflectionUtils {
-	
+
 	private static Method handle_player, handle_world, handle_entity, handle_animals, sendPacket;
 	private static Field player_connection;
 	private static final Map<Class<?>, Class<?>> conversion = new HashMap<Class<?>, Class<?>>();
-	
+	private static String currentVersion;
+
 	static {
 		conversion.put(Byte.class, Byte.TYPE);
 	    conversion.put(Short.class, Short.TYPE);
@@ -28,7 +29,7 @@ public class ReflectionUtils {
 	    conversion.put(Float.class, Float.TYPE);
 	    conversion.put(Double.class, Double.TYPE);
 	    conversion.put(Boolean.class, Boolean.TYPE);
-	    
+
 	    try {
 			handle_world = getClass(PackageName.OBC, "CraftWorld").getMethod("getHandle");
 			handle_player = getClass(PackageName.OBC, "entity.CraftPlayer").getMethod("getHandle");
@@ -38,23 +39,23 @@ public class ReflectionUtils {
 			sendPacket = getMethod(getClass(PackageName.NMS, "PlayerConnection"), "sendPacket");
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
-	
+
 	/**
 	 * Returns a certain Method in the specified Class
 	 *
 	 * @param  c The Class in which the Method is in
 	 * @param  method The Method you are looking for
 	 * @return      The found Method
-	 */ 
+	 */
 	public static Method getMethod(Class<?> c, String method) {
 		for (Method m : c.getMethods()) {
 			if (m.getName().equals(method)) return m;
 		}
         return null;
 	}
-	
+
 	/**
 	 * Returns the Method with certain Parameters
 	 *
@@ -62,7 +63,7 @@ public class ReflectionUtils {
 	 * @param  method The Method you are looking for
 	 * @param  paramTypes The Types of the Parameters
 	 * @return      The found Method
-	 */ 
+	 */
 	public static Method getMethod(Class<?> c, String method, Class<?>... paramTypes) {
 	    Class<?>[] t = toPrimitiveTypeArray(paramTypes);
 	    for (Method m : c.getMethods()) {
@@ -72,53 +73,53 @@ public class ReflectionUtils {
 	    }
 	    return null;
 	}
-	
+
 	/**
 	 * Returns the Field of a Class
 	 *
 	 * @param  c The Class conating this Field
 	 * @param  field The name of the Field you are looking for
 	 * @return      The found Field
-	 * 
+	 *
 	 * @throws Exception
-	 */ 
+	 */
 	public static Field getField(Class<?> c, String field) throws Exception {
 		return c.getDeclaredField(field);
 	}
-	
+
 	/**
 	 * Modifies a Field in an Object
 	 *
 	 * @param  object The Object containing the Field
 	 * @param  field The Name of that Field
 	 * @param  value The Value for that Field
-	 */ 
+	 */
 	public static void setFieldValue(Object object, String field, Object value) throws Exception {
 		Field f = getField(object.getClass(), field);
 		f.setAccessible(true);
 		f.set(object, value);
 	}
-	
+
 	/**
 	 * Returns the Value of a Field in an Object
 	 *
 	 * @param  object The Object containing the Field
 	 * @param  field The Name of that Field
 	 * @return      The Value of a Field
-	 */ 
+	 */
 	public static Object getFieldValue(Object object, String field) throws Exception {
 	    Field f = getField(object.getClass(), field);
 	    f.setAccessible(true);
 	    return f.get(object);
 	}
-	
+
 	/**
 	 * Converts the Classes to a Primitive Type Array
 	 * in order to be used as paramaters
 	 *
 	 * @param  classes The Types you want to convert
 	 * @return      An Array of primitive Types
-	 */ 
+	 */
 	public static Class<?>[] toPrimitiveTypeArray(Class<?>... classes) {
 		int a = classes != null ? classes.length : 0;
 	    Class<?>[] types = new Class[a];
@@ -127,7 +128,7 @@ public class ReflectionUtils {
 	    }
 	    return types;
 	}
-	
+
 	/**
 	 * Converts the Classes of the specified Objects
 	 *  to a Primitive Type Array
@@ -143,7 +144,7 @@ public class ReflectionUtils {
 	    	types[i] = conversion.containsKey(objects[i].getClass()) ? conversion.get(objects[i].getClass()): objects[i].getClass();
 	    return types;
 	}
-	
+
 	/**
 	 * Returns the Constructor of a Class with the specified Parameters
 	 *
@@ -159,7 +160,7 @@ public class ReflectionUtils {
 	    }
 	    return null;
 	}
-	
+
 	/**
 	 * Shortcut for NMS Classes
 	 *
@@ -169,14 +170,14 @@ public class ReflectionUtils {
 	public static Class<?> getClass(String name) throws Exception {
 	    return getClass(PackageName.NMS, name);
 	}
-	
+
 	/**
 	 * Returns an Instance of the NMS class for your Object
 	 *
 	 * @param  type The Type of NMS Class you want to get
 	 * @param  object The Object you want to get the Handle of
 	 * @return      An Instance of the NMS class of your Object
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public static Object getHandle(CraftObject type, Object object) throws Exception {
 	    switch(type) {
@@ -192,13 +193,13 @@ public class ReflectionUtils {
 		    return null;
 	    }
 	}
-	
+
 	/**
 	 * Sends a Packet to the specified Player
 	 *
 	 * @param  p The Player you want to send the Packet to
 	 * @param  packet The Packet you want to send
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public static void sendPacket(Player p, Object packet) throws Exception {
 	    try {
@@ -211,7 +212,7 @@ public class ReflectionUtils {
 	    	System.err.println("Packet: " + packet);
 	    }
 	}
-	
+
 	/**
 	 * Returns a Class inside a Class
 	 *
@@ -223,7 +224,7 @@ public class ReflectionUtils {
 	public static Class<?> getInnerClass(PackageName path, String name, String subname) throws Exception {
 		return getClass(path, name + "$" + subname);
 	}
-	
+
 	/**
 	 * Returns an OBC/NMS Class via Reflection
 	 *
@@ -234,7 +235,7 @@ public class ReflectionUtils {
 	public static Class<?> getClass(PackageName path, String name) throws Exception {
 	    return Class.forName(new StringBuilder().append(path.toPackage()).append(getVersion()).append(".").append(name).toString());
 	}
-	
+
 	/**
 	 * Returns an OBC/NMS Class via Reflection
 	 *
@@ -253,7 +254,7 @@ public class ReflectionUtils {
 	    System.err.println("[CS-CoreLib - Reflection] Could not find Class(es): \"" + ListUtils.toString(names) + "\"");
 	    return null;
 	}
-	
+
 	/**
 	 * Returns a Class's field via Reflection
 	 *
@@ -272,14 +273,14 @@ public class ReflectionUtils {
 	    System.err.println("[CS-CoreLib - Reflection] Could not find Field(s): \"" + ListUtils.toString(names) + "\" in Class " + c.getName());
 	    return null;
 	}
-	
+
 	/**
 	 * Modifies a Field in an Object
 	 *
 	 * @param  object The Object containing the Field
 	 * @param  value The Value for that Field
 	 * @param  names The Names of the fields you are looking for
-	 */ 
+	 */
 	public static void trySetField(Object object, Object value, String... names) throws Exception {
 		Class<?> c = object.getClass();
 	    for (String name: names) {
@@ -292,7 +293,7 @@ public class ReflectionUtils {
 	    }
 	    System.err.println("[CS-CoreLib - Reflection] Could not find Field(s): \"" + ListUtils.toString(names) + "\" in Class " + c.getName());
 	}
-	
+
 	/**
 	 * Returns a Class's Method via Reflection
 	 *
@@ -312,14 +313,15 @@ public class ReflectionUtils {
 	    System.err.println("[CS-CoreLib - Reflection] Could not find Method(s): \"" + ListUtils.toString(names) + "\" in Class " + c.getName());
 	    return null;
 	}
-	
+
 	/**
 	 * Returns the formatted Server Version usable for Reflection
 	 *
 	 * @return      The formatted Server Version
 	 */
 	public static String getVersion() {
-		return Bukkit.getServer().getClass().getPackage().getName().substring(Bukkit.getServer().getClass().getPackage().getName().lastIndexOf(".") + 1);
+		if (currentVersion == null) currentVersion = Bukkit.getServer().getClass().getPackage().getName().substring(Bukkit.getServer().getClass().getPackage().getName().lastIndexOf(".") + 1);
+		return currentVersion;
 	}
 
 	/**
@@ -337,7 +339,7 @@ public class ReflectionUtils {
 	        return false;
 	    return true;
 	}
-	
+
 	/**
 	 * Returns all Enum Constants in an Enum
 	 *
@@ -347,7 +349,7 @@ public class ReflectionUtils {
 	public static List<?> getEnumConstants(Class<?> c) {
 		return Arrays.asList(c.getEnumConstants());
 	}
-	
+
 	/**
 	 * Returns a specific Enum Constant in an Enum
 	 *

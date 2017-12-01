@@ -43,6 +43,13 @@ public class InvUtils {
 		}
 	}
 
+	/**
+	 * @since 1.5.16
+	 */
+	public static boolean hasEmptySlot(Inventory inv) {
+		return inv.firstEmpty() != 1;
+	}
+
 	public static ItemStack decreaseItem(ItemStack item, int amount) {
 		ItemStack clone = item.clone();
 		if (amount < clone.getAmount()) clone.setAmount(clone.getAmount() - amount);
