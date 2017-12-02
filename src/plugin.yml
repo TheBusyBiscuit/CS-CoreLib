@@ -1,5 +1,5 @@
 name: CS-CoreLib
-version: §{project.version}
+version: ${project.version}
 authors: [mrCookieSlime, John000708, AlexLander123]
 website: http://thebusybiscuit.github.io/
 
