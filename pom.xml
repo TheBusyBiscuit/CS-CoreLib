@@ -53,12 +53,12 @@
             <directory>${project.basedir}/tests/resources</directory>
           </testResource>
         </testResources>
-        <finalName>${project.name} v§{project.version}</finalName>
+        <finalName>${project.name} v${project.version}</finalName>
         <resources>
             <resource>
             <!-- Use plugin.yml in the src directory-->
             <!-- This can also automatically update plugin.yml version from pom, if you use ${project.version} as version number-->
-                <directory>${project.basedir}/src</directory>
+                <directory>${basedir}/src</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>plugin.yml</include>
