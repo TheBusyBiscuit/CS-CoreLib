@@ -53,7 +53,7 @@
             <directory>${project.basedir}/tests/resources</directory>
           </testResource>
         </testResources>
-        <finalName>${project.name} v{project.version}</finalName>
+        <finalName>${project.name} v§{project.version}</finalName>
         <resources>
             <resource>
             <!-- Use plugin.yml in the src directory-->
