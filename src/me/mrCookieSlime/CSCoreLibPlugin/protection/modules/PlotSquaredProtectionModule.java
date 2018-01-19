@@ -3,7 +3,6 @@ package me.mrCookieSlime.CSCoreLibPlugin.protection.modules;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-import com.intellectualcrafters.plot.api.PlotAPI;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.Permissions;
@@ -20,8 +19,7 @@ public class PlotSquaredProtectionModule implements ProtectionModule {
 	@Override
 	public boolean canAccessChest(Player player, Block b) {
 		PlotPlayer pp = PlotPlayer.wrap(player);
-		PlotAPI api = new PlotAPI();
-		if(api.getPlot(player).isAdded(pp.getUUID()) || Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_OTHER)) {
+		if(pp.getCurrentPlot().isAdded(pp.getUUID()) || Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_OTHER)) {
 			return true;
 		}
 		return false;
