@@ -63,7 +63,9 @@ public class ProtectionManager {
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("uSkyblock")) {
 			this.loadModuleMSG("uSkyblock");
 		}
-
+		if(cscorelib.getServer().getPluginManager().isPluginEnabled("PlotSquared")) {
+			registerNewModule("PlotSquared", new PlotSquaredProtectionModule());
+		}
 	}
 
 	public boolean canBuild(UUID uuid, Block b) {
