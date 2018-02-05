@@ -19,7 +19,7 @@ public class PlotSquaredProtectionModule implements ProtectionModule {
 	@Override
 	public boolean canAccessChest(Player player, Block b) {
 		PlotPlayer pp = PlotPlayer.wrap(player);
-		if(pp.getCurrentPlot().isAdded(pp.getUUID()) || Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_OTHER)) {
+		if(pp.getCurrentPlot().isAdded(pp.getUUID()) || Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_UNOWNED)) {
 			return true;
 		}
 		return false;
