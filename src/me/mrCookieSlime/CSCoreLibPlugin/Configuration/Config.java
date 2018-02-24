@@ -12,6 +12,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import me.mrCookieSlime.CSCoreLibPlugin.general.World.CustomSkull;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -51,6 +52,17 @@ public class Config {
 	}
 	
 	/**
+	 * Creates a new Config Object for the specified File and FileConfiguration
+	 *
+	 * @param  file The File to save to
+	 * @param  config The FileConfiguration
+	 */
+	public Config(File file, FileConfiguration config) {
+		this.file=file;
+		this.config=config;
+	}
+	
+	/**
 	 * Creates a new Config Object for the File with in
 	 * the specified Location
 	 *
@@ -79,6 +91,10 @@ public class Config {
 		return this.config;
 	}
 	
+	protected void store(String path, Object value) {
+		this.config.set(path, value);
+	}
+	
 	/**
 	 * Sets the Value for the specified Path
 	 *
@@ -87,8 +103,8 @@ public class Config {
 	 */
 	public void setValue(String path, Object value) {
 		if (value == null) {
-			config.set(path, value);
-			config.set(path + "_extra", null);
+			this.store(path, value);
+			this.store(path + "_extra", null);
 		}
 		else if (value instanceof Inventory) {
 			for (int i = 0; i < ((Inventory) value).getSize(); i++) {
@@ -96,23 +112,23 @@ public class Config {
 			}
 		}
 		else if (value instanceof Date) {
-			config.set(path, String.valueOf(((Date) value).getTime()));
+			this.store(path, String.valueOf(((Date) value).getTime()));
 		}
 		else if (value instanceof Long) {
-			config.set(path, String.valueOf(value));
+			this.store(path, String.valueOf(value));
 		}
 		else if (value instanceof UUID) {
-			config.set(path, value.toString());
+			this.store(path, value.toString());
 		}
 		else if (value instanceof Sound) {
-			config.set(path, String.valueOf(value));
+			this.store(path, String.valueOf(value));
 		}
 		else if (value instanceof ItemStack) {
-			config.set(path, new ItemStack((ItemStack) value));
+			this.store(path, new ItemStack((ItemStack) value));
 			try {
 				if (((ItemStack) value).hasItemMeta() && ((ItemStack) value).getItemMeta() instanceof SkullMeta) {
-					config.set(path + "_extra.custom-skull", CustomSkull.getTexture((ItemStack) value));
-					config.set(path + "_extra.custom-skullOwner", CustomSkull.getName((ItemStack) value));
+					this.store(path + "_extra.custom-skull", CustomSkull.getTexture((ItemStack) value));
+					this.store(path + "_extra.custom-skullOwner", CustomSkull.getName((ItemStack) value));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -132,9 +148,9 @@ public class Config {
 			setValue(path + ".world", ((Chunk) value).getWorld().getName());
 		}
 		else if (value instanceof World) {
-			config.set(path, ((World) value).getName());
+			this.store(path, ((World) value).getName());
 		}
-		else config.set(path, value);
+		else this.store(path, value);
 	}
 	
 	/**
@@ -202,16 +218,16 @@ public class Config {
 		if (item == null) return null;
 		try {
 			if (item.hasItemMeta() && item.getItemMeta() instanceof SkullMeta) {
-				if (config.contains(path + "_extra.custom-skull")) item = CustomSkull.getItem((ItemStack) item, config.getString(path + "_extra.custom-skull"));
-				if (config.contains(path + "_extra.custom-skullOwner") && !((ItemStack) item).getItemMeta().hasDisplayName()) {
+				if (this.contains(path + "_extra.custom-skull")) item = CustomSkull.getItem((ItemStack) item, this.getString(path + "_extra.custom-skull"));
+				if (this.contains(path + "_extra.custom-skullOwner") && !((ItemStack) item).getItemMeta().hasDisplayName()) {
 					ItemMeta im = ((ItemStack) item).getItemMeta();
-					im.setDisplayName("§r" + config.getString(path + "_extra.custom-skullOwner") + "'s Head");
+					im.setDisplayName(ChatColor.RESET + this.getString(path + "_extra.custom-skullOwner") + "'s Head");
 					((ItemStack) item).setItemMeta(im);
 				}
 			}
 			else {
-				config.set(path + "_extra.custom-skull", null);
-				config.set(path + "_extra.custom-skullOwner", null);
+				this.store(path + "_extra.custom-skull", null);
+				this.store(path + "_extra.custom-skullOwner", null);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -402,7 +418,7 @@ public class Config {
 	 * @return      The Location at that Path
 	 */ 
 	public Location getLocation(String path) {
-		if (config.contains(path + ".pitch")) {
+		if (this.contains(path + ".pitch")) {
 			return new Location(
 				Bukkit.getWorld(
 				getString(path + ".world")),
@@ -416,10 +432,10 @@ public class Config {
 		else {
 			return new Location(
 				Bukkit.getWorld(
-				config.getString(path + ".world")),
-				config.getDouble(path + ".x"),
-				config.getDouble(path + ".y"),
-				config.getDouble(path + ".z")
+				this.getString(path + ".world")),
+				this.getDouble(path + ".x"),
+				this.getDouble(path + ".y"),
+				this.getDouble(path + ".z")
 			);
 		}
 	}
