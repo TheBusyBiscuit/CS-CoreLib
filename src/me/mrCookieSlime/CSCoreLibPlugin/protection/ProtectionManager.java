@@ -66,6 +66,9 @@ public class ProtectionManager {
 		if(cscorelib.getServer().getPluginManager().isPluginEnabled("PlotSquared")) {
 			registerNewModule("PlotSquared", new PlotSquaredProtectionModule());
 		}
+		if (cscorelib.getServer().getPluginManager().isPluginEnabled("RedProtect")) {
+			registerNewModule("RedProtect", new RedProtectProtectionModule());
+		}
 	}
 
 	public boolean canBuild(UUID uuid, Block b) {

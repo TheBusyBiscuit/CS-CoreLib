@@ -14,6 +14,10 @@
     </properties>
     <repositories>
         <repository>
+            <id>redprotect-repo</id>
+            <url>https://raw.github.com/FabioZumbi12/RedProtect/mvn-repo/</url>
+        </repository>
+        <repository>
             <id>paper-repo</id>
             <url>https://repo.destroystokyo.com/repository/maven-public/</url>
         </repository>
@@ -120,7 +124,8 @@
         <dependency>
             <groupId>com.wasteofplastic</groupId>
             <artifactId>askyblock</artifactId>
-            <version>3.0.6.9</version>
+            # For the version, use the latest version available
+            <version>3.0.8.2</version>
         </dependency>
         <dependency>
             <groupId>com.github.dmulloy2.LWC</groupId>
@@ -152,6 +157,12 @@
             <groupId>com.plotsquared</groupId>
             <artifactId>plotsquared-api</artifactId>
             <version>17.08.09-ac9042b-1895</version>
+        </dependency>
+        <dependency>
+            <groupId>br.net.fabiozumbi12.RedProtect</groupId>
+            <artifactId>RedProtect-Spigot</artifactId>
+            <version>7.3.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
