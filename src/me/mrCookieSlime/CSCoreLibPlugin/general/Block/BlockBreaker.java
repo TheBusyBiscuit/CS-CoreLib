@@ -35,6 +35,7 @@ public class BlockBreaker {
 		
 		if (check) {
 			BlockBreakEvent event = new BlockBreakEvent(b, p);
+			event.setDropItems(false);
 			Bukkit.getServer().getPluginManager().callEvent(event);
 			allowed = !event.isCancelled();
 		}
