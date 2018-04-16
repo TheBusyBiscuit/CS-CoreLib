@@ -15,7 +15,7 @@ public class Vein {
 		
 		for (BlockFace face: faces) {
 			Block next = anchor.getBlock().getRelative(face);
-			if (next.getType() == anchor.getBlock().getType() && !list.contains(next.getLocation())) {
+			if ((next.getType() == anchor.getBlock().getType() || (next.getType().toString().contains("REDSTONE_ORE") && anchor.getBlock().getType().toString().contains("REDSTONE_ORE"))) && !list.contains(next.getLocation())) {
 				list.add(next.getLocation());
 				calculate(origin, next.getLocation(), list, max);
 			}
