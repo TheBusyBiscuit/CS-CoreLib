@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
@@ -25,6 +26,14 @@ public class CustomPotion extends CustomItem {
 		super(Material.POTION, name, 0, lore);
 		PotionMeta meta = (PotionMeta) getItemMeta();
 		meta.setBasePotionData(new PotionData(type));
+		meta.addCustomEffect(effect, true);
+		setItemMeta(meta);
+	}
+	
+	public CustomPotion(String name, Color color, PotionEffect effect, String... lore) {
+		super(Material.POTION, name, 0, lore);
+		PotionMeta meta = (PotionMeta) getItemMeta();
+		meta.setColor(color);
 		meta.addCustomEffect(effect, true);
 		setItemMeta(meta);
 	}
