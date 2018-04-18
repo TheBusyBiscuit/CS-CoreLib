@@ -1,15 +1,15 @@
 package me.mrCookieSlime.CSCoreLibPlugin;
 
 import java.io.File;
-import java.io.IOException;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Localization;
 import me.mrCookieSlime.CSCoreLibPlugin.updater.Updater;
 
+import org.bstats.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
-import org.mcstats.Metrics;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class PluginUtils {
 
@@ -72,11 +72,7 @@ public class PluginUtils {
 	 * Automatically sets up MC-Stats Metrics for you
 	 */ 
 	public void setupMetrics() {
-		try {
-			Metrics metrics = new Metrics(plugin);
-			metrics.start();
-		} catch (IOException e) {
-		}
+        new Metrics((JavaPlugin) plugin);
 	}
 	
 	/**
