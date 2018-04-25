@@ -24,6 +24,7 @@ public class ChestMenu {
 	 */ 
 	
 	boolean clickable;
+	boolean emptyClickable;
 	String title;
 	Inventory inv;
 	List<ItemStack> items;
@@ -41,6 +42,7 @@ public class ChestMenu {
 	public ChestMenu(String title) {
 		this.title = ChatColor.translateAlternateColorCodes('&', title);
 		this.clickable = false;
+		this.emptyClickable = true;
 		this.items = new ArrayList<ItemStack>();
 		this.handlers = new HashMap<Integer, MenuClickHandler>();
 		this.open = new MenuOpeningHandler() {
@@ -84,6 +86,28 @@ public class ChestMenu {
 	 */ 
 	public boolean isPlayerInventoryClickable() {
 		return clickable;
+	}
+	
+	/**
+	 * Toggles whether Players can click the
+	 * empty menu slots while viewing this Menu
+	 *
+	 * @param  emptyClickable Whether the Player can click empty slots
+	 * @return      The ChestMenu Instance
+	 */ 
+	public ChestMenu setEmptySlotsClickable(boolean emptyClickable) {
+		this.emptyClickable = emptyClickable;
+		return this;
+	}
+	
+	/**
+	 * Returns whether the empty menu slots are
+	 * clickable while viewing this Menu
+	 *
+	 * @return      Whether the empty menu slots are clickable
+	 */ 
+	public boolean isEmptySlotsClickable() {
+		return emptyClickable;
 	}
 	
 	/**

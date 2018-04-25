@@ -8,6 +8,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Maps;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,7 +27,9 @@ public class MenuClickListener implements Listener {
 			ChestMenu menu = Maps.getInstance().menus.get(e.getWhoClicked().getUniqueId());
 			if (e.getRawSlot() < e.getInventory().getSize()) {
 				MenuClickHandler handler = menu.getMenuClickHandler(e.getSlot());
-				if (handler != null) {
+				if(handler == null) {
+					e.setCancelled(!menu.isEmptySlotsClickable() && (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR));
+				} else {
 					if (handler instanceof AdvancedMenuClickHandler) {
 						e.setCancelled(!((AdvancedMenuClickHandler) handler).onClick(e, (Player) e.getWhoClicked(), e.getSlot(), e.getCursor(), new ClickAction(e.isRightClick(), e.isShiftClick())));
 					}
