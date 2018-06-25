@@ -45,11 +45,7 @@
         </repository>
         <repository>
             <id>plotsquared-repo</id>
-            <url>http:/
-        <repository>
-            <id>plotsquared-repo</id>
             <url>http://ci.athion.net/job/PlotSquared/ws/mvn/</url>
-        </repository>/ci.athion.net/job/PlotSquared/ws/mvn/</url>
         </repository>
         <repository>
             <id>FactionsUUID-repo</id>
