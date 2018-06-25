@@ -134,6 +134,11 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
+            <groupId>com.github.drtshock</groupId>
+            <artifactId>Factions</artifactId>
+            <version>1.8.x-SNAPSHOT</version>
+	    </dependency>
+        <dependency>
             <groupId>com.github.LlmDl</groupId>
             <artifactId>Towny</artifactId>
             <version>2aeeb30903</version>
