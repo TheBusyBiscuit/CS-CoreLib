@@ -45,7 +45,15 @@
         </repository>
         <repository>
             <id>plotsquared-repo</id>
+            <url>http:/
+        <repository>
+            <id>plotsquared-repo</id>
             <url>http://ci.athion.net/job/PlotSquared/ws/mvn/</url>
+        </repository>/ci.athion.net/job/PlotSquared/ws/mvn/</url>
+        </repository>
+        <repository>
+            <id>FactionsUUID-repo</id>
+            <url>https://ci.ender.zone/job/FactionsUUID/122/maven-repository/repository</url>
         </repository>
     </repositories>
     <build>
@@ -134,10 +142,10 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
-            <groupId>com.github.drtshock</groupId>
+            <groupId>com.massivecraft.Factions</groupId>
             <artifactId>Factions</artifactId>
-            <version>1.8.x-SNAPSHOT</version>
-	    </dependency>
+            <version>1.6.9.5-U0.2.2</version>
+	</dependency>
         <dependency>
             <groupId>com.github.LlmDl</groupId>
             <artifactId>Towny</artifactId>
