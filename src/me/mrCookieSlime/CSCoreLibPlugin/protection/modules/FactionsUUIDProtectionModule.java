@@ -28,7 +28,7 @@ public class FactionsUUIDProtectionModule implements ProtectionModule {
 		Faction faction = Board.getInstance().getFactionAt(fLoc);
 		FPlayer fPlayer = FPlayers.getInstance().getByPlayer(player);
 		
-		if (faction != null && !faction.getId().equals("none")) {
+		if (faction != null && !faction.getId().equals("0")) {
 			if (!faction.getId().equals(fPlayer.getFaction().getId())) return true;
 		}
 		return false;
