@@ -1,5 +1,6 @@
 name: CS-CoreLib
 version: ${project.version}
+api-version: 1.13
 authors: [mrCookieSlime, John000708, AlexLander123]
 website: http://thebusybiscuit.github.io/
 

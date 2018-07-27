@@ -8,8 +8,9 @@ import org.bukkit.inventory.meta.BannerMeta;
 
 public class CustomBanner extends ItemStack {
 	
+	@SuppressWarnings("deprecation")
 	public CustomBanner(DyeColor color, Pattern... patterns) {
-		super(Material.BANNER);
+		super(Material.WHITE_BANNER);
 		
 		BannerMeta meta = (BannerMeta) getItemMeta();
 		
