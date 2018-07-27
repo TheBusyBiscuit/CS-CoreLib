@@ -16,7 +16,6 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.material.MaterialData;
 
 public class CustomSkull {
 	
@@ -81,7 +80,7 @@ public class CustomSkull {
 	@SuppressWarnings("deprecation")
 	public static void setSkull(Block block, String texture) throws Exception {
 		if (getTexture(block).equals(texture)) return;
-		if (!block.getType().equals(Material.SKULL)) throw new IllegalArgumentException("Block is not a Skull");
+		if (!block.getType().equals(Material.PLAYER_HEAD)) throw new IllegalArgumentException("Block is not a Skull");
 		
 		Object profile = createProfile(texture);
 		Object world = ReflectionUtils.getHandle(CraftObject.WORLD, block.getWorld());
@@ -117,10 +116,9 @@ public class CustomSkull {
 	 * @param  texture A Base64 String representing the Texture
 	 * @return      The modified ItemStack
 	 */ 
-	@SuppressWarnings("deprecation")
 	public static ItemStack getItem(String texture) throws Exception {
 		Object profile = createProfile(texture);
-		ItemStack item = new MaterialData(Material.SKULL_ITEM, (byte) 3).toItemStack(1);
+		ItemStack item = new ItemStack(Material.PLAYER_HEAD);
 		ItemMeta im = item.getItemMeta();
 		ReflectionUtils.setFieldValue(im, "profile", profile);
 		item.setItemMeta(im);

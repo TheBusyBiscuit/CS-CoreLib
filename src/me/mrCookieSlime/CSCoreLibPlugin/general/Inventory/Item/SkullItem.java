@@ -14,8 +14,7 @@ public class SkullItem extends ItemStack {
 	String owner;
 	
 	public SkullItem(String name, String owner) {
-		super(new ItemStack(Material.SKULL_ITEM));
-		setDurability((short) 3);
+		super(new ItemStack(Material.PLAYER_HEAD));
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
 		((SkullMeta) im).setOwner(owner);
@@ -24,8 +23,7 @@ public class SkullItem extends ItemStack {
 	}
 	
 	public SkullItem(String owner) {
-		super(new ItemStack(Material.SKULL_ITEM));
-		setDurability((short) 3);
+		super(new ItemStack(Material.PLAYER_HEAD));
 		ItemMeta im = getItemMeta();
 		((SkullMeta) im).setOwner(owner);
 		setItemMeta(im);
@@ -33,8 +31,7 @@ public class SkullItem extends ItemStack {
 	}
 	
 	public SkullItem(String name, String owner, String... lore) {
-		super(new ItemStack(Material.SKULL_ITEM));
-		setDurability((short) 3);
+		super(new ItemStack(Material.PLAYER_HEAD));
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
 		List<String> lines = new ArrayList<String>();

@@ -25,261 +25,319 @@ public class SoundConfig {
 		items = new HashMap<String, MaterialData>();
 		
 		// Ambience
-		items.put("AMBIENCE_CAVE", new MaterialData(Material.STONE));
-		items.put("AMBIENCE_RAIN", new MaterialData(Material.WATER_BUCKET));
-		items.put("AMBIENCE_THUNDER", new MaterialData(Material.SULPHUR));
+		items.put("AMBIENT_CAVE", new MaterialData(Material.STONE));
+		items.put("AMBIENT_UNDERWATER_ENTER", new MaterialData(Material.WATER_BUCKET));
+		items.put("AMBIENT_UNDERWATER_EXIT", new MaterialData(Material.WATER_BUCKET));
+		items.put("AMBIENT_UNDERWATER_LOOP", new MaterialData(Material.WATER_BUCKET));
+		items.put("AMBIENT_UNDERWATER_LOOP_ADDITIONS", new MaterialData(Material.WATER_BUCKET));
+		items.put("AMBIENT_UNDERWATER_LOOP_ADDITIONS_RARE", new MaterialData(Material.WATER_BUCKET));
+		items.put("AMBIENT_UNDERWATER_LOOP_ADDITIONS_ULTRA_RARE", new MaterialData(Material.WATER_BUCKET));
+		items.put("WEATHER_RAIN", new MaterialData(Material.WATER_BUCKET));
+		items.put("ENTITY_LIGHTNING_BOLT_THUNDER", new MaterialData(Material.GUNPOWDER));
 		
 		// Anvil
-		items.put("ANVIL_BREAK", new MaterialData(Material.ANVIL));
-		items.put("ANVIL_LAND", new MaterialData(Material.ANVIL));
-		items.put("ANVIL_USE", new MaterialData(Material.ANVIL));
-		items.put("ANVIL_HIT", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_BREAK", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_DESTROY", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_FALL", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_LAND", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_USE", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_HIT", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_PLACE", new MaterialData(Material.ANVIL));
+		items.put("BLOCK_ANVIL_STEP", new MaterialData(Material.ANVIL));
 		
 		// Bat
-		items.put("BAT_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 65));
-		items.put("BAT_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 65));
-		items.put("BAT_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 65));
-		items.put("BAT_LOOP", new MaterialData(Material.MONSTER_EGG, (byte) 65));
-		items.put("BAT_TAKEOFF", new MaterialData(Material.MONSTER_EGG, (byte) 65));
+		items.put("ENTITY_BAT_DEATH", new MaterialData(Material.BAT_SPAWN_EGG));
+		items.put("ENTITY_BAT_HURT", new MaterialData(Material.BAT_SPAWN_EGG));
+		items.put("ENTITY_BAT_AMBIENT", new MaterialData(Material.BAT_SPAWN_EGG));
+		items.put("ENTITY_BAT_LOOP", new MaterialData(Material.BAT_SPAWN_EGG));
+		items.put("ENTITY_BAT_TAKEOFF", new MaterialData(Material.BAT_SPAWN_EGG));
 		
 		// Blaze
-		items.put("BLAZE_BREATH", new MaterialData(Material.MONSTER_EGG, (byte) 61));
-		items.put("BLAZE_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 61));
-		items.put("BLAZE_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 61));
+		items.put("ENTITY_BLAZE_AMBIENT", new MaterialData(Material.BLAZE_SPAWN_EGG));
+		items.put("ENTITY_BLAZE_DEATH", new MaterialData(Material.BLAZE_SPAWN_EGG));
+		items.put("ENTITY_BLAZE_HURTT", new MaterialData(Material.BLAZE_SPAWN_EGG));
+		items.put("ENTITY_BLAZE_BURN", new MaterialData(Material.BLAZE_SPAWN_EGG));
+		items.put("ENTITY_BLAZE_SHOOT", new MaterialData(Material.BLAZE_SPAWN_EGG));
 		
 		// Cat
-		items.put("CAT_HISS", new MaterialData(Material.MONSTER_EGG, (byte) 98));
-		items.put("CAT_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 98));
-		items.put("CAT_MEOW", new MaterialData(Material.MONSTER_EGG, (byte) 98));
-		items.put("CAT_PURR", new MaterialData(Material.MONSTER_EGG, (byte) 98));
-		items.put("CAT_PURREOW", new MaterialData(Material.MONSTER_EGG, (byte) 98));
+		items.put("ENTITY_CAT_HISS", new MaterialData(Material.OCELOT_SPAWN_EGG));
+		items.put("ENTITY_CAT_HURT", new MaterialData(Material.OCELOT_SPAWN_EGG));
+		items.put("ENTITY_CAT_MEOW", new MaterialData(Material.OCELOT_SPAWN_EGG));
+		items.put("ENTITY_CAT_PURR", new MaterialData(Material.OCELOT_SPAWN_EGG));
+		items.put("ENTITY_CAT_PURREOW", new MaterialData(Material.OCELOT_SPAWN_EGG));
+		items.put("ENTITY_CAT_DEATH", new MaterialData(Material.OCELOT_SPAWN_EGG));
+		items.put("ENTITY_CAT_AMBIENT", new MaterialData(Material.OCELOT_SPAWN_EGG));
 		
 		// Chest
-		items.put("CHEST_CLOSE", new MaterialData(Material.CHEST));
-		items.put("CHEST_OPEN", new MaterialData(Material.CHEST));
+		items.put("BLOCK_CHEST_CLOSE", new MaterialData(Material.CHEST));
+		items.put("BLOCK_CHEST_OPEN", new MaterialData(Material.CHEST));
+		items.put("BLOCK_CHEST_LOCKED", new MaterialData(Material.CHEST));
 		
 		// Chicken
-		items.put("CHICKEN_EGG_POP", new MaterialData(Material.EGG));
-		items.put("CHICKEN_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 93));
-		items.put("CHICKEN_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 93));
-		items.put("CHICKEN_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 93));
+		items.put("ENTITY_CHICKEN_EGG", new MaterialData(Material.EGG));
+		items.put("ENTITY_CHICKEN_HURT", new MaterialData(Material.CHICKEN_SPAWN_EGG));
+		items.put("ENTITY_CHICKEN_AMBIENT", new MaterialData(Material.CHICKEN_SPAWN_EGG));
+		items.put("ENTITY_CHICKEN_STEP", new MaterialData(Material.CHICKEN_SPAWN_EGG));
+		items.put("ENTITY_CHICKEN_DEATH", new MaterialData(Material.CHICKEN_SPAWN_EGG));
 		
 		// Cow
-		items.put("COW_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 92));
-		items.put("COW_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 92));
-		items.put("COW_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 92));
+		items.put("ENTITY_COW_HURT", new MaterialData(Material.COW_SPAWN_EGG));
+		items.put("ENTITY_COW_AMBIENT", new MaterialData(Material.COW_SPAWN_EGG));
+		items.put("ENTITY_COW_STEP", new MaterialData(Material.COW_SPAWN_EGG));
+		items.put("ENTITY_COW_MILK", new MaterialData(Material.COW_SPAWN_EGG));
+		items.put("ENTITY_COW_DEATH", new MaterialData(Material.COW_SPAWN_EGG));
 		
 		// Creeper
-		items.put("CREEPER_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 50));
-		items.put("CREEPER_HISS", new MaterialData(Material.MONSTER_EGG, (byte) 50));
+		items.put("CREEPER_HURT", new MaterialData(Material.CREEPER_SPAWN_EGG));
+		items.put("CREEPER_DEATH", new MaterialData(Material.CREEPER_SPAWN_EGG));
+		items.put("CREEPER_PRIMED", new MaterialData(Material.CREEPER_SPAWN_EGG));
 		
 		// Dig
-		items.put("DIG_GRASS", new MaterialData(Material.GRASS));
-		items.put("DIG_GRAVEL", new MaterialData(Material.GRAVEL));
-		items.put("DIG_SAND", new MaterialData(Material.SAND));
-		items.put("DIG_SNOW", new MaterialData(Material.SNOW));
-		items.put("DIG_WOOD", new MaterialData(Material.WOOD));
-		items.put("DIG_WOOL", new MaterialData(Material.WOOL));
+		items.put("BLOCK_GRASS_BREAK", new MaterialData(Material.GRASS));
+		items.put("BLOCK_GRAVEL_BREAK", new MaterialData(Material.GRAVEL));
+		items.put("BLOCK_SAND_BREAK", new MaterialData(Material.SAND));
+		items.put("BLOCK_SNOW_BREAK", new MaterialData(Material.SNOW));
+		items.put("BLOCK_WOOD_BREAK", new MaterialData(Material.OAK_WOOD));
+		items.put("BLOCK_WOOL_BREAK", new MaterialData(Material.WHITE_WOOL));
 		
 		// Step
-		items.put("STEP_GRASS", new MaterialData(Material.GRASS));
-		items.put("STEP_GRAVEL", new MaterialData(Material.GRAVEL));
-		items.put("STEP_SAND", new MaterialData(Material.SAND));
-		items.put("STEP_SNOW", new MaterialData(Material.SNOW));
-		items.put("STEP_WOOD", new MaterialData(Material.WOOD));
-		items.put("STEP_WOOL", new MaterialData(Material.WOOL));
+		items.put("BLOCK_GRASS_STEP", new MaterialData(Material.GRASS));
+		items.put("BLOCK_GRAVEL_STEP", new MaterialData(Material.GRAVEL));
+		items.put("BLOCK_SAND_STEP", new MaterialData(Material.SAND));
+		items.put("BLOCK_SNOW_STEP", new MaterialData(Material.SNOW));
+		items.put("BLOCK_WOOD_STEP", new MaterialData(Material.OAK_WOOD));
+		items.put("BLOCK_WOOL_STEP", new MaterialData(Material.WHITE_WOOL));
 		
 		// Donkey
-		items.put("DONKEY_ANGRY", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("DONKEY_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("DONKEY_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("DONKEY_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 100));
+		items.put("ENTITY_DONKEY_ANGRY", new MaterialData(Material.DONKEY_SPAWN_EGG));
+		items.put("ENTITY_DONKEY_DEATH", new MaterialData(Material.DONKEY_SPAWN_EGG));
+		items.put("ENTITY_DONKEY_HURT", new MaterialData(Material.DONKEY_SPAWN_EGG));
+		items.put("ENTITY_DONKEY_AMBIENT", new MaterialData(Material.DONKEY_SPAWN_EGG));
+		items.put("ENTITY_DONKEY_CHEST", new MaterialData(Material.DONKEY_SPAWN_EGG));
 		
 		// Door
-		items.put("DOOR_CLOSE", new MaterialData(Material.WOOD_DOOR));
-		items.put("DOOR_OPEN", new MaterialData(Material.WOOD_DOOR));
+		items.put("BLOCK_WOODEN_DOOR_CLOSE", new MaterialData(Material.OAK_DOOR));
+		items.put("BLOCK_WOODEN_DOOR_OPEN", new MaterialData(Material.OAK_DOOR));
 		
 		// Misc
-		items.put("DRINK", new MaterialData(Material.POTION));
-		items.put("EAT", new MaterialData(Material.APPLE));
-		items.put("BURP", new MaterialData(Material.CAKE));
-		items.put("CLICK", new MaterialData(Material.STONE_BUTTON));
-		items.put("EXPLODE", new MaterialData(Material.TNT));
-		items.put("FALL_BIG", new MaterialData(Material.FEATHER));
-		items.put("FALL_SMALL", new MaterialData(Material.FEATHER));
-		items.put("GLASS", new MaterialData(Material.GLASS));
-		items.put("HURT_FLESH", new MaterialData(Material.ROTTEN_FLESH));
-		items.put("LEVEL_UP", new MaterialData(Material.EXP_BOTTLE));
-		items.put("ORB_PICKUP", new MaterialData(Material.EXP_BOTTLE));
-		items.put("SHOOT_ARROW", new MaterialData(Material.ARROW));
-		items.put("SPLASH", new MaterialData(Material.POTION));
-		items.put("SPLASH2", new MaterialData(Material.POTION));
-		items.put("SUCCESSFUL_HIT", new MaterialData(Material.ARROW));
-		items.put("SWIM", new MaterialData(Material.WATER_BUCKET));
-		items.put("WATER", new MaterialData(Material.WATER_BUCKET));
-		items.put("WOOD_CLICK", new MaterialData(Material.WOOD_BUTTON));
+		items.put("ENTITY_GENERIC_DRINK", new MaterialData(Material.POTION));
+		items.put("ENTITY_GENERIC_EAT", new MaterialData(Material.APPLE));
+		items.put("ENTITY_PLAYER_BURP", new MaterialData(Material.CAKE));
+		items.put("UI_BUTTON_CLICK", new MaterialData(Material.STONE_BUTTON));
+		items.put("ENTITY_GENERIC_EXPLODE", new MaterialData(Material.TNT));
+		items.put("ENTITY_GENERIC_BIG_FALL", new MaterialData(Material.FEATHER));
+		items.put("ENTITY_GENERIC_SMALL_FALL", new MaterialData(Material.FEATHER));
+		items.put("BLOCK_GLASS_PLACE", new MaterialData(Material.GLASS));
+		items.put("ENTITY_GENERIC_HURT", new MaterialData(Material.ROTTEN_FLESH));
+		items.put("ENTITY_PLAYER_LEVELUP", new MaterialData(Material.EXPERIENCE_BOTTLE));
+		items.put("ENTITY_EXPERIENCE_ORB_PICKUP", new MaterialData(Material.EXPERIENCE_BOTTLE));
+		items.put("ENTITY_ARROW_SHOOT", new MaterialData(Material.ARROW));
+		items.put("ENTITY_GENERIC_SPLASH", new MaterialData(Material.POTION));
+		items.put("ENTITY_PLAYER_SPLASH", new MaterialData(Material.POTION));
+		items.put("ENTITY_PLAYER_ATTACK_CRIT", new MaterialData(Material.ARROW));
+		items.put("ENTITY_GENERIC_SWIM", new MaterialData(Material.WATER_BUCKET));
+		items.put("ITEM_BUCKET_EMPTY", new MaterialData(Material.WATER_BUCKET));
+		items.put("BLOCK_WOODEN_BUTTON_CLICK_ON", new MaterialData(Material.OAK_BUTTON));
 		
 		// Ender Dragon
 		items.put("ENDERDRAGON_DEATH", new MaterialData(Material.DRAGON_EGG));
 		items.put("ENDERDRAGON_GROWL", new MaterialData(Material.DRAGON_EGG));
-		items.put("ENDERDRAGON_HIT", new MaterialData(Material.DRAGON_EGG));
-		items.put("ENDERDRAGON_WINGS", new MaterialData(Material.DRAGON_EGG));
+		items.put("ENDERDRAGON_HURT", new MaterialData(Material.DRAGON_EGG));
+		items.put("ENTITY_ENDER_DRAGON_FLAP", new MaterialData(Material.DRAGON_EGG));
+		items.put("ENTITY_ENDER_DRAGON_SHOOT", new MaterialData(Material.DRAGON_EGG));
+		items.put("ENTITY_ENDER_DRAGON_AMBIENT", new MaterialData(Material.DRAGON_EGG));
 		
 		// Enderman
-		items.put("ENDERMAN_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 58));
-		items.put("ENDERMAN_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 58));
-		items.put("ENDERMAN_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 58));
-		items.put("ENDERMAN_SCREAM", new MaterialData(Material.MONSTER_EGG, (byte) 58));
-		items.put("ENDERMAN_STARE", new MaterialData(Material.MONSTER_EGG, (byte) 58));
-		items.put("ENDERMAN_TELEPORT", new MaterialData(Material.MONSTER_EGG, (byte) 58));
+		items.put("ENTITY_ENDERMAN_AMBIENT", new MaterialData(Material.ENDERMAN_SPAWN_EGG));
+		items.put("ENTITY_ENDERMAN_DEATH", new MaterialData(Material.ENDERMAN_SPAWN_EGG));
+		items.put("ENTITY_ENDERMAN_HURT", new MaterialData(Material.ENDERMAN_SPAWN_EGG));
+		items.put("ENTITY_ENDERMAN_SCREAM", new MaterialData(Material.ENDERMAN_SPAWN_EGG));
+		items.put("ENTITY_ENDERMAN_STARE", new MaterialData(Material.ENDERMAN_SPAWN_EGG));
+		items.put("ENTITY_ENDERMAN_TELEPORT", new MaterialData(Material.ENDERMAN_SPAWN_EGG));
 		
 		// Fire
-		items.put("FIRE", new MaterialData(Material.FLINT_AND_STEEL));
-		items.put("FIRE_IGNITE", new MaterialData(Material.FLINT_AND_STEEL));
+		items.put("BLOCK_FIRE_AMBIENT", new MaterialData(Material.FLINT_AND_STEEL));
+		items.put("ITEM_FLINTANDSTEEL_USE", new MaterialData(Material.FLINT_AND_STEEL));
 		
 		// Firework
-		items.put("FIREWORK_BLAST", new MaterialData(Material.FIREWORK));
-		items.put("FIREWORK_BLAST2", new MaterialData(Material.FIREWORK));
-		items.put("FIREWORK_LARGE_BLAST", new MaterialData(Material.FIREWORK));
-		items.put("FIREWORK_LARGE_BLAST2", new MaterialData(Material.FIREWORK));
-		items.put("FIREWORK_LAUNCH", new MaterialData(Material.FIREWORK));
-		items.put("FIREWORK_TWINKLE", new MaterialData(Material.FIREWORK));
-		items.put("FIREWORK_TWINKLE2", new MaterialData(Material.FIREWORK));
+		items.put("ENTITY_FIREWORK_ROCKET_BLAST", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_BLAST_FAR", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_LARGE_BLAST", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_LARGE_BLAST_FAR", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_LAUNCH", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_SHOOT", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_TWINKLE", new MaterialData(Material.FIREWORK_ROCKET));
+		items.put("ENTITY_FIREWORK_ROCKET_TWINKLE_FAR", new MaterialData(Material.FIREWORK_ROCKET));
 		
 		// TNT
-		items.put("FIZZ", new MaterialData(Material.TNT));
-		items.put("FUSE", new MaterialData(Material.TNT));
+		items.put("ENTITY_TNT_PRIMED", new MaterialData(Material.TNT));
 		
 		// Ghast
-		items.put("GHAST_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 56));
-		items.put("GHAST_FIREBALL", new MaterialData(Material.MONSTER_EGG, (byte) 56));
-		items.put("GHAST_MOAN", new MaterialData(Material.MONSTER_EGG, (byte) 56));
-		items.put("GHAST_SCREAM", new MaterialData(Material.MONSTER_EGG, (byte) 56));
-		items.put("GHAST_SCREAM2", new MaterialData(Material.MONSTER_EGG, (byte) 56));
+		items.put("ENTITY_GHAST_AMBIENT", new MaterialData(Material.GHAST_SPAWN_EGG));
+		items.put("ENTITY_GHAST_DEATH", new MaterialData(Material.GHAST_SPAWN_EGG));
+		items.put("ENTITY_GHAST_HURT", new MaterialData(Material.GHAST_SPAWN_EGG));
+		items.put("ENTITY_GHAST_SCREAM", new MaterialData(Material.GHAST_SPAWN_EGG));
+		items.put("ENTITY_GHAST_SHOOT", new MaterialData(Material.GHAST_SPAWN_EGG));
+		items.put("ENTITY_GHAST_WARN", new MaterialData(Material.GHAST_SPAWN_EGG));
 		
 		// Horse
-		items.put("HORSE_ANGRY", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_ARMOR", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_BREATHE", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_GALLOP", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_JUMP", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_LAND", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_SADDLE", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_SKELETON_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 51));
-		items.put("HORSE_SKELETON_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 51));
-		items.put("HORSE_SKELETON_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 51));
-		items.put("HORSE_SOFT", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_WOOD", new MaterialData(Material.MONSTER_EGG, (byte) 100));
-		items.put("HORSE_ZOMBIE_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("HORSE_ZOMBIE_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("HORSE_ZOMBIE_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 54));
+		items.put("ENTITY_HORSE_AMBIENT", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_ANGRY", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_ARMOR", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_BREATHE", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_DEATH", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_EAT", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_GALLOP", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_HURT", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_JUMP", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_LAND", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_SADDLE", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_STEP", new MaterialData(Material.HORSE_SPAWN_EGG));
+		items.put("ENTITY_HORSE_STEP_WOOD", new MaterialData(Material.HORSE_SPAWN_EGG));
+		
+		// Skeleton Horse
+		items.put("ENTITY_SKELETON_HORSE_AMBIENT", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_AMBIENT_WATER", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_DEATH", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_GALLOP_WATER", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_HURT", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_JUMP_WATER", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_STEP_WATER", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HORSE_SWIM", new MaterialData(Material.SKELETON_HORSE_SPAWN_EGG));
+		
+		// Zombie Horse
+		items.put("ENTITY_ZOMBIE_HORSE_AMBIENT", new MaterialData(Material.ZOMBIE_HORSE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_HORSE_DEATH", new MaterialData(Material.ZOMBIE_HORSE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_HORSE_HURT", new MaterialData(Material.ZOMBIE_HORSE_SPAWN_EGG));
 		
 		// Iron Golem
-		items.put("IRONGOLEM_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 99));
-		items.put("IRONGOLEM_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 99));
-		items.put("IRONGOLEM_THROW", new MaterialData(Material.MONSTER_EGG, (byte) 99));
-		items.put("IRONGOLEM_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 99));
+		items.put("ENTITY_IRON_GOLEM_ATTACK", new MaterialData(Material.CARVED_PUMPKIN));
+		items.put("ENTITY_IRON_GOLEM_DEATH", new MaterialData(Material.CARVED_PUMPKIN));
+		items.put("ENTITY_IRON_GOLEM_HURT", new MaterialData(Material.CARVED_PUMPKIN));
+		items.put("ENTITY_IRON_GOLEM_STEP", new MaterialData(Material.CARVED_PUMPKIN));
 		
 		// Item
-		items.put("ITEM_BREAK", new MaterialData(Material.IRON_SWORD));
-		items.put("ITEM_PICKUP", new MaterialData(Material.HOPPER));
+		items.put("ENTITY_ITEM_BREAK", new MaterialData(Material.IRON_SWORD));
+		items.put("ENTITY_ITEM_PICKUP", new MaterialData(Material.HOPPER));
 		
 		// Lava
-		items.put("LAVA", new MaterialData(Material.LAVA_BUCKET));
-		items.put("LAVA_POP", new MaterialData(Material.LAVA_BUCKET));
+		items.put("BLOCK_LAVA_AMBIENT", new MaterialData(Material.LAVA_BUCKET));
+		items.put("BLOCK_LAVA_EXTINGUISH", new MaterialData(Material.LAVA_BUCKET));
+		items.put("BLOCK_LAVA_POP", new MaterialData(Material.LAVA_BUCKET));
 		
 		// Magma Cube
-		items.put("MAGMACUBE_JUMP", new MaterialData(Material.MONSTER_EGG, (byte) 62));
-		items.put("MAGMACUBE_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 62));
-		items.put("MAGMACUBE_WALK2", new MaterialData(Material.MONSTER_EGG, (byte) 62));
+		items.put("ENTITY_MAGMA_CUBE_DEATH", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
+		items.put("ENTITY_MAGMA_CUBE_DEATH_SMALL", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
+		items.put("ENTITY_MAGMA_CUBE_HURT", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
+		items.put("ENTITY_MAGMA_CUBE_HURT_SMALL", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
+		items.put("ENTITY_MAGMA_CUBE_JUMP", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
+		items.put("ENTITY_MAGMA_CUBE_SQUISH", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
+		items.put("ENTITY_MAGMA_CUBE_SQUISH_SMALL", new MaterialData(Material.MAGMA_CUBE_SPAWN_EGG));
 		
 		// Minecart
-		items.put("MINECART_BASE", new MaterialData(Material.MINECART));
-		items.put("MINECART_INSIDE", new MaterialData(Material.MINECART));
+		items.put("ENTITY_MINECART_INSIDE", new MaterialData(Material.MINECART));
+		items.put("ENTITY_MINECART_RIDING", new MaterialData(Material.MINECART));
 		
 		// Pig
-		items.put("PIG_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 90));
-		items.put("PIG_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 90));
-		items.put("PIG_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 90));
+		items.put("ENTITY_PIG_AMBIENT", new MaterialData(Material.PIG_SPAWN_EGG));
+		items.put("ENTITY_PIG_DEATH", new MaterialData(Material.PIG_SPAWN_EGG));
+		items.put("ENTITY_PIG_HURT", new MaterialData(Material.PIG_SPAWN_EGG));
+		items.put("ENTITY_PIG_SADDLE", new MaterialData(Material.PIG_SPAWN_EGG));
+		items.put("ENTITY_PIG_STEP", new MaterialData(Material.PIG_SPAWN_EGG));
 		
 		// Piston
-		items.put("PISTON_EXTEND", new MaterialData(Material.MINECART));
-		items.put("PISTON_RETRACT", new MaterialData(Material.MINECART));
+		items.put("BLOCK_PISTON_CONTRACT", new MaterialData(Material.MINECART));
+		items.put("BLOCK_PISTON_EXTEND", new MaterialData(Material.MINECART));
 		
 		// Sheep
-		items.put("SHEEP_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 91));
-		items.put("SHEEP_SHEAR", new MaterialData(Material.MONSTER_EGG, (byte) 91));
-		items.put("SHEEP_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 91));
+		items.put("ENTITY_SHEEP_AMBIENT", new MaterialData(Material.SHEEP_SPAWN_EGG));
+		items.put("ENTITY_SHEEP_DEATH", new MaterialData(Material.SHEEP_SPAWN_EGG));
+		items.put("ENTITY_SHEEP_HURT", new MaterialData(Material.SHEEP_SPAWN_EGG));
+		items.put("ENTITY_SHEEP_SHEAR", new MaterialData(Material.SHEEP_SPAWN_EGG));
+		items.put("ENTITY_SHEEP_STEP", new MaterialData(Material.SHEEP_SPAWN_EGG));
 		
 		// Silverfish
-		items.put("SILVERFISH_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 60));
-		items.put("SILVERFISH_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 60));
-		items.put("SILVERFISH_KILL", new MaterialData(Material.MONSTER_EGG, (byte) 60));
-		items.put("SILVERFISH_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 60));
+		items.put("ENTITY_SILVERFISH_AMBIENT", new MaterialData(Material.SILVERFISH_SPAWN_EGG));
+		items.put("ENTITY_SILVERFISH_DEATH", new MaterialData(Material.SILVERFISH_SPAWN_EGG));
+		items.put("ENTITY_SILVERFISH_HURT", new MaterialData(Material.SILVERFISH_SPAWN_EGG));
+		items.put("ENTITY_SILVERFISH_STEP", new MaterialData(Material.SILVERFISH_SPAWN_EGG));
 		
 		// Skeleton
-		items.put("SKELETON_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 51));
-		items.put("SKELETON_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 51));
-		items.put("SKELETON_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 51));
-		items.put("SKELETON_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 51));
+		items.put("ENTITY_SKELETON_AMBIENT", new MaterialData(Material.SKELETON_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_DEATH", new MaterialData(Material.SKELETON_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_HURT", new MaterialData(Material.SKELETON_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_SHOOT", new MaterialData(Material.SKELETON_SPAWN_EGG));
+		items.put("ENTITY_SKELETON_STEP", new MaterialData(Material.SKELETON_SPAWN_EGG));
 		
 		// Slime
-		items.put("SLIME_ATTACK", new MaterialData(Material.MONSTER_EGG, (byte) 55));
-		items.put("SLIME_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 55));
-		items.put("SLIME_WALK2", new MaterialData(Material.MONSTER_EGG, (byte) 55));
+		items.put("ENTITY_SLIME_ATTACK", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_DEATH", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_DEATH_SMALL", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_HURT", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_HURT_SMALL", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_JUMP", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_JUMP_SMALL", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_SQUISH", new MaterialData(Material.SLIME_SPAWN_EGG));
+		items.put("ENTITY_SLIME_SQUISH_SMALL", new MaterialData(Material.SLIME_SPAWN_EGG));
 		
 		// Spider
-		items.put("SPIDER_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 52));
-		items.put("SPIDER_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 52));
-		items.put("SPIDER_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 52));
+		items.put("ENTITY_SPIDER_AMBIENT", new MaterialData(Material.SPIDER_SPAWN_EGG));
+		items.put("ENTITY_SPIDER_DEATH", new MaterialData(Material.SPIDER_SPAWN_EGG));
+		items.put("ENTITY_SPIDER_HURT", new MaterialData(Material.SPIDER_SPAWN_EGG));
+		items.put("ENTITY_SPIDER_STEP", new MaterialData(Material.SPIDER_SPAWN_EGG));
 		
 		// Villager
-		items.put("VILLAGER_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 120));
-		items.put("VILLAGER_HAGGLE", new MaterialData(Material.MONSTER_EGG, (byte) 120));
-		items.put("VILLAGER_HIT", new MaterialData(Material.MONSTER_EGG, (byte) 120));
-		items.put("VILLAGER_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 120));
-		items.put("VILLAGER_YES", new MaterialData(Material.MONSTER_EGG, (byte) 120));
-		items.put("VILLAGER_NO", new MaterialData(Material.MONSTER_EGG, (byte) 120));
+		items.put("ENTITY_VILLAGER_AMBIENT", new MaterialData(Material.VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_VILLAGER_DEATH", new MaterialData(Material.VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_VILLAGER_HURT", new MaterialData(Material.VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_VILLAGER_NO", new MaterialData(Material.VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_VILLAGER_TRADE", new MaterialData(Material.VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_VILLAGER_YES", new MaterialData(Material.VILLAGER_SPAWN_EGG));
 		
 		// Wither
-		items.put("WITHER_DEATH", new MaterialData(Material.NETHER_STAR));
-		items.put("WITHER_HURT", new MaterialData(Material.NETHER_STAR));
-		items.put("WITHER_IDLE", new MaterialData(Material.NETHER_STAR));
-		items.put("WITHER_SHOOT", new MaterialData(Material.NETHER_STAR));
-		items.put("WITHER_SPAWN", new MaterialData(Material.NETHER_STAR));
+		items.put("ENTITY_WITHER_AMBIENT", new MaterialData(Material.NETHER_STAR));
+		items.put("ENTITY_WITHER_BREAK_BLOCK", new MaterialData(Material.NETHER_STAR));
+		items.put("ENTITY_WITHER_DEATH", new MaterialData(Material.NETHER_STAR));
+		items.put("ENTITY_WITHER_HURT", new MaterialData(Material.NETHER_STAR));
+		items.put("ENTITY_WITHER_SHOOT", new MaterialData(Material.NETHER_STAR));
+		items.put("ENTITY_WITHER_SPAWN", new MaterialData(Material.NETHER_STAR));
 		
 		// Wolf
-		items.put("WOLF_BARK", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_GROWL", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_HOWL", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_PANT", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_SHAKE", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 95));
-		items.put("WOLF_WHINE", new MaterialData(Material.MONSTER_EGG, (byte) 95));
+		items.put("ENTITY_WOLF_AMBIENT", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_DEATH", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_GROWL", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_HOWL", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_HURT", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_PANT", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_SHAKE", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_STEP", new MaterialData(Material.WOLF_SPAWN_EGG));
+		items.put("ENTITY_WOLF_WHINE", new MaterialData(Material.WOLF_SPAWN_EGG));
 		
 		// Zombie
-		items.put("ZOMBIE_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_INFECT", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_METAL", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_REMEDY", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_UNFECT", new MaterialData(Material.MONSTER_EGG, (byte) 54));
-		items.put("ZOMBIE_WALK", new MaterialData(Material.MONSTER_EGG, (byte) 54));
+		items.put("ENTITY_ZOMBIE_AMBIENT", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_DEATH", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_HURT", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_INFECT", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_CONVERTED_TO_DROWNED", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_ATTACK_IRON_DOOR", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_STEP", new MaterialData(Material.ZOMBIE_SPAWN_EGG));
 
-		items.put("ZOMBIE_WOOD", new MaterialData(Material.WOOD_DOOR));
-		items.put("ZOMBIE_WOODBREAK", new MaterialData(Material.WOOD_DOOR));
+		items.put("ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR", new MaterialData(Material.OAK_DOOR));
+		items.put("ENTITY_ZOMBIE_BREAK_WOODEN_DOOR", new MaterialData(Material.OAK_DOOR));
 		
+		// Zombie Villager
+		items.put("ENTITY_ZOMBIE_AMBIENT", new MaterialData(Material.ZOMBIE_VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_VILLAGER_CONVERTED", new MaterialData(Material.ZOMBIE_VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_VILLAGER_CURE", new MaterialData(Material.ZOMBIE_VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_VILLAGER_DEATH", new MaterialData(Material.ZOMBIE_VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_VILLAGER_HURT", new MaterialData(Material.ZOMBIE_VILLAGER_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_VILLAGER_STEP", new MaterialData(Material.ZOMBIE_VILLAGER_SPAWN_EGG));
+				
 		// Zombie Pigman
-		items.put("ZOMBIE_PIG_ANGRY", new MaterialData(Material.MONSTER_EGG, (byte) 57));
-		items.put("ZOMBIE_PIG_DEATH", new MaterialData(Material.MONSTER_EGG, (byte) 57));
-		items.put("ZOMBIE_PIG_HURT", new MaterialData(Material.MONSTER_EGG, (byte) 57));
-		items.put("ZOMBIE_PIG_IDLE", new MaterialData(Material.MONSTER_EGG, (byte) 57));
+		items.put("ENTITY_ZOMBIE_PIGMAN_AMBIENT", new MaterialData(Material.ZOMBIE_PIGMAN_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_PIGMAN_ANGRY", new MaterialData(Material.ZOMBIE_PIGMAN_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_PIGMAN_DEATH", new MaterialData(Material.ZOMBIE_PIGMAN_SPAWN_EGG));
+		items.put("ENTITY_ZOMBIE_PIGMAN_HURT", new MaterialData(Material.ZOMBIE_PIGMAN_SPAWN_EGG));
 	}
 	
 	private static final Config cfg = new Config("data-storage/SoundConfig/sounds.cfg");
@@ -306,9 +364,9 @@ public class SoundConfig {
 	}
 	
 	public static void openConfig(final Player p, final String sound) {
-		ChestMenu menu = new ChestMenu("§cSound Manager");
+		ChestMenu menu = new ChestMenu("&cSound Manager");
 		
-		menu.addItem(1, new CustomItem(new MaterialData(Material.REDSTONE), "§eEdit Volume", "", "§7\u21E8 Click to open"));
+		menu.addItem(1, new CustomItem(new MaterialData(Material.REDSTONE), "&eEdit Volume", "", "&7\u21E8 Click to open"));
 		menu.addMenuClickHandler(1, new MenuClickHandler() {
 			
 			@Override
@@ -318,7 +376,7 @@ public class SoundConfig {
 			}
 		});
 		
-		menu.addItem(4, new CustomItem(new MaterialData(Material.NOTE_BLOCK), "§ePreview", "§rSelected Sound: §b" + cfg.getString(sound + ".enum"), "§rVolume: §b" + cfg.getFloat(sound + ".volume"), "§rPitch: §b" + cfg.getFloat(sound + ".pitch"), "", "§7\u21E8 Click to hear a Preview"));
+		menu.addItem(4, new CustomItem(new MaterialData(Material.NOTE_BLOCK), "&ePreview", "&rSelected Sound: &b" + cfg.getString(sound + ".enum"), "&rVolume: &b" + cfg.getFloat(sound + ".volume"), "&rPitch: &b" + cfg.getFloat(sound + ".pitch"), "", "&7\u21E8 Click to hear a Preview"));
 		menu.addMenuClickHandler(4, new MenuClickHandler() {
 			
 			@Override
@@ -328,7 +386,7 @@ public class SoundConfig {
 			}
 		});
 		
-		menu.addItem(7, new CustomItem(new MaterialData(Material.GLOWSTONE_DUST), "§eEdit Pitch", "", "§7\u21E8 Click to open"));
+		menu.addItem(7, new CustomItem(new MaterialData(Material.GLOWSTONE_DUST), "&eEdit Pitch", "", "&7\u21E8 Click to open"));
 		menu.addMenuClickHandler(7, new MenuClickHandler() {
 			
 			@Override
