@@ -1,0 +1,11 @@
+name: CS-CoreLib
+version: 5
+authors: [mrCookieSlime, John000708, AlexLander123, PrzemoVi]
+website: http://thebusybiscuit.github.io/
+api-version: 1.13
+main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
+
+commands:
+  cs_triggerinterface:
+    description: Background Command
+    usage: Dont use it
