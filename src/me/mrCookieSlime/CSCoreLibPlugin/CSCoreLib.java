@@ -73,8 +73,9 @@ public class CSCoreLib extends JavaPlugin {
 		cfg.setDefaultValue("skulls.uuid", UUID.randomUUID().toString());
 		cfg.save();
 		
-		utils.setupUpdater(88802, getFile());
-		utils.setupMetrics();
+		//utils.setupUpdater(88802, getFile());
+		//utils.setupMetrics();
+
 		instance = this;
 		
 		((Logger) LogManager.getRootLogger()).addFilter(new AbstractFilter() {

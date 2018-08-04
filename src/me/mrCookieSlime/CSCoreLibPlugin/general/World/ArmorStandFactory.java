@@ -50,6 +50,9 @@ public class ArmorStandFactory {
 					ReflectionUtils.setFieldValue(nmsEntity, "bC", true);
 				}
 			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_13_")) {	
+				//do nothing?? TODO
+			}
 			else {
 				Method method = nmsEntity.getClass().getMethod("getNBTTag");
 				Object tag = method.invoke(nmsEntity);

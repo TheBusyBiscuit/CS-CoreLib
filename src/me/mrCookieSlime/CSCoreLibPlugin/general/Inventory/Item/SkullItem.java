@@ -13,8 +13,9 @@ public class SkullItem extends ItemStack {
 	
 	String owner;
 	
+	@SuppressWarnings("deprecation")
 	public SkullItem(String name, String owner) {
-		super(new ItemStack(Material.SKULL_ITEM));
+		super(new ItemStack(Material.PLAYER_HEAD));
 		setDurability((short) 3);
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
@@ -23,8 +24,9 @@ public class SkullItem extends ItemStack {
 		this.owner = owner;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public SkullItem(String owner) {
-		super(new ItemStack(Material.SKULL_ITEM));
+		super(new ItemStack(Material.PLAYER_HEAD));
 		setDurability((short) 3);
 		ItemMeta im = getItemMeta();
 		((SkullMeta) im).setOwner(owner);
@@ -32,8 +34,9 @@ public class SkullItem extends ItemStack {
 		this.owner = owner;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public SkullItem(String name, String owner, String... lore) {
-		super(new ItemStack(Material.SKULL_ITEM));
+		super(new ItemStack(Material.PLAYER_HEAD));
 		setDurability((short) 3);
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));

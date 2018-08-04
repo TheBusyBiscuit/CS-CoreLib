@@ -36,12 +36,12 @@ public class ProtectionManager {
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("WorldGuard") && cscorelib.getServer().getPluginManager().isPluginEnabled("WorldEdit")) {
 			registerNewModule("WorldGuard", new WorldGuardProtectionModule());
 		}
-		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Factions")) {
+		/*if (cscorelib.getServer().getPluginManager().isPluginEnabled("Factions")) {
 			if (cscorelib.getServer().getPluginManager().getPlugin("Factions") instanceof com.massivecraft.factions.P)
 				registerNewModule("Factions", new FactionsUUIDProtectionModule());
 			else
 				registerNewModule("Factions", new FactionsProtectionModule());
-		}
+		}*/
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Towny")) {
 			registerNewModule("Towny", new TownyProtectionModule());
 		}

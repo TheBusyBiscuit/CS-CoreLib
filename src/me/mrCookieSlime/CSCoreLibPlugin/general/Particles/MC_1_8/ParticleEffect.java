@@ -6,74 +6,82 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
-
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
 
 
+@SuppressWarnings("deprecation")
 public enum ParticleEffect {
 	
-	BARRIER(ParticleType.NORMAL),
-	BLOCK_CRACK(ParticleType.CRACK),
-	BLOCK_DUST(ParticleType.CRACK),
-	CLOUD(ParticleType.NORMAL),
+	EXPLOSION_NORMAL(ParticleType.NORMAL),
+	EXPLOSION_LARGE(ParticleType.NORMAL),
+	EXPLOSION_HUGE(ParticleType.NORMAL),
+	FIREWORKS_SPARK(ParticleType.NORMAL),
+	WATER_BUBBLE(ParticleType.NORMAL),
+	WATER_SPLASH(ParticleType.NORMAL),
+	WATER_WAKE(ParticleType.NORMAL),
+	SUSPENDED(ParticleType.NORMAL),
+	SUSPENDED_DEPTH(ParticleType.NORMAL),
 	CRIT(ParticleType.NORMAL),
 	CRIT_MAGIC(ParticleType.NORMAL),
-	DRIP_LAVA(ParticleType.NORMAL),
-	DRIP_WATER(ParticleType.NORMAL),
-	ENCHANTMENT_TABLE(ParticleType.NORMAL),
-	EXPLOSION_HUGE(ParticleType.NORMAL),
-	EXPLOSION_LARGE(ParticleType.NORMAL),
-	EXPLOSION_NORMAL(ParticleType.NORMAL),
-	FIREWORKS_SPARK(ParticleType.NORMAL),
-	FLAME(ParticleType.NORMAL),
-	FOOTSTEP(ParticleType.NORMAL),
-	HEART(ParticleType.NORMAL),
-	ITEM_CRACK(ParticleType.CRACK),
-	ITEM_TAKE(ParticleType.NORMAL),
-	LAVA(ParticleType.NORMAL),
-	MOB_APPEARANCE(ParticleType.NORMAL),
-	NOTE(ParticleType.NORMAL),
-	PORTAL(ParticleType.NORMAL),
-	REDSTONE(ParticleType.COLORED),
-	SLIME(ParticleType.NORMAL),
-	SMOKE_LARGE(ParticleType.NORMAL),
 	SMOKE_NORMAL(ParticleType.NORMAL),
-	SNOW_SHOVEL(ParticleType.NORMAL),
-	SNOWBALL(ParticleType.NORMAL),
+	SMOKE_LARGE(ParticleType.NORMAL),
 	SPELL(ParticleType.NORMAL),
 	SPELL_INSTANT(ParticleType.NORMAL),
 	SPELL_MOB(ParticleType.COLORED),
 	SPELL_MOB_AMBIENT(ParticleType.COLORED),
 	SPELL_WITCH(ParticleType.NORMAL),
-	SUSPENDED(ParticleType.NORMAL),
-	SUSPENDED_DEPTH(ParticleType.NORMAL),
-	TOWN_AURA(ParticleType.NORMAL),
+	DRIP_WATER(ParticleType.NORMAL),
+	DRIP_LAVA(ParticleType.NORMAL),
 	VILLAGER_ANGRY(ParticleType.NORMAL),
 	VILLAGER_HAPPY(ParticleType.NORMAL),
-	WATER_BUBBLE(ParticleType.NORMAL),
+	TOWN_AURA(ParticleType.NORMAL),
+	NOTE(ParticleType.NORMAL),
+	PORTAL(ParticleType.NORMAL),
+	ENCHANTMENT_TABLE(ParticleType.NORMAL),
+	FLAME(ParticleType.NORMAL),
+	LAVA(ParticleType.NORMAL),
+	CLOUD(ParticleType.NORMAL),
+	REDSTONE(ParticleType.COLORED),
+	SNOWBALL(ParticleType.NORMAL),
+	SNOW_SHOVEL(ParticleType.NORMAL),
+	SLIME(ParticleType.NORMAL),
+	HEART(ParticleType.NORMAL),
+	BARRIER(ParticleType.NORMAL),
+	ITEM_CRACK(ParticleType.CRACK),
+	BLOCK_CRACK(ParticleType.CRACK),
+	BLOCK_DUST(ParticleType.CRACK),
 	WATER_DROP(ParticleType.NORMAL),
-	WATER_SPLASH(ParticleType.NORMAL),
-	WATER_WAKE(ParticleType.NORMAL),
+	MOB_APPEARANCE(ParticleType.NORMAL),
 	DRAGON_BREATH(ParticleType.NORMAL),
 	END_ROD(ParticleType.NORMAL),
 	DAMAGE_INDICATOR(ParticleType.NORMAL),
-	SWEEP_ATTACK(ParticleType.NORMAL);
+	SWEEP_ATTACK(ParticleType.NORMAL),
+	FALLING_DUST(ParticleType.CRACK),
+	TOTEM(ParticleType.NORMAL),
+	SPIT(ParticleType.NORMAL),
+	SQUID_INK(ParticleType.NORMAL),
+	BUBBLE_POP(ParticleType.NORMAL),
+	CURRENT_DOWN(ParticleType.NORMAL),
+	BUBBLE_COLUMN_UP(ParticleType.NORMAL),
+	NAUTILUS(ParticleType.NORMAL),
+	DOLPHIN(ParticleType.NORMAL),
+	LEGACY_BLOCK_CRACK(ParticleType.CRACK);
 	
-	private Constructor<?> constructor;
-	private Object constant;
 	private ParticleType type;
+	private Particle particle;
 	
 	ParticleEffect(ParticleType type) {
 		try {
 			this.type = type;
-			this.constructor = ReflectionUtils.getClass("PacketPlayOutWorldParticles").getConstructor(ReflectionUtils.getClass("EnumParticle"), boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);
-			this.constant = ReflectionUtils.getEnumConstant(ReflectionUtils.getClass("EnumParticle"), toString());
+			if(Particle.valueOf(toString()) != null) {
+				particle = Particle.valueOf(toString());
+			} else {
+				
+			}
 		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,11 +118,7 @@ public enum ParticleEffect {
 			System.err.println("Effect \"" + toString() + "\" cannot be displayed as its Type mismatches: " + type.toString() + " != " + ParticleType.NORMAL.toString());
 			return;
 		}
-		Object packet = constructor.newInstance(constant, true, (float) l.getX(), (float) l.getY(), (float) l.getZ(), offsetX, offsetY, offsetZ, speed, amount, new int[0]);
-    	
-		for (Player p: players) {
-			ReflectionUtils.sendPacket(p, packet);
-    	}
+		players.get(0).getWorld().spawnParticle(particle, l.getX(),l.getY(),l.getZ(),amount,((double)offsetX),((double)offsetY),((double)offsetZ));
 	}
 	
 	/**
@@ -128,19 +132,12 @@ public enum ParticleEffect {
 	 * @param  speed The Speed of the Particle
 	 * @param  amount The Amount of Particles which should be displayed
    	 */ 
-	@SuppressWarnings("deprecation")
 	public void displayCrack(Location l, MaterialData data, float offsetX, float offsetY, float offsetZ, float speed, int amount) throws Exception {
 		if (type != ParticleType.CRACK) {
 			System.err.println("Effect \"" + toString() + "\" cannot be displayed as its Type mismatches: " + type.toString() + " != " + ParticleType.CRACK.toString());
 			return;
 		}
-		Object packet = constructor.newInstance(constant, true, (float) l.getX(), (float) l.getY(), (float) l.getZ(), offsetX, offsetY, offsetZ, speed, amount, new int[] {data.getItemTypeId() | data.getData() << 12 });
-    	
-		for (Player p: getPlayers(l)) {
-    		Object player = p.getClass().getMethod("getHandle").invoke(p);
-    		Object connection = player.getClass().getField("playerConnection").get(player);
-    		ReflectionUtils.getMethod(connection.getClass(), "sendPacket").invoke(connection, packet);
-    	}
+		getPlayers(l).get(0).getWorld().spawnParticle(particle, l.getX(),l.getY(),l.getZ(),amount,((double)offsetX),((double)offsetY),((double)offsetZ), new int[] {data.getItemType().getId() | data.getData() << 12 });
 	}
 	
 	/**

@@ -1,8 +1,8 @@
 name: CS-CoreLib
-version: ${project.version}
-authors: [mrCookieSlime, John000708, AlexLander123]
+version: 5
+authors: [mrCookieSlime, John000708, AlexLander123, PrzemoVi]
 website: http://thebusybiscuit.github.io/
-
+api-version: 1.13
 main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
 
 commands:

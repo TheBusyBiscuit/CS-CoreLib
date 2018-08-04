@@ -49,7 +49,7 @@ public class PlayerStats {
 	public long getStatistic(PlayerStat stat) {
 		switch (stat) {
 			case PLAY_TIME_MS: {
-				return Long.valueOf(String.valueOf(Bukkit.getPlayer(uuid).getStatistic(Statistic.PLAY_ONE_TICK) * 50));
+				return Long.valueOf(String.valueOf(Bukkit.getPlayer(uuid).getStatistic(Statistic.PLAY_ONE_MINUTE) * 50));
 			}
 			default: {
 				if (statistics.containsKey(stat)) return statistics.get(stat);

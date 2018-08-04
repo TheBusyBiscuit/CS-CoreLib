@@ -41,14 +41,7 @@ public class CSCoreLibExample extends JavaPlugin {
 			cfg.reload();
 			cfg.getString("path");
 			// And a lot more...
-			
-			// Now your PluginUtils can do way more than that though
-			// For example you can setup your own Auto-Updater
-			int id = 0;
-			utils.setupUpdater(id, getFile());
-			// You can find your id here https://api.curseforge.com/servermods/projects?search=<Name of your Plugin>
-			// But there is also Metrics embedded if you want to monitor the Usage of your Plugins
-			utils.setupMetrics();
+
 			// And since a lot of people nowadays want more customization, there is also a Localization provided
 			utils.setupLocalization();
 			// And to access it:
