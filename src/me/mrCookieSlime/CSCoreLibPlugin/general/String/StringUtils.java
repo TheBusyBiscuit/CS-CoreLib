@@ -22,13 +22,14 @@ public class StringUtils {
 	}
 	
 	public static String formatItemName(ItemStack item, boolean includePlural) {
-		String name = item.getType().toString();
-		try {
+		//String name = item.getType().toString();
+		String name = item.getType().name();
+		/*try {
 			Object instance = copy.invoke(null, item);
 			name = (String) getName.invoke(instance);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		} */
 		if (item.hasItemMeta() && item.getItemMeta().hasDisplayName()) name = item.getItemMeta().getDisplayName();
 		if (includePlural) name = item.getAmount() + " " + name + "/s";
 		return name;

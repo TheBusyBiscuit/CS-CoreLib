@@ -18,6 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.material.MaterialData;
 
+@SuppressWarnings("deprecation")
 public class CustomSkull {
 	
 	private static Method tileentity, gameprofile, getgameprofile, property, insert_property, map_list, get_name, get_value, getOwner;
@@ -78,10 +79,9 @@ public class CustomSkull {
 	 * @param  block The Block being set to that Skin
 	 * @param  texture A Base64 String representing the Texture
 	 */ 
-	@SuppressWarnings("deprecation")
 	public static void setSkull(Block block, String texture) throws Exception {
 		if (getTexture(block).equals(texture)) return;
-		if (!block.getType().equals(Material.SKULL)) throw new IllegalArgumentException("Block is not a Skull");
+		if (!block.getType().equals(Material.PLAYER_HEAD)) throw new IllegalArgumentException("Block is not a Skull");
 		
 		Object profile = createProfile(texture);
 		Object world = ReflectionUtils.getHandle(CraftObject.WORLD, block.getWorld());
@@ -117,10 +117,9 @@ public class CustomSkull {
 	 * @param  texture A Base64 String representing the Texture
 	 * @return      The modified ItemStack
 	 */ 
-	@SuppressWarnings("deprecation")
 	public static ItemStack getItem(String texture) throws Exception {
 		Object profile = createProfile(texture);
-		ItemStack item = new MaterialData(Material.SKULL_ITEM, (byte) 3).toItemStack(1);
+		ItemStack item = new MaterialData(Material.PLAYER_HEAD, (byte) 3).toItemStack(1);
 		ItemMeta im = item.getItemMeta();
 		ReflectionUtils.setFieldValue(im, "profile", profile);
 		item.setItemMeta(im);

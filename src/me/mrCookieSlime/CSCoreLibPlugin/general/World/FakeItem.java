@@ -8,6 +8,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.MaterialData;
 
+@SuppressWarnings("deprecation")
 public class FakeItem {
 	
 	public static void spawn(Location location, ItemStack itemstack, long ticks) {

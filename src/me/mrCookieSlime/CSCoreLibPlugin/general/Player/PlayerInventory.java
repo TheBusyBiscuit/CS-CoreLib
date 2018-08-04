@@ -82,7 +82,6 @@ public class PlayerInventory {
 		 }
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void update(Player p) {
 		 p.updateInventory();
 		 // TODO: Switch to new updateInventory Method once implemented

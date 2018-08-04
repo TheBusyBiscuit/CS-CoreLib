@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Localization;
-import me.mrCookieSlime.CSCoreLibPlugin.updater.Updater;
+//import me.mrCookieSlime.CSCoreLibPlugin.updater.Updater;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -56,7 +56,7 @@ public class PluginUtils {
 	 */ 
 	public void setupUpdater(int id, File file) {
 		this.id = id;
-		if (plugin.getConfig().getBoolean("options.auto-update")) new Updater(plugin, file, id);
+		/*if (plugin.getConfig().getBoolean("options.auto-update")) new Updater(plugin, file, id);*/
 	}
 	
 	/**
@@ -65,18 +65,18 @@ public class PluginUtils {
 	 * @param  file The file of your Plugin (obtained by plugin.getFile() )
 	 */ 
 	public void setupUpdater(File file) {
-		if (plugin.getConfig().getBoolean("options.auto-update")) new Updater(plugin, file, id);
+		/*if (plugin.getConfig().getBoolean("options.auto-update")) new Updater(plugin, file, id);*/
 	}
 	
 	/**
 	 * Automatically sets up MC-Stats Metrics for you
 	 */ 
 	public void setupMetrics() {
-		try {
+		/*try {
 			Metrics metrics = new Metrics(plugin);
 			metrics.start();
 		} catch (IOException e) {
-		}
+		}*/
 	}
 	
 	/**

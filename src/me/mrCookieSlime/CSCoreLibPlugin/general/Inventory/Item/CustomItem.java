@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
 
+@SuppressWarnings("deprecation")
 public class CustomItem extends ItemStack {
 	
 	public CustomItem(ItemStack item) {
