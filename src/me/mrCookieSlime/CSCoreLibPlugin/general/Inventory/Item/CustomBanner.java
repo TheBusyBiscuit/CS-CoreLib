@@ -1,15 +1,16 @@
 package me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item;
 
 import org.bukkit.DyeColor;
-import org.bukkit.Material;
 import org.bukkit.block.banner.Pattern;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 
+import me.mrCookieSlime.CSCoreLibPlugin.compatibility.MaterialHook;
+
 public class CustomBanner extends ItemStack {
 	
 	public CustomBanner(DyeColor color, Pattern... patterns) {
-		super(Material.BANNER);
+		super(MaterialHook.parse("WHITE_BANNER", "BANNER"));
 		
 		BannerMeta meta = (BannerMeta) getItemMeta();
 		

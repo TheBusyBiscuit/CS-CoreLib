@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
-
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.material.MaterialData;
+
+import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
 
 public enum ParticleEffect {
@@ -134,7 +134,7 @@ public enum ParticleEffect {
 			System.err.println("Effect \"" + toString() + "\" cannot be displayed as its Type mismatches: " + type.toString() + " != " + ParticleType.CRACK.toString());
 			return;
 		}
-		Object packet = constructor.newInstance(constant, true, (float) l.getX(), (float) l.getY(), (float) l.getZ(), offsetX, offsetY, offsetZ, speed, amount, new int[] {data.getItemTypeId() | data.getData() << 12 });
+		Object packet = constructor.newInstance(constant, true, (float) l.getX(), (float) l.getY(), (float) l.getZ(), offsetX, offsetY, offsetZ, speed, amount, new int[] {data.getItemType().getId() | data.getData() << 12 });
     	
 		for (Player p: getPlayers(l)) {
     		Object player = p.getClass().getMethod("getHandle").invoke(p);

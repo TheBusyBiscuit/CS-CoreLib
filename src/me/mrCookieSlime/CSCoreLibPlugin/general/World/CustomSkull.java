@@ -81,7 +81,13 @@ public class CustomSkull {
 	@SuppressWarnings("deprecation")
 	public static void setSkull(Block block, String texture) throws Exception {
 		if (getTexture(block).equals(texture)) return;
-		if (!block.getType().equals(Material.SKULL)) throw new IllegalArgumentException("Block is not a Skull");
+
+		if (ReflectionUtils.isVersion("v1_12_", "v1_11_", "v1_10_", "v1_9_")) {
+			if (!block.getType().equals(Material.valueOf("SKULL"))) throw new IllegalArgumentException("Block is not a Skull");
+		}
+		else {
+			if (!block.getType().equals(Material.valueOf("PLAYER_HEAD"))) throw new IllegalArgumentException("Block is not a Skull");
+		}
 		
 		Object profile = createProfile(texture);
 		Object world = ReflectionUtils.getHandle(CraftObject.WORLD, block.getWorld());
@@ -120,7 +126,15 @@ public class CustomSkull {
 	@SuppressWarnings("deprecation")
 	public static ItemStack getItem(String texture) throws Exception {
 		Object profile = createProfile(texture);
-		ItemStack item = new MaterialData(Material.SKULL_ITEM, (byte) 3).toItemStack(1);
+		ItemStack item;
+		
+		if (ReflectionUtils.isVersion("v1_12_", "v1_11_", "v1_10_", "v1_9_")) {
+			item = new MaterialData(Material.valueOf("SKULL_ITEM"), (byte) 3).toItemStack(1);
+		}
+		else {
+			item = new ItemStack(Material.valueOf("PLAYER_HEAD"));
+		}
+		
 		ItemMeta im = item.getItemMeta();
 		ReflectionUtils.setFieldValue(im, "profile", profile);
 		item.setItemMeta(im);

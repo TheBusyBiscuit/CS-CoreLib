@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
@@ -49,7 +50,12 @@ public class PlayerStats {
 	public long getStatistic(PlayerStat stat) {
 		switch (stat) {
 			case PLAY_TIME_MS: {
-				return Long.valueOf(String.valueOf(Bukkit.getPlayer(uuid).getStatistic(Statistic.PLAY_ONE_TICK) * 50));
+				if (ReflectionUtils.isVersion("v1_12_", "v1_11_", "v1_10_", "v1_9_")) {
+					return Long.valueOf(String.valueOf(Bukkit.getPlayer(uuid).getStatistic(Statistic.valueOf("PLAY_ONE_TICK")) * 50));
+				}
+				else {
+					return Long.valueOf(String.valueOf(Bukkit.getPlayer(uuid).getStatistic(Statistic.valueOf("PLAY_ONE_MINUTE")) * 1000L));
+				}
 			}
 			default: {
 				if (statistics.containsKey(stat)) return statistics.get(stat);

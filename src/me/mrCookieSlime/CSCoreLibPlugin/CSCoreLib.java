@@ -8,21 +8,6 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.CSCoreLibPlugin.Guide.Guides;
-import me.mrCookieSlime.CSCoreLibPlugin.currency.Currency;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.GuideListener;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.ItemUseListener;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.MapListener;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.MenuClickListener;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.StatisticListener;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.CustomBookOverlay;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Maps;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.MenuHelper;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Player.PlayerStats;
-import me.mrCookieSlime.CSCoreLibPlugin.general.audio.SoundConfig;
-import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionManager;
-
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Marker;
@@ -36,6 +21,20 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import me.mrCookieSlime.CSCoreLibPlugin.Guide.Guides;
+import me.mrCookieSlime.CSCoreLibPlugin.currency.Currency;
+import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.GuideListener;
+import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.ItemUseListener;
+import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.MapListener;
+import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.MenuClickListener;
+import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.StatisticListener;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.CustomBookOverlay;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Maps;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.MenuHelper;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Player.PlayerStats;
+import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionManager;
 
 public class CSCoreLib extends JavaPlugin {
 	
@@ -135,7 +134,6 @@ public class CSCoreLib extends JavaPlugin {
 		Currency.currencies = null;
 		instance = null;
 		MenuHelper.map = null;
-		SoundConfig.items = null;
 		CustomBookOverlay.opening = null;
 		PlayerRunnable.map = null;
 	}

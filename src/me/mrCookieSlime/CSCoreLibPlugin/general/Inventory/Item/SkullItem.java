@@ -9,12 +9,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import me.mrCookieSlime.CSCoreLibPlugin.compatibility.MaterialHook;
+
 public class SkullItem extends ItemStack {
 	
 	String owner;
 	
 	public SkullItem(String name, String owner) {
-		super(new ItemStack(Material.SKULL_ITEM));
+		super(new ItemStack(MaterialHook.parse("PLAYER_HEAD", "SKULL_ITEM")));
 		setDurability((short) 3);
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
@@ -24,7 +26,7 @@ public class SkullItem extends ItemStack {
 	}
 	
 	public SkullItem(String owner) {
-		super(new ItemStack(Material.SKULL_ITEM));
+		super(new ItemStack(MaterialHook.parse("PLAYER_HEAD", "SKULL_ITEM")));
 		setDurability((short) 3);
 		ItemMeta im = getItemMeta();
 		((SkullMeta) im).setOwner(owner);
@@ -33,7 +35,7 @@ public class SkullItem extends ItemStack {
 	}
 	
 	public SkullItem(String name, String owner, String... lore) {
-		super(new ItemStack(Material.SKULL_ITEM));
+		super(new ItemStack(MaterialHook.parse("PLAYER_HEAD", "SKULL_ITEM")));
 		setDurability((short) 3);
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
