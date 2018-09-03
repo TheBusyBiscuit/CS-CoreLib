@@ -34,17 +34,7 @@ public class CustomBookOverlay {
 
 	static {
 		try {
-			if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
+			if (ReflectionUtils.getVersion().startsWith("v1_13_")) {
 				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
 				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
 				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
@@ -54,9 +44,25 @@ public class CustomBookOverlay {
 				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
 				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
 			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
+				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
+				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
+			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
+				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
+				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
+			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
+				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
+				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
+			}
 			else {
 				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "openBook", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"));
 			}
+			
 			copyBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.OBC, "inventory.CraftItemStack"), "asNMSCopy", ItemStack.class);
 		} catch (Exception x) {
 			x.printStackTrace();
