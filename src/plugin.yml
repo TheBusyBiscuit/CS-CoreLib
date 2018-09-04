@@ -5,6 +5,8 @@ website: http://thebusybiscuit.github.io/
 
 main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
 
+api-version: 1.13
+
 commands:
   cs_triggerinterface:
     description: Background Command
