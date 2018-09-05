@@ -123,6 +123,10 @@ public class CustomItem extends ItemStack {
 		setDurability((short) durability);
 	}
 	
+	public CustomItem(Material type, String name, String... lore) {
+		this(new ItemStack(type), name, lore);
+	}
+	
 	public CustomItem(MaterialData data, String name, String... lore) {
 		super(data.toItemStack(1));
 		ItemMeta im = getItemMeta();

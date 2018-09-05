@@ -21,7 +21,10 @@ public class MaterialHelper {
 				return Material.ACACIA_SAPLING;
 			case DARK_OAK_LOG:
 				return Material.DARK_OAK_SAPLING;
+			default:
+				break;
 		}
+		
 		return Material.OAK_SAPLING;
 	}
 
@@ -40,7 +43,10 @@ public class MaterialHelper {
                 return Material.ACACIA_WOOD;
             case DARK_OAK_LOG:
                 return Material.DARK_OAK_WOOD;
+            default:
+            	break;
         }
+        
         return Material.OAK_WOOD;
     }
 
@@ -53,10 +59,24 @@ public class MaterialHelper {
             case ACACIA_LOG:
             case DARK_OAK_LOG:
                 return true;
+            default:
+            	return false;
         }
-        return false;
     }
 
+    public static boolean isLeavesBlock(Material leaves) {
+        switch (leaves) {
+            case OAK_LEAVES:
+            case SPRUCE_LEAVES:
+            case BIRCH_LEAVES:
+            case JUNGLE_LEAVES:
+            case ACACIA_LEAVES:
+            case DARK_OAK_LEAVES:
+                return true;
+            default:
+            	return false;
+        }
+    }
 
     public static final Material[] WoolColours = {
             Material.WHITE_WOOL,
