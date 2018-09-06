@@ -9,13 +9,17 @@ import org.bukkit.inventory.ItemStack;
 
 public class StringUtils {
 	
-	private static Method copy, getName;
+	private static Method copy, getName, toString;
 	
 	static {
 		try {
 			copy = ReflectionUtils.getClass(PackageName.OBC, "inventory.CraftItemStack").getMethod("asNMSCopy", ItemStack.class);
 			getName = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), "getName");
-		} 
+			
+			if (ReflectionUtils.isVersion("v1_13_")) {
+				toString = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "IChatBaseComponent"), "getString");
+			}
+		}
 		catch(Exception x) {
 			x.printStackTrace();
 		}
@@ -25,7 +29,13 @@ public class StringUtils {
 		String name = item.getType().toString();
 		try {
 			Object instance = copy.invoke(null, item);
-			name = (String) getName.invoke(instance);
+			
+			if (toString == null) {
+				name = (String) getName.invoke(instance);
+			}
+			else {
+				name = (String) toString.invoke(getName.invoke(instance));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
