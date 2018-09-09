@@ -102,10 +102,10 @@ public class CustomSkull {
 		}
 		
 		try {
-			if (tile == null) return;
-			gameprofile.invoke(tile, profile);
-			
-			block.getWorld().refreshChunk(block.getChunk().getX(), block.getChunk().getZ());
+			if (tile != null){
+				gameprofile.invoke(tile, profile);
+				block.getState().update(true);
+			}
 		} catch(NullPointerException x) {
 			System.err.println("Method: " + gameprofile);
 			System.err.println("World: " + world);
