@@ -1,6 +1,6 @@
 # CS-CoreLib
 
-CS-CoreLib is an essential Library to many Bukkit Plugins (many of them are my former projects).
+CS-CoreLib is an essential Library to a couple of Bukkit Plugins which require CS-CoreLib.
 
 CS-CoreLib is licensed under 
 [GNU GPLv3](https://github.com/TheBusyBiscuit/Slimefun4/blob/master/LICENSE)
