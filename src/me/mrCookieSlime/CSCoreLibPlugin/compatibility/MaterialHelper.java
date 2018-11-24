@@ -32,17 +32,17 @@ public class MaterialHelper {
     public static Material getWoodFromLog(Material log) {
         switch (log) {
             case OAK_LOG:
-                return Material.OAK_WOOD;
+                return Material.OAK_PLANKS;
             case SPRUCE_LOG:
-                return Material.SPRUCE_WOOD;
+                return Material.SPRUCE_PLANKS;
             case BIRCH_LOG:
-                return Material.BIRCH_WOOD;
+                return Material.BIRCH_PLANKS;
             case JUNGLE_LOG:
-                return Material.JUNGLE_WOOD;
+                return Material.JUNGLE_PLANKS;
             case ACACIA_LOG:
-                return Material.ACACIA_WOOD;
+                return Material.ACACIA_PLANKS;
             case DARK_OAK_LOG:
-                return Material.DARK_OAK_WOOD;
+                return Material.DARK_OAK_PLANKS;
             default:
             	break;
         }
