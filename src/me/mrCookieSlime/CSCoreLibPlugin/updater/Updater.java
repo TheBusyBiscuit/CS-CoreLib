@@ -19,11 +19,12 @@ import org.json.simple.JSONValue;
 
 public class Updater {
 	
-	private static final char[] blacklist = "abcdefghijklmnopqrstuvwxyz-+_ ".toCharArray();
+	private static final char[] blacklist = "abcdefghijklmnopqrstuvwxyz-+_ ()[]".toCharArray();
+	private static final String[] development_builds = {"DEV", "EXPERIMENTAL", "BETA", "ALPHA", "UNFINISHED"};
 	
 	Plugin plugin;
 	URL url;
-	String local;
+	String localVersion;
 	Thread thread;
 	URL download;
 	File file;
@@ -32,11 +33,30 @@ public class Updater {
 	public Updater(Plugin plugin, File file, int id) {
 		this.plugin = plugin;
 		this.file = file;
-		local = plugin.getDescription().getVersion();
-		local = local.toLowerCase();
+		localVersion = plugin.getDescription().getVersion();
+		
+		// Checking if current Version is a dev-build
+		for (String dev: development_builds) {
+			if (localVersion.contains(dev)) {
+                System.err.println(" ");
+                System.err.println("################## - DEVELOPMENT BUILD - ##################");
+                System.err.println("You appear to be using an experimental build of " + plugin.getName());
+                System.err.println("Version " + localVersion);
+                System.err.println(" ");
+                System.err.println("Auto-Updates have been disabled. Use at your own risk!");
+                System.err.println(" ");
+				return;
+			}
+		}
+
+		localVersion = localVersion.toLowerCase();
+		
+		// Deleting all unwanted characters
         for (char blocked: blacklist) {
-        	local = local.replace(String.valueOf(blocked), "");
+        	localVersion = localVersion.replace(String.valueOf(blocked), "");
         }
+        
+        // Starting download
 		try {
 			this.url = new URL("https://api.curseforge.com/servermods/files?projectIds=" + id);
 			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
@@ -56,7 +76,18 @@ public class Updater {
 
 		@Override
 		public void run() {
-			if (connect()) check();
+			if (connect()) {
+				try {
+					check();
+				} catch(NumberFormatException x) {
+		        	System.err.println(" ");
+		        	System.err.println("#################### - ERROR - ####################");
+					System.err.println("Could not auto-update " + plugin.getName());
+					System.err.println("Unrecognized Version: \"" + localVersion + "\"");
+					System.err.println("#################### - ERROR - ####################");
+					System.err.println(" ");
+				}
+			}
 		}
 		
 		private boolean connect() {
@@ -96,7 +127,7 @@ public class Updater {
 	    }
 		
 		private void check() {
-	        String[] localSplit = local.split("\\.");
+	        String[] localSplit = localVersion.split("\\.");
 	        String[] remoteSplit = version.split("\\.");
 	        
 	        for (int i = 0; i < remoteSplit.length; i++) {
@@ -182,7 +213,7 @@ public class Updater {
 			                if (output != null) output.close();
 			                System.err.println(" ");
 			                System.err.println("#################### - UPDATE - ####################");
-			                System.err.println(plugin.getName() + " was successfully updated (" + local + " -> " + version + ")");
+			                System.err.println(plugin.getName() + " was successfully updated (" + localVersion + " -> " + version + ")");
 			                System.err.println("Please restart your Server in order to use the new Version");
 			                System.err.println(" ");
 			            } catch (IOException e) {
