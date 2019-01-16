@@ -1,16 +1,15 @@
-package me.mrCookieSlime.CSCoreLibPlugin.general.Particles.MC_1_8;
+package me.mrCookieSlime.CSCoreLibPlugin.general.Particles.MC_1_13;
 
-import java.awt.Color;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.bukkit.Color;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.Particle.DustOptions;
 import org.bukkit.entity.Player;
-import org.bukkit.material.MaterialData;
-
-import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
 
 public enum ParticleEffect {
@@ -62,18 +61,12 @@ public enum ParticleEffect {
 	DAMAGE_INDICATOR(ParticleType.NORMAL),
 	SWEEP_ATTACK(ParticleType.NORMAL);
 	
-	private Constructor<?> constructor;
-	private Object constant;
 	private ParticleType type;
 	
 	ParticleEffect(ParticleType type) {
 		try {
 			this.type = type;
-			this.constructor = ReflectionUtils.getClass("PacketPlayOutWorldParticles").getConstructor(ReflectionUtils.getClass("EnumParticle"), boolean.class, float.class, float.class, float.class, float.class, float.class, float.class, float.class, int.class, int[].class);
-			this.constant = ReflectionUtils.getEnumConstant(ReflectionUtils.getClass("EnumParticle"), toString());
 		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,11 +103,17 @@ public enum ParticleEffect {
 			System.err.println("Effect \"" + toString() + "\" cannot be displayed as its Type mismatches: " + type.toString() + " != " + ParticleType.NORMAL.toString());
 			return;
 		}
-		Object packet = constructor.newInstance(constant, true, (float) l.getX(), (float) l.getY(), (float) l.getZ(), offsetX, offsetY, offsetZ, speed, amount, new int[0]);
-    	
-		for (Player p: players) {
-			ReflectionUtils.sendPacket(p, packet);
-    	}
+
+		if(toString().equals("REDSTONE")) {
+			DustOptions dustOptions = new DustOptions(Color.RED, amount);
+			for (Player p: players) {
+				p.spawnParticle(Particle.valueOf(toString()), l, amount, offsetX, offsetY, offsetZ, speed, dustOptions);
+			}
+		} else {
+			for (Player p: players) {
+				p.spawnParticle(Particle.valueOf(toString()), l, amount, offsetX, offsetY, offsetZ, speed);
+			}
+		}
 	}
 	
 	/**
@@ -128,18 +127,14 @@ public enum ParticleEffect {
 	 * @param  speed The Speed of the Particle
 	 * @param  amount The Amount of Particles which should be displayed
    	 */ 
-	@SuppressWarnings("deprecation")
-	public void displayCrack(Location l, MaterialData data, float offsetX, float offsetY, float offsetZ, float speed, int amount) throws Exception {
+	public void displayCrack(Location l, Material material, float offsetX, float offsetY, float offsetZ, float speed, int amount) throws Exception {
 		if (type != ParticleType.CRACK) {
 			System.err.println("Effect \"" + toString() + "\" cannot be displayed as its Type mismatches: " + type.toString() + " != " + ParticleType.CRACK.toString());
 			return;
 		}
-		Object packet = constructor.newInstance(constant, true, (float) l.getX(), (float) l.getY(), (float) l.getZ(), offsetX, offsetY, offsetZ, speed, amount, new int[] {data.getItemType().getId() | data.getData() << 12 });
-    	
+	
 		for (Player p: getPlayers(l)) {
-    		Object player = p.getClass().getMethod("getHandle").invoke(p);
-    		Object connection = player.getClass().getField("playerConnection").get(player);
-    		ReflectionUtils.getMethod(connection.getClass(), "sendPacket").invoke(connection, packet);
+			p.spawnParticle(Particle.valueOf(toString()), l, amount,offsetX, offsetY, offsetZ, speed, material.createBlockData());
     	}
 	}
 	
@@ -156,7 +151,14 @@ public enum ParticleEffect {
 			System.err.println("Effect \"" + toString() + "\" cannot be displayed as its Type mismatches: " + type.toString() + " != " + ParticleType.COLORED.toString());
 			return;
 		}
-		display(l, color.getRed() / 255, color.getGreen() / 255, color.getBlue() / 255, 1, 0);
+		if(toString().equals("REDSTONE")) {
+			DustOptions dustOptions = new DustOptions(color, 1);
+			for (Player p: getPlayers(l)) {
+				p.spawnParticle(Particle.valueOf(toString()), l, 1, 0, 0, 0, 1, dustOptions);
+	    	}
+		} else {
+			display(l, color.getRed() / 255, color.getGreen() / 255, color.getBlue() / 255, 1, 0);
+		}
 	}
 	
 	/**
