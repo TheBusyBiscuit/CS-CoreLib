@@ -78,15 +78,17 @@ public class CustomSkull {
 	 * @param  block The Block being set to that Skin
 	 * @param  texture A Base64 String representing the Texture
 	 */ 
-	@SuppressWarnings("deprecation")
 	public static void setSkull(Block block, String texture) throws Exception {
 		if (getTexture(block).equals(texture)) return;
 
 		if (ReflectionUtils.isVersion("v1_12_", "v1_11_", "v1_10_", "v1_9_")) {
-			if (!block.getType().equals(Material.valueOf("SKULL"))) throw new IllegalArgumentException("Block is not a Skull");
-		}
-		else {
-			if (!block.getType().equals(Material.valueOf("PLAYER_HEAD"))) throw new IllegalArgumentException("Block is not a Skull");
+			if (!block.getType().equals(Material.valueOf("SKULL"))) {
+				throw new IllegalArgumentException("Block is not a Skull");
+			}
+		} else {
+			if (!block.getType().equals(Material.valueOf("PLAYER_HEAD"))) {
+				throw new IllegalArgumentException("Block is not a Skull");
+			}
 		}
 		
 		Object profile = createProfile(texture);
@@ -96,8 +98,7 @@ public class CustomSkull {
 		
 		if (ReflectionUtils.getVersion().startsWith("v1_7_")) {
 			tile = tileentity.invoke(world, block.getX(), block.getY(), block.getZ());
-		}
-		else {
+		} else {
 			tile = tileentity.invoke(world, position.newInstance(block.getX(), block.getY(), block.getZ()));
 		}
 		
