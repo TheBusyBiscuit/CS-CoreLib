@@ -86,7 +86,7 @@ public class CustomSkull {
 				throw new IllegalArgumentException("Block is not a Skull");
 			}
 		} else {
-			if (!block.getType().equals(Material.valueOf("PLAYER_HEAD"))) {
+			if (!(block.getType().equals(Material.PLAYER_HEAD) || block.getType().equals(Material.PLAYER_WALL_HEAD))) {
 				throw new IllegalArgumentException("Block is not a Skull");
 			}
 		}
@@ -189,8 +189,7 @@ public class CustomSkull {
 		
 		if (ReflectionUtils.getVersion().startsWith("v1_7_")) {
 			tile = tileentity.invoke(world, block.getX(), block.getY(), block.getZ());
-		}
-		else {
+		} else {
 			tile = tileentity.invoke(world, position.newInstance(block.getX(), block.getY(), block.getZ()));
 		}
 		
