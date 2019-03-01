@@ -1,15 +1,14 @@
 package me.mrCookieSlime.CSCoreLibPlugin;
 
-import java.io.File;
-import java.io.IOException;
-
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Localization;
 import me.mrCookieSlime.CSCoreLibPlugin.updater.Updater;
 
+import org.bstats.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
-import org.mcstats.Metrics;
+
+import java.io.File;
 
 public class PluginUtils {
 
@@ -17,6 +16,7 @@ public class PluginUtils {
 	private int id;
 	private Config cfg;
 	private Localization local;
+	private Metrics metrics;
 	
 	/**
 	 * Creates a new PluginUtils Instance for
@@ -69,15 +69,20 @@ public class PluginUtils {
 	}
 	
 	/**
-	 * Automatically sets up MC-Stats Metrics for you
+	 * Automatically sets up bStats Metrics for you
 	 */ 
 	public void setupMetrics() {
-		try {
-			Metrics metrics = new Metrics(plugin);
-			metrics.start();
-		} catch (IOException e) {
-		}
+		 metrics = new Metrics(plugin);
 	}
+
+    /**
+     * Returns the previously setup Metrics
+     *
+     * @return      Metrics for this Plugin
+     */
+    public Metrics getMetrics() {
+	    return metrics;
+    }
 	
 	/**
 	 * Automatically sets up the messages.yml for you
