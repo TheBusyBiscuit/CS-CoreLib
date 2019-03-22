@@ -22,7 +22,7 @@ public class MenuHelper implements Listener {
 	@EventHandler(priority=EventPriority.LOWEST)
 	public void onChat(final AsyncPlayerChatEvent e) {
 		final Player p = e.getPlayer();
-		final String message = e.getMessage().replaceAll("§", "&");
+		final String message = e.getMessage().replaceAll("\\u00a7", "&");
 		if (map.containsKey(p.getUniqueId())) {
 			final ChatHandler handler = map.get(p.getUniqueId());
 			map.remove(p.getUniqueId());

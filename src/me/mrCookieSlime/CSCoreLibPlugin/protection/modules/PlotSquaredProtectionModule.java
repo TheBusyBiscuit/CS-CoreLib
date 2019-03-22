@@ -3,11 +3,11 @@ package me.mrCookieSlime.CSCoreLibPlugin.protection.modules;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-import com.intellectualcrafters.plot.config.C;
-import com.intellectualcrafters.plot.object.Location;
-import com.intellectualcrafters.plot.object.Plot;
-import com.intellectualcrafters.plot.object.PlotPlayer;
-import com.intellectualcrafters.plot.util.Permissions;
+import com.github.intellectualsites.plotsquared.plot.config.Captions;
+import com.github.intellectualsites.plotsquared.plot.object.Location;
+import com.github.intellectualsites.plotsquared.plot.object.Plot;
+import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
+import com.github.intellectualsites.plotsquared.plot.util.Permissions;
 
 import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
 
@@ -19,12 +19,12 @@ public class PlotSquaredProtectionModule implements ProtectionModule {
 	}
 	@Override
 	public boolean canBuild(Player player, Block b) {
-		return hasAccess(player, b) || Permissions.hasPermission(PlotPlayer.wrap(player), C.PERMISSION_ADMIN_BUILD_UNOWNED);
+		return hasAccess(player, b) || Permissions.hasPermission(PlotPlayer.wrap(player), Captions.PERMISSION_ADMIN_BUILD_UNOWNED);
 	}
 	
 	@Override
 	public boolean canAccessChest(Player player, Block b) {
-		return hasAccess(player,b) || Permissions.hasPermission(PlotPlayer.wrap(player), C.PERMISSION_ADMIN_INTERACT_UNOWNED);
+		return hasAccess(player,b) || Permissions.hasPermission(PlotPlayer.wrap(player), Captions.PERMISSION_ADMIN_INTERACT_UNOWNED);
 	}
 
 	@Override

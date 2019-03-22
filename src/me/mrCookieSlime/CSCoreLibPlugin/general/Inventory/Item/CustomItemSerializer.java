@@ -72,7 +72,7 @@ public class CustomItemSerializer {
 				break;
 			case ITEMMETA_DISPLAY_NAME: {
 				if (item.hasItemMeta() && item.getItemMeta().hasDisplayName()) {
-					builder.append(item.getItemMeta().getDisplayName().replaceAll("§", "&"));
+					builder.append(item.getItemMeta().getDisplayName().replaceAll("\\u00a7", "&"));
 				}
 				else {
 					builder.append("NONE");
@@ -81,7 +81,7 @@ public class CustomItemSerializer {
 			}
 			case ITEMMETA_LORE: {
 				if (item.hasItemMeta() && item.getItemMeta().hasLore()) {
-					builder.append(item.getItemMeta().getLore().toString().replaceAll("§", "&"));
+					builder.append(item.getItemMeta().getLore().toString().replaceAll("\\u00a7", "&"));
 				}
 				else {
 					builder.append("NONE");
