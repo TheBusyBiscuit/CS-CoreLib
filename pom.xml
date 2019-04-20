@@ -15,8 +15,8 @@
             <url>https://raw.github.com/FabioZumbi12/RedProtect/mvn-repo/</url>
         </repository>
         <repository>
-            <id>paper-repo</id>
-            <url>https://repo.destroystokyo.com/repository/maven-public/</url>
+            <id>papermc</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
         <repository>
             <id>spigot-repo</id>
@@ -25,6 +25,10 @@
         <repository>
             <id>worldedit-worldguard-repo</id>
             <url>http://maven.sk89q.com/repo/</url>
+        </repository>
+        <repository>
+            <id>plotsquared-ci</id>
+            <url>http://ci.athion.net/job/PlotSquared-Releases/ws/mvn/</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
@@ -38,10 +42,6 @@
         <repository>
             <id>massivecore-factions-repo</id>
             <url>http://repo.dustplanet.de/artifactory/ext-release-local/</url>
-        </repository>
-        <repository>
-            <id>incendo-plotsquared-repo</id>
-            <url>https://incendo.org/mvn/</url>
         </repository>
         <repository>
             <id>FactionsUUID-repo</id>
@@ -184,8 +184,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.intellectualsites.plotsquared</groupId>
-            <artifactId>PlotSquared</artifactId>
-            <version>4</version>
+            <artifactId>PlotSquared-API</artifactId>
+            <version>4.226</version>
         </dependency>
         <dependency>
             <groupId>br.net.fabiozumbi12.RedProtect</groupId>
