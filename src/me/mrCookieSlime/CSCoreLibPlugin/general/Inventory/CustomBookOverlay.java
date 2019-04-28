@@ -26,7 +26,7 @@ import org.bukkit.inventory.meta.BookMeta;
 
 public class CustomBookOverlay {
 
-	public static Set<UUID> opening = new HashSet<UUID>();
+	public static Set<UUID> opening = new HashSet<>();
 
 	private static Method openBook, copyBook;
 
@@ -70,16 +70,13 @@ public class CustomBookOverlay {
 	}
 
 	public static void load(CSCoreLib plugin) {
-		if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
-			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
-		}
-		else if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
-			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
-		}
-		else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
-			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
-		}
-		else if (ReflectionUtils.getVersion().startsWith("v1_12_")) {
+		if (ReflectionUtils.getVersion().startsWith("v1_9_")
+			|| ReflectionUtils.getVersion().startsWith("v1_10_")
+			|| ReflectionUtils.getVersion().startsWith("v1_11_")
+			|| ReflectionUtils.getVersion().startsWith("v1_12_")
+			|| ReflectionUtils.getVersion().startsWith("v1_13_")
+			|| ReflectionUtils.getVersion().startsWith("v1_14_")
+			) {
 			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
 		}
 
@@ -133,26 +130,22 @@ public class CustomBookOverlay {
 		final ItemStack item = p.getInventory().getItem(slot);
 		p.getInventory().setItem(slot, this.book);
 
-		Bukkit.getScheduler().scheduleSyncDelayedTask(CSCoreLib.getLib(), new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(CSCoreLib.getLib(), () -> {
+			try {
+				Object handle = ReflectionUtils.getHandle(CraftObject.PLAYER, p);
+				Object copy = copyBook.invoke(null, book);
 
-			@Override
-			public void run() {
-				try {
-					Object handle = ReflectionUtils.getHandle(CraftObject.PLAYER, p);
-					Object copy = copyBook.invoke(null, book);
-
-					if (ReflectionUtils.getVersion().startsWith("v1_8_")) {
-						openBook.invoke(handle, copy);
-					}
-					else {
-						openBook.invoke(handle, copy, const_mainhand);
-					}
-					p.getInventory().setItem(slot, item);
-					PlayerInventory.update(p);
-					opening.remove(p.getUniqueId());
-				} catch (Exception e) {
-					e.printStackTrace();
+				if (ReflectionUtils.getVersion().startsWith("v1_8_")) {
+					openBook.invoke(handle, copy);
 				}
+				else {
+					openBook.invoke(handle, copy, const_mainhand);
+				}
+				p.getInventory().setItem(slot, item);
+				PlayerInventory.update(p);
+				opening.remove(p.getUniqueId());
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}, 1L);
 	}

@@ -59,8 +59,15 @@ public class ArmorStandFactory {
 	private static void applyNMSTraits(ArmorStand armorStand) {
 		try {
 			Object nmsEntity = armorStand.getClass().getMethod("getHandle").invoke(armorStand);
-			
-			if (ReflectionUtils.getVersion().startsWith("v1_13_")) {
+
+			if (ReflectionUtils.getVersion().startsWith("v1_14_")) {
+				try {
+					ReflectionUtils.setFieldValue(nmsEntity, "bt", 2039583);
+				} catch (IllegalArgumentException e) {
+					ReflectionUtils.setFieldValue(nmsEntity, "bD", true);
+				}
+			}
+			else if (ReflectionUtils.getVersion().startsWith("v1_13_")) {
 				try {
 					ReflectionUtils.setFieldValue(nmsEntity, "bH", 2039583);
 				} catch (IllegalArgumentException x) {
