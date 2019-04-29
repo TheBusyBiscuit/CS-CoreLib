@@ -17,7 +17,7 @@ import org.json.simple.JSONObject;
 public class TellRawMessage {
 	
 	private static final List<ChatColor> special = Arrays.asList(ChatColor.ITALIC, ChatColor.MAGIC, ChatColor.BOLD, ChatColor.UNDERLINE, ChatColor.STRIKETHROUGH);
-	private List<String> text = new ArrayList<String>();
+	private List<String> text = new ArrayList<>();
 	
 	private static Constructor<?> constructor;
 	private static Class<?> serializer;

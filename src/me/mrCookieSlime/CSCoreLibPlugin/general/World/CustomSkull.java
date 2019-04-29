@@ -43,7 +43,9 @@ public class CustomSkull {
 			insert_property = ReflectionUtils.getMethod(map_class, "put", String.class, property_class);
 			map_list = ReflectionUtils.getMethod(map_class, "get", String.class);
 			gameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("setGameProfile", profile_class);
-			getgameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("getGameProfile");
+			// Removed from 1.14			
+			if (!ReflectionUtils.isVersion("v1_14_"))
+				getgameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("getGameProfile");
 			
 			getOwner = ReflectionUtils.getMethod(profile_class, "getName");
 			get_name = ReflectionUtils.getMethod(property_class, "getName");
@@ -194,8 +196,14 @@ public class CustomSkull {
 		}
 		
 		if (tile == null) return "";
-		
-		Object profile = getgameprofile.invoke(tile);
+
+		Object profile;
+		if (ReflectionUtils.isVersion("v1_14_"))
+			profile = ReflectionUtils.getFieldValue(
+				ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull"), "gameProfile"
+			);
+		else
+			profile = getgameprofile.invoke(tile);
 		
 		if (profile != null) {
 			Collection<?> collection = (Collection<?>) map_list.invoke(property.invoke(profile), "textures");
