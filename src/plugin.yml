@@ -1,11 +1,11 @@
 name: CS-CoreLib
-version: ${project.version}
+version: 1.5.19
 authors: [mrCookieSlime, John000708, AlexLander123]
 website: http://thebusybiscuit.github.io/
 
 main: me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib
 
-api-version: 1.13
+api-version: 1.14
 
 commands:
   cs_triggerinterface:

@@ -16,9 +16,7 @@ public class StringUtils {
 			copy = ReflectionUtils.getClass(PackageName.OBC, "inventory.CraftItemStack").getMethod("asNMSCopy", ItemStack.class);
 			getName = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), "getName");
 			
-			if (ReflectionUtils.isVersion("v1_13_")) {
-				toString = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "IChatBaseComponent"), "getString");
-			}
+			toString = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "IChatBaseComponent"), "getString");
 		}
 		catch(Exception x) {
 			x.printStackTrace();

@@ -1,6 +1,7 @@
 package me.mrCookieSlime.CSCoreLibPlugin.general.World;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
@@ -20,7 +21,8 @@ import org.bukkit.material.MaterialData;
 
 public class CustomSkull {
 	
-	private static Method tileentity, gameprofile, getgameprofile, property, insert_property, map_list, get_name, get_value, getOwner;
+	private static Method tileentity, gameprofile, property, insert_property, map_list, get_name, get_value, getOwner;
+	private static Field getgameprofile;
 	private static Constructor<?> position, profile_constructor, property_constructor;
 	private static Class<?> profile_class, property_class, map_class;
 	
@@ -43,7 +45,7 @@ public class CustomSkull {
 			insert_property = ReflectionUtils.getMethod(map_class, "put", String.class, property_class);
 			map_list = ReflectionUtils.getMethod(map_class, "get", String.class);
 			gameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("setGameProfile", profile_class);
-			getgameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("getGameProfile");
+			getgameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getDeclaredField("gameProfile");
 			
 			getOwner = ReflectionUtils.getMethod(profile_class, "getName");
 			get_name = ReflectionUtils.getMethod(property_class, "getName");
@@ -195,7 +197,7 @@ public class CustomSkull {
 		
 		if (tile == null) return "";
 		
-		Object profile = getgameprofile.invoke(tile);
+		Object profile = getgameprofile.get(tile);
 		
 		if (profile != null) {
 			Collection<?> collection = (Collection<?>) map_list.invoke(property.invoke(profile), "textures");
