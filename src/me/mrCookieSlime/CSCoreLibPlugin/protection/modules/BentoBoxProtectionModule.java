@@ -3,7 +3,6 @@ package me.mrCookieSlime.CSCoreLibPlugin.protection.modules;
 import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionModule;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.eclipse.jdt.annotation.NonNull;
 import world.bentobox.bentobox.BentoBox;
 import world.bentobox.bentobox.api.flags.Flag;
 import world.bentobox.bentobox.api.user.User;
