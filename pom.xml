@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.mrCookieSlime</groupId>
     <artifactId>CS-CoreLib</artifactId>
@@ -10,10 +11,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <repositories>
-        <repository>
-            <id>redprotect-repo</id>
-            <url>https://raw.github.com/FabioZumbi12/RedProtect/mvn-repo/</url>
-        </repository>
         <repository>
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
@@ -31,13 +28,17 @@
             <url>http://ci.athion.net/job/PlotSquared-Releases/ws/mvn/</url>
         </repository>
         <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
+            <id>redprotect-repo</id>
+            <url>https://raw.github.com/FabioZumbi12/RedProtect/mvn-repo/</url>
         </repository>
         <repository>
             <id>bintray-tastybento-maven-repo</id>
             <name>bintray</name>
             <url>http://dl.bintray.com/tastybento/maven-repo</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io/</url>
         </repository>
         <repository>
             <id>FactionsUUID-repo</id>
@@ -146,7 +147,7 @@
         <dependency>
             <groupId>com.wasteofplastic</groupId>
             <artifactId>askyblock</artifactId>
-            <version>3.0.8.2</version>
+            <version>3.0.9.4</version>
         </dependency>
         <dependency>
             <groupId>com.github.dmulloy2.LWC</groupId>
@@ -191,6 +192,12 @@
             <groupId>br.net.fabiozumbi12.RedProtect</groupId>
             <artifactId>RedProtect-Spigot</artifactId>
             <version>7.3.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>world.bentobox</groupId>
+            <artifactId>bentobox</artifactId>
+            <version>1.4.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -72,6 +72,9 @@ public class ProtectionManager {
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("RedProtect")) {
 			registerNewModule("RedProtect", new RedProtectProtectionModule());
 		}
+		if (cscorelib.getServer().getPluginManager().isPluginEnabled("BentoBox")) {
+			registerNewModule("BentoBox", new BentoBoxProtectionModule());
+		}
 	}
 
 	public boolean canBuild(UUID uuid, Block b) {
