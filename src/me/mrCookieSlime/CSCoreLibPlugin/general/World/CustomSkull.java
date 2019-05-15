@@ -198,12 +198,9 @@ public class CustomSkull {
 		if (tile == null) return "";
 
 		Object profile;
-		if (ReflectionUtils.isVersion("v1_14_"))
-			profile = ReflectionUtils.getFieldValue(
-				ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull"), "gameProfile"
-			);
-		else
-			profile = getgameprofile.invoke(tile);
+		
+		if (ReflectionUtils.isVersion("v1_14_")) profile = ReflectionUtils.getFieldValue(tile, "gameProfile");
+		else profile = getgameprofile.invoke(tile);
 		
 		if (profile != null) {
 			Collection<?> collection = (Collection<?>) map_list.invoke(property.invoke(profile), "textures");
