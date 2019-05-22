@@ -175,7 +175,7 @@
         <dependency>
             <groupId>com.github.LlmDl</groupId>
             <artifactId>Towny</artifactId>
-            <version>2aeeb30903</version>
+            <version>1b86d017c5</version>
         </dependency>
         <dependency>
             <groupId>com.github.fubira</groupId>
