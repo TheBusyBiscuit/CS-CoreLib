@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.CustomBookOverlay1_9;
+import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.CustomBookOverlayListener;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Chat.TellRawMessage;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Player.PlayerInventory;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.CraftObject;
@@ -27,41 +27,14 @@ import org.bukkit.inventory.meta.BookMeta;
 public class CustomBookOverlay {
 
 	public static Set<UUID> opening = new HashSet<>();
-
 	private static Method openBook, copyBook;
-
 	private static Object const_mainhand;
 
 	static {
 		try {
-			if (ReflectionUtils.getVersion().startsWith("v1_13_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else if (ReflectionUtils.getVersion().startsWith("v1_12_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else if (ReflectionUtils.getVersion().startsWith("v1_11_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else if (ReflectionUtils.getVersion().startsWith("v1_10_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else if (ReflectionUtils.getVersion().startsWith("v1_9_")) {
-				Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
-				const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
-			}
-			else {
-				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "openBook", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"));
-			}
+			Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
+			openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+			const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
 			
 			copyBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.OBC, "inventory.CraftItemStack"), "asNMSCopy", ItemStack.class);
 		} catch (Exception x) {
@@ -70,16 +43,7 @@ public class CustomBookOverlay {
 	}
 
 	public static void load(CSCoreLib plugin) {
-		if (ReflectionUtils.getVersion().startsWith("v1_9_")
-			|| ReflectionUtils.getVersion().startsWith("v1_10_")
-			|| ReflectionUtils.getVersion().startsWith("v1_11_")
-			|| ReflectionUtils.getVersion().startsWith("v1_12_")
-			|| ReflectionUtils.getVersion().startsWith("v1_13_")
-			|| ReflectionUtils.getVersion().startsWith("v1_14_")
-			) {
-			plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlay1_9(), plugin);
-		}
-
+		plugin.getServer().getPluginManager().registerEvents(new CustomBookOverlayListener(), plugin);
 		plugin.getServer().getPluginManager().registerEvents(new Listener() {
 
 			@EventHandler
@@ -135,12 +99,8 @@ public class CustomBookOverlay {
 				Object handle = ReflectionUtils.getHandle(CraftObject.PLAYER, p);
 				Object copy = copyBook.invoke(null, book);
 
-				if (ReflectionUtils.getVersion().startsWith("v1_8_")) {
-					openBook.invoke(handle, copy);
-				}
-				else {
-					openBook.invoke(handle, copy, const_mainhand);
-				}
+				openBook.invoke(handle, copy, const_mainhand);
+				
 				p.getInventory().setItem(slot, item);
 				PlayerInventory.update(p);
 				opening.remove(p.getUniqueId());

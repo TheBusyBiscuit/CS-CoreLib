@@ -11,12 +11,21 @@ import org.bukkit.entity.Entity;
 
 public class Animals {
 	
+	private static Field field;
+	
+	static {
+		try {
+			field = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bC", "bv", "bw","bx");
+			field.setAccessible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static boolean feed(Entity n) throws Exception {
 		if (!isFeedable(n)) return false;
 		Object handle = ReflectionUtils.getHandle(CraftObject.ANIMALS, n);
-		Field f = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bC", "bv", "bw","bx");
-		f.setAccessible(true);
-		f.set(handle, 600);
+		field.set(handle, 600);
 		return true;
 	}
 	
@@ -24,9 +33,7 @@ public class Animals {
 		if (!(n instanceof org.bukkit.entity.Animals && ((Ageable) n).isAdult() && ((Ageable) n).canBreed())) return false;
 		
 		Object handle = ReflectionUtils.getHandle(CraftObject.ANIMALS, n);
-		Field f = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bC", "bv", "bw","bx");
-		f.setAccessible(true);
-		return f.getInt(handle) < 1;
+		return field.getInt(handle) < 1;
 	}
 
 }
