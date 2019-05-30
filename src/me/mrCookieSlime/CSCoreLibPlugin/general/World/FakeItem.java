@@ -22,6 +22,7 @@ public class FakeItem {
 		}, ticks);
 	}
 	
+	@Deprecated
 	public static void spawn(Location location, MaterialData type, long ticks) {
 		final Item item = location.getWorld().dropItem(location, type.toItemStack(1));
 		item.setPickupDelay(Integer.MAX_VALUE);

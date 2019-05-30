@@ -16,6 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class GuideListener implements Listener {
 	
 	public GuideListener(Plugin plugin) {

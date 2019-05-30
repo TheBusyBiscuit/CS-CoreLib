@@ -23,7 +23,7 @@ public class CustomPotion extends CustomItem {
 	}
 	
 	public CustomPotion(String name, PotionType type, PotionEffect effect, String... lore) {
-		super(Material.POTION, name, 0, lore);
+		super(Material.POTION, name, lore);
 		PotionMeta meta = (PotionMeta) getItemMeta();
 		meta.setBasePotionData(new PotionData(type));
 		meta.addCustomEffect(effect, true);
@@ -31,7 +31,7 @@ public class CustomPotion extends CustomItem {
 	}
 	
 	public CustomPotion(String name, Color color, PotionEffect effect, String... lore) {
-		super(Material.POTION, name, 0, lore);
+		super(Material.POTION, name, lore);
 		PotionMeta meta = (PotionMeta) getItemMeta();
 		meta.setColor(color);
 		meta.addCustomEffect(effect, true);

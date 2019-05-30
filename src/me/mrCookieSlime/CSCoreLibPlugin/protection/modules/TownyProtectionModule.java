@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 
 import com.palmergames.bukkit.towny.object.TownyPermission.ActionType;
 import com.palmergames.bukkit.towny.utils.PlayerCacheUtil;
-import com.palmergames.bukkit.util.BukkitTools;
 
 public class TownyProtectionModule implements ProtectionModule {
 

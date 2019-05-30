@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+@Deprecated
 public class GuideOpenEvent extends Event {
 
 	private static final HandlerList handlers = new HandlerList();

@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class GuideItem extends ItemStack {
 	
 	public GuideItem(Plugin plugin, int id) {

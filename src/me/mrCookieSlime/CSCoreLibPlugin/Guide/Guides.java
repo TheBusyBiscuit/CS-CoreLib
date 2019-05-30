@@ -3,6 +3,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.Guide;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class Guides {
 	
 	public static Guides instance;

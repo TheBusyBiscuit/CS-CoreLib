@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+@Deprecated
 public class MenuItem extends ItemStack {
 	
 	public MenuItem(Material type, String name, int amount, int durability, String action) {

@@ -26,16 +26,9 @@ public class CustomSkull {
 	
 	static {
 		try {
-			if (ReflectionUtils.getVersion().startsWith("v1_7_")) {
-				profile_class = Class.forName("net.minecraft.util.com.mojang.authlib.GameProfile");
-				property_class = Class.forName("net.minecraft.util.com.mojang.authlib.properties.Property");
-				map_class = Class.forName("net.minecraft.util.com.mojang.authlib.properties.PropertyMap");
-			}
-			else {
-				profile_class = Class.forName("com.mojang.authlib.GameProfile");
-				property_class = Class.forName("com.mojang.authlib.properties.Property");
-				map_class = Class.forName("com.mojang.authlib.properties.PropertyMap");
-			}
+			profile_class = Class.forName("com.mojang.authlib.GameProfile");
+			property_class = Class.forName("com.mojang.authlib.properties.Property");
+			map_class = Class.forName("com.mojang.authlib.properties.PropertyMap");
 			
 			profile_constructor = ReflectionUtils.getConstructor(profile_class, UUID.class, String.class);
 			property = ReflectionUtils.getMethod(profile_class, "getProperties");
@@ -43,6 +36,7 @@ public class CustomSkull {
 			insert_property = ReflectionUtils.getMethod(map_class, "put", String.class, property_class);
 			map_list = ReflectionUtils.getMethod(map_class, "get", String.class);
 			gameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("setGameProfile", profile_class);
+			
 			// Removed from 1.14			
 			if (!ReflectionUtils.isVersion("v1_14_"))
 				getgameprofile = ReflectionUtils.getClass(PackageName.NMS, "TileEntitySkull").getMethod("getGameProfile");
@@ -51,13 +45,8 @@ public class CustomSkull {
 			get_name = ReflectionUtils.getMethod(property_class, "getName");
 			get_value = ReflectionUtils.getMethod(property_class, "getValue");
 			
-			if (ReflectionUtils.getVersion().startsWith("v1_7_")) {
-				tileentity = ReflectionUtils.getClass(PackageName.NMS, "WorldServer").getMethod("getTileEntity", int.class, int.class, int.class);
-			}
-			else {
-				position = ReflectionUtils.getConstructor(ReflectionUtils.getClass(PackageName.NMS, "BlockPosition"), int.class, int.class, int.class);
-				tileentity = ReflectionUtils.getClass(PackageName.NMS, "WorldServer").getMethod("getTileEntity", ReflectionUtils.getClass(PackageName.NMS, "BlockPosition"));
-			}
+			position = ReflectionUtils.getConstructor(ReflectionUtils.getClass(PackageName.NMS, "BlockPosition"), int.class, int.class, int.class);
+			tileentity = ReflectionUtils.getClass(PackageName.NMS, "WorldServer").getMethod("getTileEntity", ReflectionUtils.getClass(PackageName.NMS, "BlockPosition"));
 		}  catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,7 +76,8 @@ public class CustomSkull {
 			if (!block.getType().equals(Material.valueOf("SKULL"))) {
 				throw new IllegalArgumentException("Block is not a Skull");
 			}
-		} else {
+		} 
+		else {
 			if (!(block.getType().equals(Material.PLAYER_HEAD) || block.getType().equals(Material.PLAYER_WALL_HEAD))) {
 				throw new IllegalArgumentException("Block is not a Skull");
 			}
@@ -96,13 +86,7 @@ public class CustomSkull {
 		Object profile = createProfile(texture);
 		Object world = ReflectionUtils.getHandle(CraftObject.WORLD, block.getWorld());
 		
-		Object tile = null;
-		
-		if (ReflectionUtils.getVersion().startsWith("v1_7_")) {
-			tile = tileentity.invoke(world, block.getX(), block.getY(), block.getZ());
-		} else {
-			tile = tileentity.invoke(world, position.newInstance(block.getX(), block.getY(), block.getZ()));
-		}
+		Object tile = tileentity.invoke(world, position.newInstance(block.getX(), block.getY(), block.getZ()));
 		
 		try {
 			if (tile != null){
@@ -187,14 +171,7 @@ public class CustomSkull {
 	public static String getTexture(Block block) throws Exception {
 		Object world = ReflectionUtils.getHandle(CraftObject.WORLD, block.getWorld());
 		
-		Object tile = null;
-		
-		if (ReflectionUtils.getVersion().startsWith("v1_7_")) {
-			tile = tileentity.invoke(world, block.getX(), block.getY(), block.getZ());
-		} else {
-			tile = tileentity.invoke(world, position.newInstance(block.getX(), block.getY(), block.getZ()));
-		}
-		
+		Object tile = tileentity.invoke(world, position.newInstance(block.getX(), block.getY(), block.getZ()));		
 		if (tile == null) return "";
 
 		Object profile;

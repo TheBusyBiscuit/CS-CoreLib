@@ -7,6 +7,7 @@ import org.bukkit.inventory.meta.BannerMeta;
 
 import me.mrCookieSlime.CSCoreLibPlugin.compatibility.MaterialHook;
 
+@Deprecated
 public class CustomBanner extends ItemStack {
 	
 	public CustomBanner(DyeColor color, Pattern... patterns) {
