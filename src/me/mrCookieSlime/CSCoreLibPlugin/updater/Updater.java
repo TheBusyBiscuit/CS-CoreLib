@@ -13,9 +13,10 @@ import java.net.URLConnection;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class Updater {
 	
@@ -98,9 +99,10 @@ public class Updater {
 	            connection.setDoOutput(true);
 
 	            final BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-	            final JSONArray array = (JSONArray) JSONValue.parse(reader.readLine());
-	            if (array.isEmpty()) {
-	            	System.err.println("[" + plugin.getName() + " - Updater] Could not connect to BukkitDev, is it down?");
+	            
+	            final JsonArray array = (JsonArray) new JsonParser().parse(reader.readLine());
+	            if (array.size() == 0) {
+	            	System.err.println("[CS-CoreLib - Updater] Could not connect to BukkitDev for Plugin \"" + plugin.getName() + "\", is it down?");
 					try {
 						thread.join();
 					} catch (InterruptedException x) {
@@ -108,9 +110,12 @@ public class Updater {
 					}
 		            return false;
 	            }
-	            download = traceURL(((String) ((JSONObject) array.get(array.size() - 1)).get("downloadUrl")).replace("https:", "http:"));
-	            version = (String) ((JSONObject) array.get(array.size() - 1)).get("name");
+	            JsonObject latest = array.get(array.size() - 1).getAsJsonObject();
+	            
+	            download = traceURL(latest.get("downloadUrl").getAsString().replace("https:", "http:"));
+	            version = latest.getAsJsonObject().get("name").getAsString();
 	            version = version.toLowerCase();
+	            
 	            for (char blocked: blacklist) {
 	            	version = version.replace(String.valueOf(blocked), "");
 	            }
