@@ -4,7 +4,9 @@ import java.util.List;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 
-public class ListUtils {
+public final class ListUtils {
+	
+	private ListUtils() {}
 	
 	/**
 	 * Returns an amount of random Entries from
@@ -15,8 +17,7 @@ public class ListUtils {
 	 * @param  random How many Entries should be returned
 	 * @return      List of random Entries from the List
 	 */ 
-	@SuppressWarnings("rawtypes")
-	public static List getRandomEntries(List list, int random) {
+	public static <T> List<T> getRandomEntries(List<T> list, int random) {
 		final int size = list.size();
 		for (int i = 0; i < (size - random); i++) {
 			list.remove(CSCoreLib.randomizer().nextInt(list.size()));

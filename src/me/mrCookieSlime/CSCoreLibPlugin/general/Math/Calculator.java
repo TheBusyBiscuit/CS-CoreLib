@@ -1,10 +1,10 @@
 package me.mrCookieSlime.CSCoreLibPlugin.general.Math;
 
-import java.text.DecimalFormat;
-
 import org.bukkit.Location;
 
-public class Calculator {
+public final class Calculator {
+	
+	private Calculator() {}
 	
 	public static int formToLine(int i) {
 		int lines = 1;
@@ -34,22 +34,6 @@ public class Calculator {
 		l.setZ(Double.parseDouble(newZ));
 		
 		return l;
-	}
-	
-	@Deprecated
-	public static double fixDouble(double amount, int digits) {
-		if (digits == 0) return (int) amount;
-		StringBuilder format = new StringBuilder("##");
-		for (int i = 0; i < digits; i++) {
-			if (i == 0) format.append(".");
-			format.append("#");
-		}
-		return Double.valueOf(new DecimalFormat(format.toString()).format(amount).replace(",", "."));
-	}
-	
-	@Deprecated
-	public static double fixDouble(double amount) {
-		return fixDouble(amount, 2);
 	}
 
 }

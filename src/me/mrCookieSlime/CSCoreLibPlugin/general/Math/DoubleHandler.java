@@ -2,7 +2,9 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.Math;
 
 import java.text.DecimalFormat;
 
-public class DoubleHandler {
+public final class DoubleHandler {
+	
+	private DoubleHandler() {}
 	
 	public static String getFancyDouble(double d) {
 		DecimalFormat format = new DecimalFormat("##.##");
