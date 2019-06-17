@@ -12,6 +12,7 @@ public class ArmorStandFactory {
 	public static ArmorStand createHidden(Location l) {
 		ArmorStand armorStand = (ArmorStand) l.getWorld().spawnEntity(l, EntityType.ARMOR_STAND);
 		armorStand.setVisible(false);
+		armorStand.setSilent(true);
 		armorStand.setMarker(true);
 		armorStand.setGravity(false);
 		armorStand.setBasePlate(false);
@@ -26,6 +27,7 @@ public class ArmorStandFactory {
 		ArmorStand armorStand = (ArmorStand) l.getWorld().spawnEntity(l, EntityType.ARMOR_STAND);
 		armorStand.getEquipment().setItemInMainHand(item);
 		armorStand.setVisible(false);
+		armorStand.setSilent(true);
 		armorStand.setMarker(true);
 		armorStand.setGravity(false);
 		armorStand.setSmall(true);
@@ -42,6 +44,7 @@ public class ArmorStandFactory {
 		ArmorStand armorStand = (ArmorStand) l.getWorld().spawnEntity(l, EntityType.ARMOR_STAND);
 		armorStand.getEquipment().setHelmet(head);
 		armorStand.setVisible(false);
+		armorStand.setSilent(true);
 		armorStand.setMarker(true);
 		armorStand.setGravity(false);
 		armorStand.setSmall(true);
