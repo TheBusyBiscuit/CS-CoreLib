@@ -51,6 +51,7 @@ public class InvUtils {
 	}
 
 	public static ItemStack decreaseItem(ItemStack item, int amount) {
+                if (item == null) return null;
 		ItemStack clone = item.clone();
 		if (amount < clone.getAmount()) clone.setAmount(clone.getAmount() - amount);
 		else return null;
