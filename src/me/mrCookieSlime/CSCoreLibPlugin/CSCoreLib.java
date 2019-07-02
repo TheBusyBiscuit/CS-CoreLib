@@ -45,7 +45,7 @@ public class CSCoreLib extends JavaPlugin {
 	
 	private ProtectionManager manager;
 	
-	private Set<Pattern> log_patterns = new HashSet<Pattern>();
+	private Set<Pattern> log_patterns = new HashSet<>();
 	
 	@Override
 	public void onEnable() {
@@ -109,13 +109,8 @@ public class CSCoreLib extends JavaPlugin {
 		
 		filterLog("([A-Za-z0-9_]{3,16}) issued server command: /cs_triggerinterface (.{0,})");
 		
-		getServer().getScheduler().scheduleSyncDelayedTask(instance, new Runnable() {
-			
-			public void run() {
-				manager = new ProtectionManager(instance);
-			}
-			
-		});
+		getServer().getScheduler().scheduleSyncDelayedTask(instance, () ->
+			manager = new ProtectionManager(instance));
 	}
 	
 	public void filterLog(String pattern) {
