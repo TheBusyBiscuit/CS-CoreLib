@@ -30,24 +30,15 @@ public class MaterialHelper {
     }
 
     public static Material getSaplingFromLog(Material log) {
-        switch (log) {
-            case OAK_LOG:
-                return Material.OAK_SAPLING;
-            case SPRUCE_LOG:
-                return Material.SPRUCE_SAPLING;
-            case BIRCH_LOG:
-                return Material.BIRCH_SAPLING;
-            case JUNGLE_LOG:
-                return Material.JUNGLE_SAPLING;
-            case ACACIA_LOG:
-                return Material.ACACIA_SAPLING;
-            case DARK_OAK_LOG:
-                return Material.DARK_OAK_SAPLING;
-            default:
-                break;
-        }
+        if (!isLog(log))
+            return Material.AIR;
 
-        return Material.OAK_SAPLING;
+        String type = log.name().substring(0, log.name().lastIndexOf('_'));
+        try {
+            return Material.valueOf(type + "_SAPLING");
+        }catch (IllegalArgumentException ignored) {
+            return Material.AIR;
+        }
     }
 
     public static Material getWoodFromLog(Material log) {
@@ -57,7 +48,7 @@ public class MaterialHelper {
         String type = log.name().substring(0, log.name().lastIndexOf('_'));
         try {
             return Material.valueOf(type + "_PLANKS");
-        }catch (IllegalArgumentException ignored) {
+        } catch (IllegalArgumentException ignored) {
             return Material.AIR;
         }
     }
