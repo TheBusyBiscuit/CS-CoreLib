@@ -1,6 +1,7 @@
 package me.mrCookieSlime.CSCoreLibPlugin;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -8,6 +9,7 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import me.mrCookieSlime.CSCoreLibPlugin.compatibility.MaterialHelper;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Marker;
@@ -116,6 +118,8 @@ public class CSCoreLib extends JavaPlugin {
 			}
 			
 		});
+
+		System.out.println(Arrays.toString(MaterialHelper.WoolColours));
 	}
 	
 	public void filterLog(String pattern) {

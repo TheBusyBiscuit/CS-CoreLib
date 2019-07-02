@@ -62,9 +62,7 @@ public class MaterialHelper {
     }
 
     public static boolean isWool(Material material) {
-        for (Material mat : WoolColours)
-            if (mat == material) return true;
-        return false;
+        return material.name().endsWith("_WOOL");
     }
 
     public static boolean isStainedGlass(Material material) {
