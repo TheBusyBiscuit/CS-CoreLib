@@ -206,5 +206,11 @@
             <version>1.5</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.ProSavage</groupId>
+            <artifactId>SavageFactions</artifactId>
+            <version>2.0-Development-0.1.21-g382733e-629</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

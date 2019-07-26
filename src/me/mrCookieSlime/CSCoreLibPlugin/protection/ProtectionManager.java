@@ -37,7 +37,8 @@ public class ProtectionManager {
 			registerNewModule("WorldGuard", new WorldGuardProtectionModule());
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Factions")) {
-			if (cscorelib.getServer().getPluginManager().getPlugin("Factions") instanceof com.massivecraft.factions.P)
+			String mainClass = cscorelib.getServer().getPluginManager().getPlugin("Factions").getDescription().getMain();
+			if (mainClass.equals("com.massivecraft.factions.SavageFactions") || mainClass.equals("com.massivecraft.factions.P"))
 				registerNewModule("Factions", new FactionsUUIDProtectionModule());
 			else
 				registerNewModule("Factions", new FactionsProtectionModule());
