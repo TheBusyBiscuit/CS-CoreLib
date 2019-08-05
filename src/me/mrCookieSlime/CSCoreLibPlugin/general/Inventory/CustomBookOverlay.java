@@ -34,6 +34,9 @@ public class CustomBookOverlay {
 		try {
 			Class<?> enumhand = ReflectionUtils.getClass(PackageName.NMS, "EnumHand");
 			openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "a", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+			if (openBook == null) {
+				openBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.NMS, "EntityPlayer"), "openBook", ReflectionUtils.getClass(PackageName.NMS, "ItemStack"), enumhand);
+			}
 			const_mainhand = ReflectionUtils.getEnumConstant(enumhand, "MAIN_HAND");
 			
 			copyBook = ReflectionUtils.getMethod(ReflectionUtils.getClass(PackageName.OBC, "inventory.CraftItemStack"), "asNMSCopy", ItemStack.class);
