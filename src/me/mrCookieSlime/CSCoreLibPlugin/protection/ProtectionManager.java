@@ -37,10 +37,12 @@ public class ProtectionManager {
 			registerNewModule("WorldGuard", new WorldGuardProtectionModule());
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Factions")) {
-			if (cscorelib.getServer().getPluginManager().getPlugin("Factions") instanceof com.massivecraft.factions.P)
-				registerNewModule("Factions", new FactionsUUIDProtectionModule());
-			else
-				registerNewModule("Factions", new FactionsProtectionModule());
+			try {
+        Class.forName("com.massivecraft.factions.event.PowerLossEvent");
+        registerNewModule("Factions", new FactionsUUIDProtectionModule());
+      } catch (ClassNotFoundException e) {
+        registerNewModule("Factions", new FactionsProtectionModule());
+      }
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Towny")) {
 			registerNewModule("Towny", new TownyProtectionModule());
