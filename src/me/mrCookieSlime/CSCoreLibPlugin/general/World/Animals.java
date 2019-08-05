@@ -15,7 +15,7 @@ public class Animals {
 	
 	static {
 		try {
-			field = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bC", "bv", "bw","bx");
+			field = ReflectionUtils.tryField(ReflectionUtils.getClass(PackageName.NMS, "EntityAnimal"), "bC", "bv", "bw","bx", "loveTicks");
 			field.setAccessible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
