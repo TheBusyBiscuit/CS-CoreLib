@@ -38,11 +38,11 @@ public class ProtectionManager {
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Factions")) {
 			try {
-        Class.forName("com.massivecraft.factions.event.PowerLossEvent");
-        registerNewModule("Factions", new FactionsUUIDProtectionModule());
-      } catch (ClassNotFoundException e) {
-        registerNewModule("Factions", new FactionsProtectionModule());
-      }
+				Class.forName("com.massivecraft.factions.event.PowerLossEvent");
+				registerNewModule("Factions", new FactionsUUIDProtectionModule());
+			} catch (ClassNotFoundException e) {
+				registerNewModule("Factions", new FactionsProtectionModule());
+			}
 		}
 		if (cscorelib.getServer().getPluginManager().isPluginEnabled("Towny")) {
 			registerNewModule("Towny", new TownyProtectionModule());
