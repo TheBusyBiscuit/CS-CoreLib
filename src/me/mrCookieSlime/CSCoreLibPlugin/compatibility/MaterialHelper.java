@@ -34,6 +34,7 @@ public class MaterialHelper {
             return Material.AIR;
 
         String type = log.name().substring(0, log.name().lastIndexOf('_'));
+        type = type.replace("STRIPPED_", "");
         try {
             return Material.valueOf(type + "_SAPLING");
         }catch (IllegalArgumentException ignored) {
@@ -46,6 +47,7 @@ public class MaterialHelper {
             return Material.AIR;
 
         String type = log.name().substring(0, log.name().lastIndexOf('_'));
+      	type = type.replace("STRIPPED_", "");
         try {
             return Material.valueOf(type + "_PLANKS");
         } catch (IllegalArgumentException ignored) {
