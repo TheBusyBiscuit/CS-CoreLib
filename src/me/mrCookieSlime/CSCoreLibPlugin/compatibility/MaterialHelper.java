@@ -56,7 +56,7 @@ public class MaterialHelper {
     }
 
     public static boolean isLog(Material log) {
-        return log.name().endsWith("_LOG");
+        return log.name().endsWith("_LOG") || log.name().startsWith("STRIPPED_") || log.name().endsWith("_WOOD");
     }
 
     public static boolean isLeavesBlock(Material leaves) {
