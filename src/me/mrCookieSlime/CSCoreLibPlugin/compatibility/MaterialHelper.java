@@ -84,7 +84,7 @@ public class MaterialHelper {
     }
 
     public static boolean isDiggable(Material material) {
-        return material.name().endsWith("_DIRT")
+        return material.name().endsWith("_DIRT") || material.name().equals("DIRT")
                 || material.name().endsWith("_SAND") || material.name().equals("SAND")
                 || material.name().startsWith("SNOW_") || material.name().equals("SNOW")
                 || material.name().equals("PODZOL") || material.name().equals("GRAVEL")
