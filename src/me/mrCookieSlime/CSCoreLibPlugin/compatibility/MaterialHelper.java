@@ -56,7 +56,7 @@ public class MaterialHelper {
     }
 
     public static boolean isLog(Material log) {
-        return log.name().endsWith("_LOG") || log.name().startsWith("STRIPPED_") || log.name().endsWith("_WOOD");
+        return log.name().endsWith("_LOG") || log.name().endsWith("_WOOD");
     }
 
     public static boolean isLeavesBlock(Material leaves) {
@@ -81,5 +81,14 @@ public class MaterialHelper {
 
     public static boolean isGlazedTerracotta(Material material) {
         return material.name().endsWith("_GLAZED_TERRACOTTA");
+    }
+
+    public static boolean isDiggable(Material material) {
+        return material.name().endsWith("_DIRT") || material.name().equals("DIRT")
+                || material.name().endsWith("_SAND") || material.name().equals("SAND")
+                || material.name().startsWith("SNOW_") || material.name().equals("SNOW")
+                || material.name().equals("PODZOL") || material.name().equals("GRAVEL")
+                || material.name().equals("MYCELIUM") || material.name().startsWith("GRASS_")
+                || material.name().equals("FARMLAND") || material.name().equals("CLAY");
     }
 }
