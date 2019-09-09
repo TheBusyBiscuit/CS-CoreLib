@@ -19,29 +19,8 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
-            <id>worldedit-worldguard-repo</id>
-            <url>http://maven.sk89q.com/repo/</url>
-        </repository>
-        <repository>
-            <id>plotsquared-ci</id>
-            <url>http://ci.athion.net/job/PlotSquared-Releases/ws/mvn/</url>
-        </repository>
-        <repository>
-            <id>redprotect-repo</id>
-            <url>https://raw.github.com/FabioZumbi12/RedProtect/mvn-repo/</url>
-        </repository>
-        <repository>
-            <id>bintray-tastybento-maven-repo</id>
-            <name>bintray</name>
-            <url>http://dl.bintray.com/tastybento/maven-repo</url>
-        </repository>
-        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io/</url>
-        </repository>
-        <repository>
-            <id>FactionsUUID-repo</id>
-            <url>https://ci.ender.zone/job/FactionsUUID/122/maven-repository/repository</url>
         </repository>
         <repository>
             <id>CodeMC</id>
@@ -78,6 +57,10 @@
                             <pattern>org.bstats</pattern>
                             <shadedPattern>me.mrCookieSlime.bstats</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>io.github.thebusybiscuit.cscorelib2</pattern>
+                            <shadedPattern>me.mrCookieSlime.CSCoreLibPlugin.cscorelib2</shadedPattern>
+                        </relocation>
                     </relocations>
                     <artifactSet>
                         <includes>
@@ -104,102 +87,17 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.sk89q.worldedit</groupId>
-            <artifactId>worldedit-bukkit</artifactId>
-            <version>7.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.sk89q.worldguard</groupId>
-            <artifactId>worldguard-legacy</artifactId>
-            <version>7.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.12.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.marcelo-mason</groupId>
-            <artifactId>PreciousStones</artifactId>
-            <version>24e3d4bf67</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.marcelo-mason</groupId>
-            <artifactId>SimpleClans</artifactId>
-            <version>7c3db52796</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.TechFortress</groupId>
-            <artifactId>GriefPrevention</artifactId>
-            <version>16.12.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.wasteofplastic</groupId>
-            <artifactId>askyblock</artifactId>
-            <version>3.0.9.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.dmulloy2.LWC</groupId>
-            <artifactId>lwc</artifactId>
-            <version>master-4.5.1-g2100b5e-18</version>
-        </dependency>
-        <dependency>
-            <groupId>com.massivecraft.massivecore</groupId>
-            <artifactId>MassiveCore</artifactId>
-            <version>2.14.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/MassiveCore.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.massivecraft.factions</groupId>
-            <artifactId>Factions</artifactId>
-            <version>2.14.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/Factions.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.massivecraft</groupId>
-            <artifactId>Factions</artifactId>
-            <version>1.6.9.5-U0.2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.LlmDl</groupId>
-            <artifactId>Towny</artifactId>
-            <version>1b86d017c5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.fubira</groupId>
-            <artifactId>Lockette</artifactId>
-            <version>9dac96e8f8</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.intellectualsites.plotsquared</groupId>
-            <artifactId>PlotSquared-API</artifactId>
-            <version>4.226</version>
-        </dependency>
-        <dependency>
-            <groupId>br.net.fabiozumbi12.RedProtect</groupId>
-            <artifactId>RedProtect-Core</artifactId>
-            <version>7.6.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>br.net.fabiozumbi12.RedProtect</groupId>
-            <artifactId>RedProtect-Spigot</artifactId>
-            <version>7.6.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>world.bentobox</groupId>
-            <artifactId>bentobox</artifactId>
-            <version>1.7.0</version>
-            <scope>provided</scope>
-        </dependency>
+  			<groupId>com.github.thebusybiscuit</groupId>
+  			<artifactId>CS-CoreLib2</artifactId>
+  			<version>0.3.7</version>
+  			<scope>compile</scope>
+		</dependency>
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>

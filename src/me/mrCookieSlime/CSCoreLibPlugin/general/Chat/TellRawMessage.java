@@ -12,7 +12,9 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.json.simple.JSONObject;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 public class TellRawMessage {
 	
@@ -88,12 +90,13 @@ public class TellRawMessage {
 	 * @return      This Instance
 	 */ 
     public TellRawMessage addText(String text) {
-        this.text.add("{text:\"" + fixString(text) + "\"}");
+        this.text.add("{text:\"" + escape(text) + "\"}");
         return this;
     }
     
-    private String fixString(String text) {
-		return JSONObject.escape(ChatColor.translateAlternateColorCodes('&', text));
+    private String escape(String text) {
+    	String msg = ChatColor.translateAlternateColorCodes('&', text);
+    	return new JsonPrimitive(msg).toString();
 	}
 
 	/**
@@ -128,7 +131,7 @@ public class TellRawMessage {
 	 * @return      This Instance
 	 */ 
     public TellRawMessage addClickEvent(ClickAction action, String value) {
-    	 append("clickEvent:{action:" + action.toString().toLowerCase() + ",value:\"" + fixString(value) + "\"}");
+    	 append("clickEvent:{action:" + action.toString().toLowerCase() + ",value:\"" + escape(value) + "\"}");
          return this;
     }
     
@@ -153,7 +156,7 @@ public class TellRawMessage {
 	 * @return      This Instance
 	 */ 
     public TellRawMessage addHoverEvent(HoverAction action, String value) {
-    	 append("hoverEvent:{action:" + action.toString().toLowerCase() + ",value:\"" + fixString(value) + "\"}");
+    	 append("hoverEvent:{action:" + action.toString().toLowerCase() + ",value:\"" + escape(value) + "\"}");
          return this;
     }
     
