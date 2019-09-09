@@ -9,6 +9,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Entity;
 
+@Deprecated
 public class Animals {
 	
 	private static Field field;
