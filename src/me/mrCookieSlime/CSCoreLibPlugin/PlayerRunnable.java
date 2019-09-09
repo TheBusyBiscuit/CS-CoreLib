@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public abstract class PlayerRunnable {
 	
-	public static Map<String, PlayerRunnable> map = new HashMap<String, PlayerRunnable>();
+	public static Map<String, PlayerRunnable> map = new HashMap<>();
 	
 	private long timestamp;
 	private String id;

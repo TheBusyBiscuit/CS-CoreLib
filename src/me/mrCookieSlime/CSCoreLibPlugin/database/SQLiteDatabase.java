@@ -9,6 +9,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class SQLiteDatabase implements Database {
 	
 	private String prefix, name;

@@ -1,5 +1,6 @@
 package me.mrCookieSlime.CSCoreLibPlugin.Configuration;
 
+@Deprecated
 public class Variable {
 	
 	protected String placeholder;

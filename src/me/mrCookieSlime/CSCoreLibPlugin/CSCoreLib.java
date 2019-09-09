@@ -138,6 +138,7 @@ public class CSCoreLib extends JavaPlugin {
 	 *
 	 * @return      Random Instance
 	 */ 
+	@Deprecated
 	public static Random randomizer() {
 		return random;
 	}
@@ -165,6 +166,7 @@ public class CSCoreLib extends JavaPlugin {
 	 *
 	 * @return      ProtectionManager
 	 */ 
+	@Deprecated
 	public ProtectionManager getProtectionManager() {
 		return this.manager;
 	}

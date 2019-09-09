@@ -10,6 +10,9 @@ import org.bstats.bukkit.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
+import io.github.thebusybiscuit.cscorelib2.updater.BukkitUpdater;
+
+@Deprecated
 public class PluginUtils {
 
 	private Plugin plugin;
@@ -56,7 +59,9 @@ public class PluginUtils {
 	 */ 
 	public void setupUpdater(int id, File file) {
 		this.id = id;
-		if (plugin.getConfig().getBoolean("options.auto-update")) new Updater(plugin, file, id);
+		if (plugin.getConfig().getBoolean("options.auto-update")) {
+			new BukkitUpdater(plugin, file, id).start();
+		}
 	}
 	
 	/**
@@ -65,7 +70,9 @@ public class PluginUtils {
 	 * @param  file The file of your Plugin (obtained by plugin.getFile() )
 	 */ 
 	public void setupUpdater(File file) {
-		if (plugin.getConfig().getBoolean("options.auto-update")) new Updater(plugin, file, id);
+		if (plugin.getConfig().getBoolean("options.auto-update")) {
+			new BukkitUpdater(plugin, file, id).start();
+		}
 	}
 	
 	/**

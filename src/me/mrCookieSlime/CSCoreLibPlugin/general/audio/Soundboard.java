@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.audio;
 
 import org.bukkit.Sound;
 
+@Deprecated
 public class Soundboard {
 	
 	public static Sound getLegacySounds(String... sounds) {

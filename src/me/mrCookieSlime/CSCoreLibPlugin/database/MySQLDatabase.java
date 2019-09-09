@@ -11,6 +11,7 @@ import org.bukkit.plugin.Plugin;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 
+@Deprecated
 public class MySQLDatabase implements Database {
 	
 	private Plugin plugin;

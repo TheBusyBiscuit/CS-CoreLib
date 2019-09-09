@@ -15,9 +15,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class Currency {
 	
-	public static Map<String, Currency> currencies = new HashMap<String, Currency>();
+	public static Map<String, Currency> currencies = new HashMap<>();
 	
 	String dataFolder;
 	String name;
@@ -38,7 +39,7 @@ public class Currency {
 		this.dataFolder = "data-storage/" + plugin.getDescription().getName() + "/" + name + "/";
 		this.digits = digits;
 		this.startBalance = startBalance;
-		this.handlers = new HashSet<TransactionHandler>();
+		this.handlers = new HashSet<>();
 		
 		if (!new File("data-storage/" + plugin.getDescription().getName() + "/" + name).exists()) new File("data-storage/" + plugin.getDescription().getName() + "/" + name).mkdirs();
 		
@@ -212,7 +213,8 @@ public class Currency {
 	public static Collection<Currency> list() {
 		return currencies.values();
 	}
-	
+
+	@Deprecated
 	public interface TransactionHandler {
 		
 		void onBalanceChange(UUID uuid, double balance, double newBalance);

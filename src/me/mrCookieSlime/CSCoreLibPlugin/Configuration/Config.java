@@ -242,6 +242,7 @@ public class Config {
 	 * @param  path The path in the Config File
 	 * @return      A randomly chosen String from the ArrayList at that Path
 	 */ 
+	@Deprecated
 	public String getRandomStringfromList(String path) {
 		return getStringList(path).get(CSCoreLib.randomizer().nextInt(getStringList(path).size()));
 	}
@@ -253,6 +254,7 @@ public class Config {
 	 * @param  path The path in the Config File
 	 * @return      A randomly chosen Integer from the ArrayList at that Path
 	 */ 
+	@Deprecated
 	public int getRandomIntfromList(String path) {
 		return getIntList(path).get(CSCoreLib.randomizer().nextInt(getIntList(path).size()));
 	}

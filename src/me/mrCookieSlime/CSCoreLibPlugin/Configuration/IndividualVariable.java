@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.Configuration;
 
 import org.bukkit.entity.Player;
 
+@Deprecated
 public abstract class IndividualVariable extends Variable {
 
 	/**

@@ -1,5 +1,6 @@
 package me.mrCookieSlime.CSCoreLibPlugin.database;
 
+@Deprecated
 public class TableValue {
 	
 	public String key, value;
