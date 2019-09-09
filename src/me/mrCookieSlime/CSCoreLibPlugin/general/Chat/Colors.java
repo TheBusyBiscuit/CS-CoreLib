@@ -4,6 +4,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 
 import org.bukkit.ChatColor;
 
+@Deprecated
 public enum Colors {
 	
 	YELLOW(ChatColor.YELLOW),

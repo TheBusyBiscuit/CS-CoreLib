@@ -4,6 +4,7 @@ import org.bukkit.Material;
 
 import java.util.Arrays;
 
+@Deprecated
 public class MaterialHelper {
 
     public static final Material[] WoolColours;

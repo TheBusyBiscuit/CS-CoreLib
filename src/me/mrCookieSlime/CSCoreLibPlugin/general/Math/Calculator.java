@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.Math;
 
 import org.bukkit.Location;
 
+@Deprecated
 public final class Calculator {
 	
 	private Calculator() {}

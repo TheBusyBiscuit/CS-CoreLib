@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 
+@Deprecated
 public class RecipeManager {
 	
 	public static void removeRecipe(Material type) {

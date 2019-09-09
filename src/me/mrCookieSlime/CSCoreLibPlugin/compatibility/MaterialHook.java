@@ -4,6 +4,7 @@ import org.bukkit.Material;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
+@Deprecated
 public class MaterialHook {
 	
 	public static Material parse(String name, String legacy) {

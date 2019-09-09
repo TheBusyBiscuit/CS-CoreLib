@@ -11,7 +11,6 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.material.MaterialData;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.CraftObject;
@@ -110,17 +109,9 @@ public class CustomSkull {
 	 * @param  texture A Base64 String representing the Texture
 	 * @return      The modified ItemStack
 	 */ 
-	@SuppressWarnings("deprecation")
 	public static ItemStack getItem(String texture) throws Exception {
 		Object profile = createProfile(texture);
-		ItemStack item;
-		
-		if (ReflectionUtils.isVersion("v1_12_", "v1_11_", "v1_10_", "v1_9_")) {
-			item = new MaterialData(Material.valueOf("SKULL_ITEM"), (byte) 3).toItemStack(1);
-		}
-		else {
-			item = new ItemStack(Material.valueOf("PLAYER_HEAD"));
-		}
+		ItemStack item = new ItemStack(Material.valueOf("PLAYER_HEAD"));
 		
 		ItemMeta im = item.getItemMeta();
 		ReflectionUtils.setFieldValue(im, "profile", profile);

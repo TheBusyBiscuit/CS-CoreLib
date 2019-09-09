@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class BlockBreaker {
 	
 	public static void breakBlock(Player p, Block b) {

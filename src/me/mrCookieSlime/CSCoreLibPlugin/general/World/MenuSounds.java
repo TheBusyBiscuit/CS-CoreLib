@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.World;
 
 import org.bukkit.Sound;
 
+@Deprecated
 public class MenuSounds {
 	
 	Sound open, close;

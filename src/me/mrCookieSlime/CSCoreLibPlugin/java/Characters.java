@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.java;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 
+@Deprecated
 public class Characters {
 	
 	private static final char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
