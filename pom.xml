@@ -62,11 +62,6 @@
                             <shadedPattern>me.mrCookieSlime.CSCoreLibPlugin.cscorelib2</shadedPattern>
                         </relocation>
                     </relocations>
-                    <artifactSet>
-                        <includes>
-                            <include>org.bstats:bstats-bukkit</include>
-                        </includes>
-                    </artifactSet>
                 </configuration>
                 <executions>
                     <execution>
@@ -93,11 +88,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-  			<groupId>com.github.thebusybiscuit</groupId>
-  			<artifactId>CS-CoreLib2</artifactId>
-  			<version>0.4.1</version>
-  			<scope>compile</scope>
-		</dependency>
+		<groupId>com.github.thebusybiscuit</groupId>
+		<artifactId>CS-CoreLib2</artifactId>
+  		<version>0.4.1</version>
+  		<scope>compile</scope>
+	</dependency>
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
