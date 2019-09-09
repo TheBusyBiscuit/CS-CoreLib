@@ -90,14 +90,14 @@ public class TellRawMessage {
 	 * @return      This Instance
 	 */ 
     public TellRawMessage addText(String text) {
-        this.text.add("{text:\"" + escape(text) + "\"}");
+        this.text.add("{text:" + escape(text) + "}");
         return this;
     }
     
     private String escape(String text) {
     	String msg = ChatColor.translateAlternateColorCodes('&', text);
     	return new JsonPrimitive(msg).toString();
-	}
+    }
 
 	/**
 	 * Adds a Text to the Message depending on the Users
@@ -131,7 +131,7 @@ public class TellRawMessage {
 	 * @return      This Instance
 	 */ 
     public TellRawMessage addClickEvent(ClickAction action, String value) {
-    	 append("clickEvent:{action:" + action.toString().toLowerCase() + ",value:\"" + escape(value) + "\"}");
+    	 append("clickEvent:{action:" + action.toString().toLowerCase() + ",value:" + escape(value) + "}");
          return this;
     }
     
@@ -156,7 +156,7 @@ public class TellRawMessage {
 	 * @return      This Instance
 	 */ 
     public TellRawMessage addHoverEvent(HoverAction action, String value) {
-    	 append("hoverEvent:{action:" + action.toString().toLowerCase() + ",value:\"" + escape(value) + "\"}");
+    	 append("hoverEvent:{action:" + action.toString().toLowerCase() + ",value:" + escape(value) + "}");
          return this;
     }
     
