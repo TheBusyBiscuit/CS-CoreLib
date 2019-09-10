@@ -8,7 +8,8 @@ import org.bukkit.persistence.PersistentDataType;
 @SuppressWarnings("unused")
 public class DataAPI {
 
-    private DataAPI() {}
+    private DataAPI() {
+    }
 
     /////////////////////////////////////
     // Setters
@@ -64,8 +65,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a byte with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a byte with the specified key.
      */
     public static boolean hasByte(PersistentDataHolder holder, NamespacedKey key) {
@@ -75,8 +78,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a short with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a short with the specified key.
      */
     public static boolean hasShort(PersistentDataHolder holder, NamespacedKey key) {
@@ -86,8 +91,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has an integer with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has an integer with the specified key.
      */
     public static boolean hasInt(PersistentDataHolder holder, NamespacedKey key) {
@@ -97,8 +104,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a long with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a long with the specified key.
      */
     public static boolean hasLong(PersistentDataHolder holder, NamespacedKey key) {
@@ -108,8 +117,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a float with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a float with the specified key.
      */
     public static boolean hasFloat(PersistentDataHolder holder, NamespacedKey key) {
@@ -119,8 +130,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a double with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a double with the specified key.
      */
     public static boolean hasDouble(PersistentDataHolder holder, NamespacedKey key) {
@@ -130,8 +143,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a String with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a String with the specified key.
      */
     public static boolean hasString(PersistentDataHolder holder, NamespacedKey key) {
@@ -141,8 +156,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a byte array with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a byte array with the specified key.
      */
     public static boolean hasByteArray(PersistentDataHolder holder, NamespacedKey key) {
@@ -152,8 +169,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has an integer array with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has an integer array with the specified key.
      */
     public static boolean hasIntArray(PersistentDataHolder holder, NamespacedKey key) {
@@ -163,8 +182,10 @@ public class DataAPI {
     /**
      * Checks if the specified {@link PersistentDataHolder} has a long array with the specified key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a long array with the specified key.
      */
     public static boolean hasLongArray(PersistentDataHolder holder, NamespacedKey key) {
@@ -175,8 +196,10 @@ public class DataAPI {
      * Checks if the specified {@link PersistentDataHolder} has a {@link PersistentDataContainer} with the specified
      * key.
      *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
+     * @param holder
+     *            The {@link PersistentDataHolder} to check
+     * @param key
+     *            The key to check for
      * @return {@code true} if the holder has a {@link PersistentDataContainer} with the specified key.
      */
     public static boolean hasContainer(PersistentDataHolder holder, NamespacedKey key) {
@@ -190,8 +213,10 @@ public class DataAPI {
     /**
      * Get a byte value in a {@link PersistentDataContainer}, if the key doesn't exist it returns -1.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte associated with this key or -1 if it doesn't exist
      */
     public static byte getByte(PersistentDataHolder holder, NamespacedKey key) {
@@ -201,8 +226,10 @@ public class DataAPI {
     /**
      * Get a byte value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte associated with this key or the default value if it doesn't exist
      */
     public static byte getByte(PersistentDataHolder holder, NamespacedKey key, byte defaultVal) {
@@ -212,8 +239,10 @@ public class DataAPI {
     /**
      * Get a short value in a {@link PersistentDataContainer}, if the key doesn't exist it returns -1.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The short associated with this key or -1 if it doesn't exist
      */
     public static short getShort(PersistentDataHolder holder, NamespacedKey key) {
@@ -223,8 +252,10 @@ public class DataAPI {
     /**
      * Get a short value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The short associated with this key or the default value if it doesn't exist
      */
     public static short getShort(PersistentDataHolder holder, NamespacedKey key, short defaultVal) {
@@ -234,8 +265,10 @@ public class DataAPI {
     /**
      * Get an integer value in a {@link PersistentDataContainer}, if the key doesn't exist it returns -1.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The integer associated with this key or -1 if it doesn't exist
      */
     public static int getInt(PersistentDataHolder holder, NamespacedKey key) {
@@ -245,8 +278,10 @@ public class DataAPI {
     /**
      * Get an integer value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The integer associated with this key or the default value if it doesn't exist
      */
     public static int getInt(PersistentDataHolder holder, NamespacedKey key, int defaultVal) {
@@ -256,8 +291,10 @@ public class DataAPI {
     /**
      * Get a long value in a {@link PersistentDataContainer}, if the key doesn't exist it returns -1.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The long associated with this key or -1 if it doesn't exist
      */
     public static long getLong(PersistentDataHolder holder, NamespacedKey key) {
@@ -267,8 +304,10 @@ public class DataAPI {
     /**
      * Get a long value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The long associated with this key or the default value if it doesn't exist
      */
     public static long getLong(PersistentDataHolder holder, NamespacedKey key, long defaultVal) {
@@ -278,8 +317,10 @@ public class DataAPI {
     /**
      * Get a float value in a {@link PersistentDataContainer}, if the key doesn't exist it returns -1.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The float associated with this key or -1 if it doesn't exist
      */
     public static float getFloat(PersistentDataHolder holder, NamespacedKey key) {
@@ -289,8 +330,10 @@ public class DataAPI {
     /**
      * Get a float value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The float associated with this key or the default value if it doesn't exist
      */
     public static float getFloat(PersistentDataHolder holder, NamespacedKey key, float defaultVal) {
@@ -300,8 +343,10 @@ public class DataAPI {
     /**
      * Get a double value in a {@link PersistentDataContainer}, if the key doesn't exist it returns -1.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The double associated with this key or -1 if it doesn't exist
      */
     public static double getDouble(PersistentDataHolder holder, NamespacedKey key) {
@@ -311,8 +356,10 @@ public class DataAPI {
     /**
      * Get a double value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The double associated with this key or the default value if it doesn't exist
      */
     public static double getDouble(PersistentDataHolder holder, NamespacedKey key, double defaultVal) {
@@ -322,8 +369,10 @@ public class DataAPI {
     /**
      * Get a String value in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The String associated with this key or null if it doesn't exist
      */
     public static String getString(PersistentDataHolder holder, NamespacedKey key) {
@@ -333,8 +382,10 @@ public class DataAPI {
     /**
      * Get a String value in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The String associated with this key or the default value if it doesn't exist
      */
     public static String getString(PersistentDataHolder holder, NamespacedKey key, String defaultVal) {
@@ -344,8 +395,10 @@ public class DataAPI {
     /**
      * Get a byte array in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte array associated with this key or null if it doesn't exist
      */
     public static byte[] getByteArray(PersistentDataHolder holder, NamespacedKey key) {
@@ -355,8 +408,10 @@ public class DataAPI {
     /**
      * Get a byte array in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte array associated with this key or the default value if it doesn't exist
      */
     public static byte[] getByteArray(PersistentDataHolder holder, NamespacedKey key, byte[] defaultVal) {
@@ -366,8 +421,10 @@ public class DataAPI {
     /**
      * Get a integer array in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The integer array associated with this key or null if it doesn't exist
      */
     public static int[] getIntArray(PersistentDataHolder holder, NamespacedKey key) {
@@ -377,8 +434,10 @@ public class DataAPI {
     /**
      * Get a byte array in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte associated with this key or the default value if it doesn't exist
      */
     public static int[] getIntArray(PersistentDataHolder holder, NamespacedKey key, int[] defaultVal) {
@@ -388,8 +447,10 @@ public class DataAPI {
     /**
      * Get a long array in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The long array associated with this key or null if it doesn't exist
      */
     public static long[] getLongArray(PersistentDataHolder holder, NamespacedKey key) {
@@ -399,8 +460,10 @@ public class DataAPI {
     /**
      * Get a long array in a {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The long array associated with this key or the default value if it doesn't exist
      */
     public static long[] getLongArray(PersistentDataHolder holder, NamespacedKey key, long[] defaultVal) {
@@ -410,8 +473,10 @@ public class DataAPI {
     /**
      * Get a nested {@link PersistentDataContainer}, if the key doesn't exist it returns null.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte associated with this key or null if it doesn't exist
      */
     public static PersistentDataContainer getContainer(PersistentDataHolder holder, NamespacedKey key) {
@@ -421,12 +486,14 @@ public class DataAPI {
     /**
      * Get a nested {@link PersistentDataContainer} or the default value passed if no key exists.
      *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
+     * @param holder
+     *            The {@link PersistentDataHolder} to retrieve the data from
+     * @param key
+     *            The key of the data to retrieve
      * @return The byte associated with this key or the default value if it doesn't exist
      */
     public static PersistentDataContainer getByteArray(PersistentDataHolder holder, NamespacedKey key,
-                                                       PersistentDataContainer defaultVal) {
+            PersistentDataContainer defaultVal) {
         return holder.getPersistentDataContainer().getOrDefault(key, PersistentDataType.TAG_CONTAINER, defaultVal);
     }
 }
