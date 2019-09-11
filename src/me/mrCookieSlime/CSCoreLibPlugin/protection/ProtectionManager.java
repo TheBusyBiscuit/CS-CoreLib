@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 
-import io.github.thebusybiscuit.cscorelib2.protection.ProtectionModule.Action;
+import io.github.thebusybiscuit.cscorelib2.protection.ProtectableAction;
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 
 @Deprecated
@@ -30,13 +30,13 @@ public class ProtectionManager {
 	public boolean canBuild(UUID uuid, Block b, boolean message) {
 		if (manager == null) return false;
 		
-		return manager.hasPermission(Bukkit.getOfflinePlayer(uuid), b.getLocation(), Action.PLACE_BLOCK);
+		return manager.hasPermission(Bukkit.getOfflinePlayer(uuid), b.getLocation(), ProtectableAction.PLACE_BLOCK);
 	}
 
 	public boolean canAccessChest(UUID uuid, Block b, boolean message) {
 		if (manager == null) return false;
 		
-		return manager.hasPermission(Bukkit.getOfflinePlayer(uuid), b.getLocation(), Action.ACCESS_INVENTORIES);
+		return manager.hasPermission(Bukkit.getOfflinePlayer(uuid), b.getLocation(), ProtectableAction.ACCESS_INVENTORIES);
 	}
 
 }
