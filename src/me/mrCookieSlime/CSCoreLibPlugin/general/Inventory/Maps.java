@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.World.MenuSounds;
 
+@Deprecated
 public class Maps {
 	
 	public Map<UUID, String> inv;
@@ -15,9 +16,9 @@ public class Maps {
 	public static Maps instance;
 	
 	public Maps() {
-		inv = new HashMap<UUID, String>();
-		sounds = new HashMap<UUID, MenuSounds>();
-		menus = new HashMap<UUID, ChestMenu>();
+		inv = new HashMap<>();
+		sounds = new HashMap<>();
+		menus = new HashMap<>();
 		instance = this;
 	}
 

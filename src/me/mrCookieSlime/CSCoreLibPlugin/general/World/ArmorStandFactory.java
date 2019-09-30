@@ -7,6 +7,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
+@Deprecated
 public class ArmorStandFactory {
 
 	public static ArmorStand createHidden(Location l) {

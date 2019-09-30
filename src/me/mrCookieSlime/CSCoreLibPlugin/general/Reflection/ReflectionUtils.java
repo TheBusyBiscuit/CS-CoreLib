@@ -13,6 +13,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.ListUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+@Deprecated
 public class ReflectionUtils {
 
 	private static Method handle_player, handle_world, handle_entity, handle_animals, sendPacket;

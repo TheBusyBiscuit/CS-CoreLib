@@ -12,10 +12,11 @@ import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
 
+@Deprecated
 public class RecipeCalculator {
 	
 	public static List<ItemStack> getIngredients(Recipe recipe) {
-	    List<ItemStack> ingredients = new ArrayList<ItemStack>();
+	    List<ItemStack> ingredients = new ArrayList<>();
 	    if ((recipe instanceof ShapedRecipe)) {
 	      ShapedRecipe sr = (ShapedRecipe)recipe;
 	      String[] shape = sr.getShape();

@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class PlayerInventory {
 	
 	@SuppressWarnings("deprecation")

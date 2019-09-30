@@ -14,10 +14,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+@Deprecated
 public class MenuHelper implements Listener {
 	
-	public static Map<UUID, ChatHandler> map = new HashMap<UUID, ChatHandler>();
-	public static Map<UUID, ChatHandler> map2 = new HashMap<UUID, ChatHandler>();
+	public static Map<UUID, ChatHandler> map = new HashMap<>();
+	public static Map<UUID, ChatHandler> map2 = new HashMap<>();
 	
 	@EventHandler(priority=EventPriority.LOWEST)
 	public void onChat(final AsyncPlayerChatEvent e) {

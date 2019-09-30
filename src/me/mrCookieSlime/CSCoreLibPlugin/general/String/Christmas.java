@@ -2,7 +2,10 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.String;
 
 import org.bukkit.ChatColor;
 
-public class Christmas {
+@Deprecated
+public final class Christmas {
+	
+	private Christmas() {}
 	
 	public static String color(String string) {
 		StringBuilder xmas = new StringBuilder("");

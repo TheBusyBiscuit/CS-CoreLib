@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class MapListener implements Listener {
 	
 	public MapListener(Plugin plugin) {

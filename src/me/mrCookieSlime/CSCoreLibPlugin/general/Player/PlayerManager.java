@@ -4,6 +4,7 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
+@Deprecated
 public class PlayerManager {
 	
 	public static void reset(Player p) {

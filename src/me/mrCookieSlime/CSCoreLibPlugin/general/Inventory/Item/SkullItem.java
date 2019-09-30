@@ -66,7 +66,7 @@ public class SkullItem extends ItemStack {
 		
 		ItemMeta im = getItemMeta();
 		im.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-		List<String> lines = new ArrayList<String>();
+		List<String> lines = new ArrayList<>();
 		for (String line: lore) {
 			lines.add(ChatColor.translateAlternateColorCodes('&', line));
 		}

@@ -8,6 +8,7 @@ import org.bukkit.plugin.Plugin;
 
 public class CommandHelp {
 	
+	@Deprecated
 	public static void sendCommandHelp(CommandSender p, Plugin plugin, List<String> commands, List<String> descriptions) {
 		ChatColor label = Colors.getRandom();
 		ChatColor info = Colors.getRandom();

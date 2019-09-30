@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItemSerializer.ItemFlag;
 
+@Deprecated
 public class ItemFlagComparator implements Comparator<ItemFlag> {
 
 	@Override

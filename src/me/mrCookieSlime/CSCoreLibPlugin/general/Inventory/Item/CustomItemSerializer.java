@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class CustomItemSerializer {
 	
 	public enum ItemFlag {

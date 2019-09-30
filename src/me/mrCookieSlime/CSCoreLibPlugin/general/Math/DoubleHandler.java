@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.Math;
 
 import java.text.DecimalFormat;
 
+@Deprecated
 public final class DoubleHandler {
 	
 	private DoubleHandler() {}
