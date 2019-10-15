@@ -7,7 +7,7 @@ public class Converter {
 	public static String encode(EncodingType type, String string) {
 		switch (type) {
 		case BASE64: {
-			return new String(Base64.getEncoder().encode(string.getBytes()));
+			return Base64.getEncoder().encodeToString(string.getBytes());
 		}
 		case BINARY: {
 			StringBuilder binary = new StringBuilder();
