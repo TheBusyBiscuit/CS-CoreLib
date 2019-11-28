@@ -17,10 +17,11 @@ public class ItemUseListener implements Listener {
 	
 	@EventHandler
 	public void onRightClick(PlayerInteractEvent e) throws Exception {
+		if (e.isCancelled()) return;
 		if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			ItemUseEvent event = new ItemUseEvent(e, e.getAction() == Action.RIGHT_CLICK_BLOCK ? e.getClickedBlock(): null);
 			Bukkit.getPluginManager().callEvent(event);
-			if (!e.isCancelled()) e.setCancelled(event.isCancelled());
+			e.setCancelled(event.isCancelled());
 		}
 	}
 
