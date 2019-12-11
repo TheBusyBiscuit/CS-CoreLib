@@ -4,6 +4,7 @@ import java.util.List;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 
+@Deprecated
 public final class ListUtils {
 	
 	private ListUtils() {}

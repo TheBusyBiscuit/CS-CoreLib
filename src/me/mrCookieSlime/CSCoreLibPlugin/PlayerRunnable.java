@@ -8,6 +8,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.java.EncodingType;
 
 import org.bukkit.entity.Player;
 
+@Deprecated
 public abstract class PlayerRunnable {
 	
 	public static Map<String, PlayerRunnable> map = new HashMap<>();

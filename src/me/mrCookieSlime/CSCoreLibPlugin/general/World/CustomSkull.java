@@ -17,6 +17,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.CraftObject;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.PackageName;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
+@Deprecated
 public class CustomSkull {
 	
 	private static Method tileentity, gameprofile, getgameprofile, property, insert_property, map_list, get_name, get_value, getOwner;

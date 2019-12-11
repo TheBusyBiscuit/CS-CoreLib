@@ -14,6 +14,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 
+@Deprecated
 public class PlayerStats {
 	
 	private static Set<PlayerStats> stats = new HashSet<PlayerStats>();

@@ -8,6 +8,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
 import org.bukkit.entity.Player;
 
+@Deprecated
 public class TitleBuilder extends TellRawMessage {
 	
 	private static Constructor<?> constructor;

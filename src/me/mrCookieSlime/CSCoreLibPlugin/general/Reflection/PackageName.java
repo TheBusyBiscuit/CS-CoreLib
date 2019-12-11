@@ -1,5 +1,6 @@
 package me.mrCookieSlime.CSCoreLibPlugin.general.Reflection;
 
+@Deprecated
 public enum PackageName {
 
 	NMS("net.minecraft.server."),

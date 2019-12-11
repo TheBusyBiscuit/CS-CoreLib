@@ -14,6 +14,7 @@ import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 
+@Deprecated
 public class FireworkShow {
 	
 	public static void launchFirework(Location l, Color color) {

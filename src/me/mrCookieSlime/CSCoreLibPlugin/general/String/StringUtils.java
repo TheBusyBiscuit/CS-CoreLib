@@ -7,6 +7,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class StringUtils {
 	
 	private static Method copy, getName, toString;
