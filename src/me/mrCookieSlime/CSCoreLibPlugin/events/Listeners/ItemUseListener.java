@@ -9,6 +9,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class ItemUseListener implements Listener {
 	
 	public ItemUseListener(Plugin plugin) {

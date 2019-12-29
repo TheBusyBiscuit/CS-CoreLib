@@ -36,6 +36,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.MenuHelper;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Player.PlayerStats;
 import me.mrCookieSlime.CSCoreLibPlugin.protection.ProtectionManager;
 
+@Deprecated
 public class CSCoreLib extends JavaPlugin {
 	
 	private static Random random;

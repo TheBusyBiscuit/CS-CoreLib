@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import me.mrCookieSlime.CSCoreLibPlugin.compatibility.MaterialHook;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
 
+@Deprecated
 public class SkullItem extends ItemStack {
 	
 	String owner;

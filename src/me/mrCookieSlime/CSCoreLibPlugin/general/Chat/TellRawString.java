@@ -1,5 +1,6 @@
 package me.mrCookieSlime.CSCoreLibPlugin.general.Chat;
 
+@Deprecated
 public class TellRawString extends TellRawMessage {
 	
 	private String json;

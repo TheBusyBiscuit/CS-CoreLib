@@ -2,6 +2,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.java;
 
 import java.util.Base64;
 
+@Deprecated
 public class Converter {
 	
 	public static String encode(EncodingType type, String string) {

@@ -9,6 +9,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class MenuClickEvent extends Event {
 
 	private static final HandlerList handlers = new HandlerList();

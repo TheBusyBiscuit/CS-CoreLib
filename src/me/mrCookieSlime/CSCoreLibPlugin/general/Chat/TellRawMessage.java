@@ -16,6 +16,7 @@ import org.bukkit.entity.Player;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+@Deprecated
 public class TellRawMessage {
 	
 	private static final List<ChatColor> special = Arrays.asList(ChatColor.ITALIC, ChatColor.MAGIC, ChatColor.BOLD, ChatColor.UNDERLINE, ChatColor.STRIKETHROUGH);

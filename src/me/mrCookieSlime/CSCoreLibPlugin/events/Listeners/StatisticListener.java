@@ -12,6 +12,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
+@Deprecated
 public class StatisticListener implements Listener {
 	
 	public StatisticListener(Plugin plugin) {

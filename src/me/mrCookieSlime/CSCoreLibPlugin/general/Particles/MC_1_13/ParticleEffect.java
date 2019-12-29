@@ -11,7 +11,7 @@ import org.bukkit.Particle;
 import org.bukkit.Particle.DustOptions;
 import org.bukkit.entity.Player;
 
-
+@Deprecated
 public enum ParticleEffect {
 	
 	BARRIER(ParticleType.NORMAL),

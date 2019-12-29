@@ -3,6 +3,7 @@ package me.mrCookieSlime.CSCoreLibPlugin.general.Inventory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class DroppingChestMenu extends ChestMenu {
 	
 	public DroppingChestMenu(String title, final int... dropping) {

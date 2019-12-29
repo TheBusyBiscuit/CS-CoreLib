@@ -8,6 +8,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+@Deprecated
 public class ItemUseEvent extends Event implements Cancellable {
 	
 	private static final HandlerList handlers = new HandlerList();

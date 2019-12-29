@@ -6,6 +6,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
+@Deprecated
 public class InvUtils {
 
 	public static boolean fits(Inventory inv, ItemStack item) {

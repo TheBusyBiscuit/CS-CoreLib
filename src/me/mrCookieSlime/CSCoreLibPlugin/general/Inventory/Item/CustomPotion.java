@@ -10,6 +10,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 
+@Deprecated
 public class CustomPotion extends CustomItem {
 
 	@Deprecated

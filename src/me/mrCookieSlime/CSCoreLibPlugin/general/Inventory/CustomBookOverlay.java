@@ -24,6 +24,7 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
+@Deprecated
 public class CustomBookOverlay {
 
 	public static Set<UUID> opening = new HashSet<>();
