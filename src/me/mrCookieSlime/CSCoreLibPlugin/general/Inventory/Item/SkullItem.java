@@ -19,7 +19,7 @@ public class SkullItem extends ItemStack {
 	String owner;
 	
 	public SkullItem(OfflinePlayer player) {
-		super(new ItemStack(Material.PLAYER_HEAD));
+		super(new ItemStack(MaterialHook.parse("PLAYER_HEAD", "SKULL_ITEM")));
 		this.owner = player.getName();
 		SkullMeta meta = (SkullMeta) getItemMeta();
 		meta.setOwningPlayer(player);

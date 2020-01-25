@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
+import me.mrCookieSlime.CSCoreLibPlugin.compatibility.MaterialHook;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.CraftObject;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.PackageName;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Reflection.ReflectionUtils;
@@ -72,13 +73,13 @@ public class CustomSkull {
 	public static void setSkull(Block block, String texture) throws Exception {
 		if (getTexture(block).equals(texture)) return;
 
-		if (ReflectionUtils.isVersion("v1_12_", "v1_11_", "v1_10_", "v1_9_")) {
+		if (ReflectionUtils.isVersion("v1_12_")) {
 			if (!block.getType().equals(Material.valueOf("SKULL"))) {
 				throw new IllegalArgumentException("Block is not a Skull");
 			}
 		} 
 		else {
-			if (!(block.getType().equals(Material.PLAYER_HEAD) || block.getType().equals(Material.PLAYER_WALL_HEAD))) {
+			if (!(block.getType().equals(Material.valueOf("PLAYER_HEAD")) || block.getType().equals(Material.valueOf("PLAYER_WALL_HEAD")))) {
 				throw new IllegalArgumentException("Block is not a Skull");
 			}
 		}
@@ -112,7 +113,7 @@ public class CustomSkull {
 	 */ 
 	public static ItemStack getItem(String texture) throws Exception {
 		Object profile = createProfile(texture);
-		ItemStack item = new ItemStack(Material.valueOf("PLAYER_HEAD"));
+		ItemStack item = new ItemStack(MaterialHook.parse("PLAYER_HEAD", "SKULL_ITEM"));
 		
 		ItemMeta im = item.getItemMeta();
 		ReflectionUtils.setFieldValue(im, "profile", profile);
