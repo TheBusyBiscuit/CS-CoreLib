@@ -16,6 +16,7 @@ import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.filter.AbstractFilter;
 import org.apache.logging.log4j.message.Message;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -74,7 +75,7 @@ public class CSCoreLib extends JavaPlugin {
 		cfg.save();
 		
 		utils.setupUpdater(88802, getFile());
-		utils.setupMetrics();
+		new Metrics(this, 4573);
 		instance = this;
 		
 		((Logger) LogManager.getRootLogger()).addFilter(new AbstractFilter() {

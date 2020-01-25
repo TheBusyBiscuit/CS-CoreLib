@@ -77,7 +77,7 @@ public class PluginUtils {
 	 * Automatically sets up MC-Stats Metrics for you
 	 */ 
 	public void setupMetrics() {
-	    metrics = new Metrics(plugin);
+		
 	}
 
 	/**
