@@ -2,15 +2,13 @@ package me.mrCookieSlime.CSCoreLibPlugin;
 
 import java.io.File;
 
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Localization;
-import me.mrCookieSlime.CSCoreLibPlugin.updater.Updater;
-
 import org.bstats.bukkit.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
-import io.github.thebusybiscuit.cscorelib2.updater.BukkitUpdater;
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Localization;
+import me.mrCookieSlime.CSCoreLibPlugin.updater.Updater;
 
 @Deprecated
 public class PluginUtils {
@@ -60,7 +58,7 @@ public class PluginUtils {
 	public void setupUpdater(int id, File file) {
 		this.id = id;
 		if (plugin.getConfig().getBoolean("options.auto-update")) {
-			new BukkitUpdater(plugin, file, id).start();
+			new Updater(plugin, file, id);
 		}
 	}
 	
@@ -71,7 +69,7 @@ public class PluginUtils {
 	 */ 
 	public void setupUpdater(File file) {
 		if (plugin.getConfig().getBoolean("options.auto-update")) {
-			new BukkitUpdater(plugin, file, id).start();
+			new Updater(plugin, file, id);
 		}
 	}
 	

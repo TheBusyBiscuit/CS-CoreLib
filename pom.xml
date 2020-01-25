@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.mrCookieSlime</groupId>
     <artifactId>CS-CoreLib</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.2</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -62,6 +62,14 @@
                             <shadedPattern>me.mrCookieSlime.CSCoreLibPlugin.cscorelib2</shadedPattern>
                         </relocation>
                     </relocations>
+                    <filters>
+  						<filter>
+    						<artifact>com.github.thebusybiscuit:CS-CoreLib2</artifact>
+    					<includes>
+     						 <include>**/cscorelib2/protection/**</include>
+    				</includes>
+  						</filter>
+				</filters>
                 </configuration>
                 <executions>
                     <execution>
@@ -78,7 +86,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.14-R0.1-SNAPSHOT</version>
+            <version>1.15.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -90,7 +98,7 @@
         <dependency>
 		<groupId>com.github.thebusybiscuit</groupId>
 		<artifactId>CS-CoreLib2</artifactId>
-  		<version>0.5.1</version>
+  		<version>0.8.3</version>
   		<scope>compile</scope>
 	</dependency>
         <dependency>
