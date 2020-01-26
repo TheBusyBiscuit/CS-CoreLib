@@ -24,9 +24,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.CSCoreLibPlugin.Guide.Guides;
-import me.mrCookieSlime.CSCoreLibPlugin.currency.Currency;
-import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.GuideListener;
 import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.ItemUseListener;
 import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.MapListener;
 import me.mrCookieSlime.CSCoreLibPlugin.events.Listeners.MenuClickListener;
@@ -54,7 +51,6 @@ public class CSCoreLib extends JavaPlugin {
 		
 		if (!new File("data-storage/CS-CoreLib/PlayerStats").exists()) new File("data-storage/CS-CoreLib/PlayerStats").mkdirs();
 		
-		new GuideListener(this);
 		new ItemUseListener(this);
 		new MapListener(this);
 		new MenuClickListener(this);
@@ -63,7 +59,6 @@ public class CSCoreLib extends JavaPlugin {
 		
 		random = new Random();
 		new Maps();
-		new Guides();
 		
 		this.manager = new ProtectionManager();
 		
@@ -126,9 +121,7 @@ public class CSCoreLib extends JavaPlugin {
 		}
 		
 		random = null;
-		Guides.instance = null;
 		Maps.instance = null;
-		Currency.currencies = null;
 		instance = null;
 		MenuHelper.map = null;
 		CustomBookOverlay.opening = null;
