@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.mrCookieSlime</groupId>
     <artifactId>CS-CoreLib</artifactId>
-    <version>1.6.3</version>
-    
+    <version>1.7</version>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
     <repositories>
         <repository>
             <id>papermc</id>
@@ -30,7 +30,7 @@
             <url>https://repo.codemc.org/repository/maven-public</url>
         </repository>
     </repositories>
-    
+
     <build>
         <sourceDirectory>${project.basedir}/src</sourceDirectory>
         <testSourceDirectory>${project.basedir}/tests/java</testSourceDirectory>
@@ -76,7 +76,7 @@
     					</filter>
 					</filters>
                 </configuration>
-                
+
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -91,9 +91,9 @@
 	
     <dependencies>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -103,11 +103,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-		<groupId>com.github.thebusybiscuit</groupId>
-		<artifactId>CS-CoreLib2</artifactId>
-  		<version>0.21</version>
-  		<scope>compile</scope>
-	</dependency>
+            <groupId>com.github.TheBusyBiscuit</groupId>
+            <artifactId>CS-CoreLib2</artifactId>
+            <version>0.22</version>
+        </dependency>
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
