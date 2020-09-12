@@ -105,7 +105,7 @@
         <dependency>
             <groupId>com.github.TheBusyBiscuit</groupId>
             <artifactId>CS-CoreLib2</artifactId>
-            <version>0.24</version>
+            <version>0.26</version>
         </dependency>
         <dependency>
             <groupId>org.bstats</groupId>
